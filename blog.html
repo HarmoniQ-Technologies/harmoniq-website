@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Insights — HarmoniQ Technologies</title>
   <meta name="description" content="Energy efficiency insights, power quality guides, and industry news from HarmoniQ Technologies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Insights — HarmoniQ Technologies" />
+  <meta property="og:description" content="Energy efficiency insights, power quality guides, and industry news from HarmoniQ Technologies." />
+  <meta property="og:url" content="https://harmoniqtechnologies.com/blog.html" />
+  <meta property="og:image" content="https://harmoniqtechnologies.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Insights — HarmoniQ Technologies" />
+  <meta name="twitter:description" content="Energy efficiency insights, power quality guides, and industry news from HarmoniQ Technologies." />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,35 +31,35 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <nav class="nav scrolled" id="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="HarmoniQ Technologies" class="nav-logo-img" /></a>
+      <a href="index.html" class="nav-brand"><img src="assets/q-icon.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
       <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
         <a href="how-it-works.html" class="nav-link">How It Works</a>
-        <a href="roi-calculator.html" class="nav-link">ROI Calculator</a>
+        <a href="savings-calculator.html" class="nav-link">Savings Calculator</a>
         <a href="case-studies.html" class="nav-link">Case Studies</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="blog.html" class="nav-link active">Insights</a>
-        <a href="faq.html" class="nav-link">FAQ</a>
       </div>
       <div class="nav-actions">
-        <a href="tel:02034944044" class="nav-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>020 3494 4044</a>
-        <a href="contact.html" class="btn btn-secondary btn-sm">Contact</a>
         <a href="contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
       </div>
-      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
-<div class="mobile-nav" id="mobileNav">
-  <a href="how-it-works.html">How It Works</a><a href="roi-calculator.html">ROI Calculator</a>
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a><a href="savings-calculator.html">Savings Calculator</a>
   <a href="case-studies.html">Case Studies</a><a href="about.html">About</a>
-  <a href="faq.html">FAQ</a>
-  <a href="tel:02034944044" style="font-weight:600; color: var(--accent-light); margin-top:8px;">020 3494 4044</a>
   <a href="contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
 </div>
 
+<main id="main">
 <div class="page-hero">
   <div class="container">
     <div class="page-hero-inner">
@@ -72,46 +80,67 @@
         <h2 class="h1" style="margin-bottom: 12px;">The Hidden Cost on Every Industrial Electricity Bill</h2>
         <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 24px;">Most facility managers know their kWh cost. Almost none know what reactive power is costing them on top. This guide breaks down exactly where the money goes — and how to get it back.</p>
         <div style="display: flex; align-items: center; gap: 16px;">
-          <a href="#" class="btn btn-primary btn-sm">Read Article</a>
+          <a href="articles/hidden-cost.html" class="btn btn-primary btn-sm">Read Article</a>
           <span style="font-size: 0.8rem; color: var(--text-muted);">12 min read · Feb 2025</span>
         </div>
       </div>
-      <div style="background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; min-height: 280px; border-left: 1px solid var(--border-subtle);"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div style="background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; min-height: 280px; border-left: 1px solid var(--border-subtle); overflow: hidden;">
+        <svg viewBox="0 0 400 280" width="100%" height="100%" style="display:block;">
+          <rect width="400" height="280" fill="var(--bg-secondary)" />
+          <!-- Abstract bill/invoice lines -->
+          <rect x="80" y="40" width="240" height="200" rx="4" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1" />
+          <rect x="100" y="60" width="100" height="6" rx="2" fill="var(--border)" />
+          <rect x="100" y="78" width="160" height="4" rx="2" fill="var(--border-subtle)" />
+          <rect x="100" y="92" width="140" height="4" rx="2" fill="var(--border-subtle)" />
+          <rect x="100" y="106" width="180" height="4" rx="2" fill="var(--border-subtle)" />
+          <!-- Highlighted "hidden" line -->
+          <rect x="96" y="124" width="208" height="18" rx="3" fill="var(--accent)" opacity="0.1" />
+          <rect x="100" y="130" width="120" height="4" rx="2" fill="var(--accent)" />
+          <text x="280" y="136" text-anchor="end" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="var(--accent)">5–30%</text>
+          <!-- More lines -->
+          <rect x="100" y="152" width="150" height="4" rx="2" fill="var(--border-subtle)" />
+          <rect x="100" y="166" width="130" height="4" rx="2" fill="var(--border-subtle)" />
+          <rect x="100" y="188" width="200" height="6" rx="2" fill="var(--text-primary)" opacity="0.15" />
+          <!-- Magnifying glass -->
+          <circle cx="310" cy="180" r="28" fill="none" stroke="var(--accent)" stroke-width="2.5" opacity="0.5" />
+          <line x1="330" y1="200" x2="348" y2="218" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.5" />
+        </svg>
+      </div>
     </div>
 
     <div class="blog-grid">
-      <div class="blog-card reveal">
-        <div class="blog-thumb"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 3z"/></svg></div>
+      <a href="articles/arrhenius-rule.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, #FEF3C7 100%);"><svg viewBox="0 0 200 120" width="180" height="108"><line x1="30" y1="100" x2="170" y2="100" stroke="var(--border)" stroke-width="1" /><line x1="30" y1="20" x2="30" y2="100" stroke="var(--border)" stroke-width="1" /><path d="M 30 20 Q 65 22, 80 50 Q 95 78, 100 60 Q 115 30, 130 65 Q 145 100, 170 95" fill="none" stroke="#DC2626" stroke-width="2" opacity="0.6" /><text x="100" y="50" text-anchor="middle" font-family="Inter,sans-serif" font-size="28" font-weight="900" fill="var(--text-primary)" opacity="0.08">10°C</text><circle cx="80" cy="50" r="3" fill="#DC2626" opacity="0.6" /><circle cx="130" cy="65" r="3" fill="#DC2626" opacity="0.6" /><text x="100" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">INSULATION LIFE DECAY</text></svg></div>
         <div class="blog-body">
           <div class="blog-tag">Equipment Life</div>
           <h3 class="h3" style="margin-bottom: 8px;">The IEEE Arrhenius Rule: Why Every 10°C Matters</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How reducing operating temperature by 20°C can double the lifespan of motors, transformers, and insulation systems — and what this means for your capital budget.</p>
           <div class="blog-date">8 min read · Jan 2025</div>
         </div>
-      </div>
+      </a>
 
-      <div class="blog-card reveal">
-        <div class="blog-thumb"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <a href="articles/pf-penalties.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, #FEE2E2 100%);"><svg viewBox="0 0 200 120" width="180" height="108"><rect x="35" y="85" width="24" height="20" rx="2" fill="var(--accent)" opacity="0.3" /><rect x="68" y="65" width="24" height="40" rx="2" fill="var(--accent)" opacity="0.5" /><rect x="101" y="40" width="24" height="65" rx="2" fill="#F59E0B" opacity="0.6" /><rect x="134" y="20" width="24" height="85" rx="2" fill="#DC2626" opacity="0.6" /><text x="47" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">0.97</text><text x="80" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">0.90</text><text x="113" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">0.82</text><text x="146" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">0.75</text><text x="100" y="13" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">PENALTY ESCALATION BY PF</text></svg></div>
         <div class="blog-body">
           <div class="blog-tag">Power Factor</div>
           <h3 class="h3" style="margin-bottom: 8px;">Power Factor Penalties: What Your Utility Isn't Telling You</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">A guide to understanding how utilities calculate PF penalties, which tariffs are most affected, and how to eliminate these charges entirely.</p>
           <div class="blog-date">10 min read · Dec 2024</div>
         </div>
-      </div>
+      </a>
 
-      <div class="blog-card reveal">
-        <div class="blog-thumb"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+      <a href="articles/scope2-emissions.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, #D1FAE5 100%);"><svg viewBox="0 0 200 120" width="180" height="108"><text x="100" y="12" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">SCOPE 2 REDUCTION PATHWAY</text><!-- Downward trend line --><line x1="30" y1="100" x2="170" y2="100" stroke="var(--border)" stroke-width="1" /><line x1="30" y1="20" x2="30" y2="100" stroke="var(--border)" stroke-width="1" /><!-- CO2 bars declining --><rect x="40" y="25" width="18" height="75" rx="2" fill="var(--text-muted)" opacity="0.2" /><rect x="65" y="35" width="18" height="65" rx="2" fill="var(--text-muted)" opacity="0.2" /><rect x="90" y="45" width="18" height="55" rx="2" fill="var(--accent)" opacity="0.35" /><rect x="115" y="58" width="18" height="42" rx="2" fill="var(--accent)" opacity="0.5" /><rect x="140" y="72" width="18" height="28" rx="2" fill="var(--accent)" opacity="0.7" /><!-- Trend arrow --><path d="M 45 30 L 152 75" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 3" /><polygon points="155,73 148,70 150,78" fill="var(--accent)" opacity="0.7" /><!-- Labels --><text x="49" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">2022</text><text x="99" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">2024</text><text x="149" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">2026</text></svg></div>
         <div class="blog-body">
           <div class="blog-tag">ESG</div>
           <h3 class="h3" style="margin-bottom: 8px;">Scope 2 Emissions: The Fastest Lever Most Companies Overlook</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Energy efficiency remains the highest-ROI path to Scope 2 reduction. We explain why power quality optimisation should be the first item on every sustainability roadmap.</p>
           <div class="blog-date">7 min read · Nov 2024</div>
         </div>
-      </div>
+      </a>
 
       <div class="blog-card reveal">
-        <div class="blog-thumb"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="blog-thumb" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, #FDE68A 100%);"><svg viewBox="0 0 200 120" width="180" height="108"><text x="100" y="12" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">HARMONIC DISTORTION</text><line x1="20" y1="100" x2="180" y2="100" stroke="var(--border)" stroke-width="1" /><!-- Fundamental --><rect x="30" y="25" width="14" height="75" rx="2" fill="var(--accent)" opacity="0.6" /><text x="37" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">1st</text><!-- Harmonics --><rect x="55" y="60" width="14" height="40" rx="2" fill="#F59E0B" opacity="0.5" /><text x="62" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">3rd</text><rect x="80" y="70" width="14" height="30" rx="2" fill="#F59E0B" opacity="0.5" /><text x="87" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">5th</text><rect x="105" y="80" width="14" height="20" rx="2" fill="#DC2626" opacity="0.4" /><text x="112" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">7th</text><rect x="130" y="87" width="14" height="13" rx="2" fill="#DC2626" opacity="0.4" /><text x="137" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">9th</text><rect x="155" y="92" width="14" height="8" rx="2" fill="#DC2626" opacity="0.3" /><text x="162" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">11th</text></svg></div>
         <div class="blog-body">
           <div class="blog-tag">Manufacturing</div>
           <h3 class="h3" style="margin-bottom: 8px;">Harmonics in Manufacturing: The Silent Production Killer</h3>
@@ -121,7 +150,7 @@
       </div>
 
       <div class="blog-card reveal">
-        <div class="blog-thumb"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 7l-5 5-5-5M17 17l-5-5-5 5"/><path d="M2 12h20M7 7l-5 5 5 5M17 7l5 5-5 5"/></svg></div>
+        <div class="blog-thumb" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, #DBEAFE 100%);"><svg viewBox="0 0 200 120" width="180" height="108"><text x="100" y="12" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">COLD STORAGE SAVINGS</text><!-- Snowflake icon --><g transform="translate(40,55)" opacity="0.25"><line x1="0" y1="-18" x2="0" y2="18" stroke="var(--accent)" stroke-width="1.5" /><line x1="-16" y1="-9" x2="16" y2="9" stroke="var(--accent)" stroke-width="1.5" /><line x1="-16" y1="9" x2="16" y2="-9" stroke="var(--accent)" stroke-width="1.5" /></g><!-- Energy usage bars: before/after --><rect x="80" y="35" width="22" height="65" rx="2" fill="var(--text-muted)" opacity="0.2" /><rect x="106" y="55" width="22" height="45" rx="2" fill="var(--accent)" opacity="0.5" /><!-- Savings arrow --><path d="M 140 50 L 140 75" stroke="var(--accent)" stroke-width="1.5" /><polygon points="140,78 136,72 144,72" fill="var(--accent)" opacity="0.6" /><text x="140" y="90" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="var(--accent)" opacity="0.7">20%+</text><text x="91" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">Before</text><text x="117" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" fill="var(--text-muted)">After</text></svg></div>
         <div class="blog-body">
           <div class="blog-tag">Cold Storage</div>
           <h3 class="h3" style="margin-bottom: 8px;">Why Cold Storage Facilities Are the Ideal HarmoniQ Candidate</h3>
@@ -130,20 +159,88 @@
         </div>
       </div>
 
-      <div class="blog-card reveal">
-        <div class="blog-thumb"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <a href="articles/active-vs-passive.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, #E0E7FF 100%);"><svg viewBox="0 0 200 120" width="180" height="108"><text x="100" y="12" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">ACTIVE vs PASSIVE PFC</text><!-- Distorted waveform (passive) --><path d="M 15 60 Q 30 20, 50 60 Q 70 100, 85 60" fill="none" stroke="#DC2626" stroke-width="1.5" opacity="0.4" /><path d="M 15 60 L 30 40 L 50 60 L 65 80 L 85 60" fill="none" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.3" /><text x="50" y="105" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">Passive</text><!-- Clean waveform (active) --><path d="M 115 60 Q 130 20, 150 60 Q 170 100, 185 60" fill="none" stroke="var(--accent)" stroke-width="2" opacity="0.7" /><text x="150" y="105" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">Active</text><!-- Arrow between --><line x1="92" y1="60" x2="108" y2="60" stroke="var(--text-muted)" stroke-width="1" opacity="0.4" /><polygon points="110,60 105,56 105,64" fill="var(--text-muted)" opacity="0.4" /></svg></div>
         <div class="blog-body">
           <div class="blog-tag">Technology</div>
           <h3 class="h3" style="margin-bottom: 8px;">Active vs Passive Power Factor Correction: A Plain English Guide</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Capacitor banks vs active filters vs HarmoniQ — what's the difference, and why does the approach matter so much for the size of your savings?</p>
           <div class="blog-date">6 min read · Aug 2024</div>
         </div>
-      </div>
+      </a>
     </div>
 
     <div style="text-align: center; margin-top: 48px;">
       <a href="#" class="btn btn-secondary btn-lg">Load More Articles</a>
     </div>
+
+    <!-- Standards & Research -->
+    <div style="margin-top: 80px;" id="standards">
+      <div class="section-header reveal" style="margin-bottom: 36px;">
+        <div class="eyebrow">Standards & Research</div>
+        <h2 class="display-2">The Science <span class="accent">Behind the Savings</span></h2>
+        <p>Our calculations, models, and claims are grounded in internationally recognised engineering standards. Explore the key standards and research that underpin HarmoniQ's technology.</p>
+      </div>
+
+      <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr);">
+
+        <a href="articles/arrhenius-rule.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+            <div class="blog-tag">IEEE / IEC</div>
+            <h3 class="h3" style="margin-bottom: 8px;">IEEE 117 &amp; IEC 60085 — Thermal Degradation</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The Arrhenius rule: every 10°C rise above rated temperature halves insulation life. The foundation of equipment life extension modelling.</p>
+            <div class="blog-date">Read our analysis &rarr;</div>
+          </div>
+        </a>
+
+        <a href="articles/utility-kwh-calculation-report.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+            <div class="blog-tag">IEEE / ANSI</div>
+            <h3 class="h3" style="margin-bottom: 8px;">IEEE 519-2022 — Harmonic Control in Power Systems</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The definitive standard for harmonic distortion limits. Defines voltage and current THD thresholds at the point of common coupling.</p>
+            <div class="blog-date">Read our analysis &rarr;</div>
+          </div>
+        </a>
+
+        <a href="articles/arrhenius-rule.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+            <div class="blog-tag">IEEE</div>
+            <h3 class="h3" style="margin-bottom: 8px;">IEEE C57.110-2018 — Transformer Derating Under Harmonics</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How harmonic currents force transformers to operate at reduced capacity. Quantifies eddy-current and stray losses from non-linear loads.</p>
+            <div class="blog-date">Read our analysis &rarr;</div>
+          </div>
+        </a>
+
+        <a href="articles/pf-penalties.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+            <div class="blog-tag">NEMA</div>
+            <h3 class="h3" style="margin-bottom: 8px;">NEMA MG 1-2016 — Motors &amp; Generators</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Performance standards for motors including insulation class ratings, temperature rise limits, and derating factors under non-sinusoidal supply.</p>
+            <div class="blog-date">Read our analysis &rarr;</div>
+          </div>
+        </a>
+
+        <a href="articles/active-vs-passive.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+            <div class="blog-tag">IEC</div>
+            <h3 class="h3" style="margin-bottom: 8px;">IEC 61000 Series — Electromagnetic Compatibility</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The international framework for harmonic emission limits (IEC 61000-3-2/3-12), power quality monitoring (IEC 61000-4-30), and measurement methods.</p>
+            <div class="blog-date">Read our analysis &rarr;</div>
+          </div>
+        </a>
+
+        <a href="articles/utility-kwh-calculation-report.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+            <div class="blog-tag">ANSI / IEEE</div>
+            <h3 class="h3" style="margin-bottom: 8px;">ANSI C12.1 &amp; IEEE 1459 — Metering &amp; Power Definitions</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How utilities measure kWh, kVA, and kVArh — and why the distinction between real, reactive, and apparent power directly affects your bill.</p>
+            <div class="blog-date">Read our analysis &rarr;</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -162,17 +259,25 @@
   </div>
 </section>
 
+</main>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand"><a href="index.html" class="nav-logo" style="display: inline-flex;"><img src="assets/logo.png" alt="HarmoniQ Technologies" class="nav-logo-img" /></a><p>Patented power optimization. 10–25% energy savings across 120+ sites globally.</p></div>
-      <div class="footer-col"><h5>Product</h5><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="roi-calculator.html">ROI Calculator</a></li><li><a href="case-studies.html">Case Studies</a></li></ul></div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="savings-calculator.html">Savings Calculator</a></li><li><a href="case-studies.html">Case Studies</a></li></ul></div>
       <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h5>Resources</h5><ul><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Insights</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
   </div>
 </footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
 <script src="js/main.js"></script>
+<script src="js/search.js"></script>
 </body>
 </html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Utilities Calculate kWh — HarmoniQ Technologies</title>
+  <meta name="description" content="A comprehensive technical breakdown of how utilities calculate kWh, kW demand, and how power quality metrics feed into your electricity bill." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How Utilities Calculate kWh — HarmoniQ Technologies" />
+  <meta property="og:description" content="A comprehensive technical breakdown of how utilities calculate kWh, kW demand, and how power quality metrics feed into your electricity bill." />
+  <meta property="og:url" content="https://harmoniqtechnologies.com/articles/utility-kwh-calculation-report.html" />
+  <meta property="og:image" content="https://harmoniqtechnologies.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How Utilities Calculate kWh — HarmoniQ Technologies" />
+  <meta name="twitter:description" content="A comprehensive technical breakdown of how utilities calculate kWh, kW demand, and how power quality metrics feed into your electricity bill." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/articles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
+
+<nav class="nav scrolled" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../how-it-works.html" class="nav-link">How It Works</a>
+        <a href="../savings-calculator.html" class="nav-link">Savings Calculator</a>
+        <a href="../case-studies.html" class="nav-link">Case Studies</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../blog.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html">Home</a>
+  <a href="../how-it-works.html">How It Works</a><a href="../savings-calculator.html">Savings Calculator</a>
+  <a href="../case-studies.html">Case Studies</a><a href="../about.html">About</a>
+  <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
+</div>
+
+<!-- Article Hero -->
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-hero-tag">Technical Report</div>
+    <h1>How Utilities Calculate kWh: A Complete Breakdown of Every Input on Your Bill</h1>
+    <p class="article-hero-sub">A detailed technical analysis of how electricity meters measure energy consumption, how kW demand is derived from running averages, and how long it takes for power quality improvements to fully materialise in your billing.</p>
+    <div class="article-hero-meta">
+      <span>HarmoniQ Engineering Team</span>
+      <span>March 2026</span>
+      <span>18 min read</span>
+    </div>
+  </div>
+</section>
+
+<!-- Article Body -->
+<div class="article-body">
+
+  <div class="article-back" style="max-width:none; padding:0; margin-bottom:40px;">
+    <a href="../blog.html">← Back to Insights</a>
+  </div>
+
+  <p>Every industrial electricity bill is the product of dozens of measurements, calculations, and contractual mechanisms — most of which are invisible to the person paying it. This report breaks down exactly how a utility arrives at the kWh and kW figures on your invoice, which inputs come directly from meter hardware, which are derived from IEEE and IEC standards, and — critically — how long it takes for power quality improvements to flow through to your bottom line.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 01</h2>
+  <p class="section-title">The Fundamental Measurement: How Meters Calculate kWh</p>
+
+  <h3>What the meter actually measures</h3>
+
+  <p>At its core, a revenue-grade electricity meter measures only two physical quantities directly:</p>
+
+  <ol>
+    <li><strong>Instantaneous voltage (V)</strong> — sampled on each phase via a potential transformer (PT) or direct connection</li>
+    <li><strong>Instantaneous current (I)</strong> — sampled on each phase via a current transformer (CT)</li>
+  </ol>
+
+  <p>Everything else — kW, kVA, kVAr, power factor, THD, kWh — is <strong>calculated</strong> from these two raw inputs.</p>
+
+  <p>Modern digital meters (such as those from Landis+Gyr, Elster, Honeywell, or Itron) use high-speed Analog-to-Digital Converters (ADCs) to sample voltage and current waveforms <strong>thousands of times per second</strong> — typically 64 to 256 samples per cycle at 50 Hz, yielding 3,200 to 12,800 samples per second per phase. This captures the full waveform shape, including harmonic distortion.</p>
+
+  <div class="exhibit">
+    <div class="exhibit-label">
+      <span class="num">Exhibit 1</span>
+      <span class="desc">Meter measurement hierarchy</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Parameter</th><th>Source</th><th>Method</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voltage (V)</td><td>Direct measurement</td><td>PT / direct connection, ADC sampling</td></tr>
+        <tr><td>Current (I)</td><td>Direct measurement</td><td>CT winding, ADC sampling</td></tr>
+        <tr><td>Instantaneous power (W)</td><td>Calculated</td><td>p(t) = v(t) × i(t), computed each sample</td></tr>
+        <tr><td>Real power — kW</td><td>Calculated</td><td>Average of p(t) over one cycle (20 ms at 50 Hz)</td></tr>
+        <tr><td>RMS voltage / current</td><td>Calculated</td><td>√(mean of squared samples over one cycle)</td></tr>
+        <tr><td>Apparent power — kVA</td><td>Calculated</td><td>V<sub>rms</sub> × I<sub>rms</sub></td></tr>
+        <tr><td>Reactive power — kVAr</td><td>Calculated</td><td>√(kVA² − kW²)</td></tr>
+        <tr><td>Power factor</td><td>Calculated</td><td>kW ÷ kVA (displacement + distortion PF)</td></tr>
+        <tr><td>THD</td><td>Calculated</td><td>FFT decomposition per IEEE 1459</td></tr>
+        <tr class="row-highlight"><td>kWh (energy)</td><td>Calculated</td><td>∫ kW · dt — continuous integration of real power over time</td></tr>
+        <tr><td>kW demand</td><td>Calculated</td><td>Average kW over the demand interval (15 or 30 min)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The kWh calculation</h3>
+
+  <p>kWh is the <strong>time-integral of real power</strong>. The meter continuously computes instantaneous power p(t) = v(t) × i(t) at each sample point, averages over each AC cycle to get real power (kW), and accumulates this over time. Mathematically:</p>
+
+  <div class="callout-block">
+    <div class="label">Formula</div>
+    <p><strong>kWh = ∫₀ᵀ P(t) dt</strong></p>
+    <p>Where P(t) is the real power at time t, and T is the billing period. The meter performs this integration continuously, incrementing the kWh register in real time. Because modern meters sample the full waveform (including distorted portions), the kWh figure inherently captures <strong>all power delivered</strong> — fundamental and harmonic.</p>
+  </div>
+
+  <div class="insight-box">
+    <div class="label">Key distinction</div>
+    <p><strong>kWh is a direct, continuous measurement.</strong> It reflects actual energy consumed in real time. There is no averaging window, no delay, and no ratchet. If you reduce losses at 2:00 PM, the meter registers fewer kWh from 2:00 PM onward. This is fundamentally different from kW demand, as we will see below.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 02</h2>
+  <p class="section-title">kW Demand: The Running Average and Why It Matters</p>
+
+  <h3>How kW demand is measured</h3>
+
+  <p>You are correct that kW demand is based on a running average. More precisely, the meter divides time into fixed <strong>demand intervals</strong> and calculates the average kW consumed during each interval. The highest average recorded in a billing period becomes your <strong>Maximum Demand (MD)</strong> — the figure that drives your demand charge.</p>
+
+  <h3>Standard demand intervals</h3>
+
+  <div class="exhibit">
+    <div class="exhibit-label">
+      <span class="num">Exhibit 2</span>
+      <span class="desc">Demand interval standards by region</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Region</th><th>Standard interval</th><th>Governing standard</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>North America</td><td><strong>15 minutes</strong></td><td>ANSI C12.1-2026</td><td>Most common; some utilities use 30 min</td></tr>
+        <tr><td>United Kingdom</td><td><strong>30 minutes</strong></td><td>Ofgem / BSC P272</td><td>Half-hourly settlement mandatory for Profile Classes 05–08</td></tr>
+        <tr><td>EU (Continental)</td><td><strong>15 minutes</strong></td><td>EN 50160 / IEC 61000-4-30</td><td>15 min is the standard aggregation period</td></tr>
+        <tr><td>Australia / NZ</td><td><strong>30 minutes</strong></td><td>NER / AEMO</td><td>Half-hourly intervals standard</td></tr>
+        <tr><td>Middle East / Asia</td><td><strong>15 or 30 minutes</strong></td><td>Varies by utility</td><td>Typically follows IEC standards</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>The <strong>15-minute interval</strong> is the most widely used globally and the standard specified in ANSI C12.1 for revenue metering in North America. In the UK, the settlement period is 30 minutes under Ofgem's Market-wide Half-Hourly Settlement (MHHS) framework.</p>
+
+  <h3>Block interval vs sliding window</h3>
+
+  <p>There are two methods meters use to compute demand:</p>
+
+  <div class="art-steps">
+    <div class="art-step">
+      <div class="art-step-num">A</div>
+      <div class="art-step-body">
+        <h4>Block Interval Demand</h4>
+        <p>Time is divided into fixed, non-overlapping blocks (e.g., every 15 minutes on the clock: 00:00, 00:15, 00:30, 00:45). The meter calculates average kW for each block independently. At the end of each block, the counter resets. This is the simpler and more common method.</p>
+      </div>
+    </div>
+    <div class="art-step">
+      <div class="art-step-num">B</div>
+      <div class="art-step-body">
+        <h4>Sliding Window Demand (Rolling Block)</h4>
+        <p>The demand interval is divided into sub-intervals (e.g., a 15-minute window with 5-minute sub-intervals, or 1-minute sub-intervals in AMI systems). After each sub-interval, the window slides forward by one sub-interval, dropping the oldest and adding the newest. This produces a smoother demand profile and can capture peaks that fall across block boundaries.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <div class="label">Practical implication</div>
+    <p>With block interval metering, a 10-minute load spike that straddles two 15-minute blocks may be split across both and appear smaller. With sliding window metering, it will be fully captured. <strong>Sliding window demand typically produces higher peak demand readings</strong> for the same load profile, meaning higher demand charges.</p>
+  </div>
+
+  <!-- SVG: Demand interval diagram -->
+  <div style="margin: 40px 0; text-align: center;">
+    <svg viewBox="0 0 600 220" width="100%" style="max-width: 600px; display: inline-block;">
+      <rect width="600" height="220" fill="var(--bg-secondary)" rx="8" />
+      <text x="300" y="24" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="var(--text-muted)" letter-spacing="1.5">kW DEMAND AVERAGING — 15-MINUTE BLOCK INTERVAL</text>
+
+      <!-- Time axis -->
+      <line x1="50" y1="170" x2="550" y2="170" stroke="var(--border)" stroke-width="1" />
+      <text x="50" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="var(--text-muted)">00:00</text>
+      <text x="175" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="var(--text-muted)">00:15</text>
+      <text x="300" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="var(--text-muted)">00:30</text>
+      <text x="425" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="var(--text-muted)">00:45</text>
+      <text x="550" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="var(--text-muted)">01:00</text>
+
+      <!-- Block boundaries -->
+      <line x1="175" y1="40" x2="175" y2="170" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 3" />
+      <line x1="300" y1="40" x2="300" y2="170" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 3" />
+      <line x1="425" y1="40" x2="425" y2="170" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 3" />
+
+      <!-- kW axis -->
+      <line x1="50" y1="40" x2="50" y2="170" stroke="var(--border)" stroke-width="1" />
+      <text x="42" y="172" text-anchor="end" font-family="Inter,sans-serif" font-size="8" fill="var(--text-muted)">0</text>
+      <text x="42" y="108" text-anchor="end" font-family="Inter,sans-serif" font-size="8" fill="var(--text-muted)">500</text>
+      <text x="42" y="44" text-anchor="end" font-family="Inter,sans-serif" font-size="8" fill="var(--text-muted)">1000</text>
+
+      <!-- Actual load curve (jagged) -->
+      <path d="M 50 120 L 70 115 L 90 100 L 110 80 L 125 60 L 140 55 L 155 70 L 175 90 L 190 95 L 210 110 L 230 105 L 250 100 L 270 95 L 300 100 L 320 130 L 340 140 L 360 135 L 380 130 L 400 132 L 425 128 L 450 125 L 470 120 L 490 118 L 510 122 L 530 120 L 550 115" fill="none" stroke="var(--text-muted)" stroke-width="1.5" opacity="0.4" />
+
+      <!-- Block averages (horizontal lines) -->
+      <line x1="50" y1="90" x2="175" y2="90" stroke="var(--accent)" stroke-width="2.5" />
+      <line x1="175" y1="100" x2="300" y2="100" stroke="var(--accent)" stroke-width="2.5" />
+      <line x1="300" y1="133" x2="425" y2="133" stroke="var(--accent)" stroke-width="2.5" />
+      <line x1="425" y1="120" x2="550" y2="120" stroke="var(--accent)" stroke-width="2.5" />
+
+      <!-- Peak demand marker -->
+      <circle cx="112" cy="90" r="4" fill="var(--accent)" />
+      <text x="112" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="var(--accent)">Peak: 615 kW avg</text>
+
+      <!-- Legend -->
+      <line x1="80" y1="205" x2="100" y2="205" stroke="var(--text-muted)" stroke-width="1.5" opacity="0.4" />
+      <text x="105" y="208" font-family="Inter,sans-serif" font-size="8" fill="var(--text-muted)">Actual load</text>
+      <line x1="200" y1="205" x2="220" y2="205" stroke="var(--accent)" stroke-width="2.5" />
+      <text x="225" y="208" font-family="Inter,sans-serif" font-size="8" fill="var(--text-muted)">15-min block average (billed kW demand)</text>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 03</h2>
+  <p class="section-title">Power Factor: How It Inflates Your Bill</p>
+
+  <h3>What the meter measures</h3>
+
+  <p>The meter calculates power factor from its voltage and current measurements as:</p>
+
+  <div class="callout-block">
+    <div class="label">Formula</div>
+    <p><strong>PF = kW ÷ kVA = Real Power ÷ Apparent Power</strong></p>
+    <p>Under sinusoidal conditions, PF = cos(φ), where φ is the phase angle between voltage and current. Under non-sinusoidal conditions (harmonics present), IEEE 1459 defines <strong>True Power Factor</strong> which accounts for both displacement and distortion:</p>
+    <p><strong>PF<sub>true</sub> = PF<sub>displacement</sub> × PF<sub>distortion</sub></strong></p>
+  </div>
+
+  <p><strong>Source:</strong> Power factor is <strong>calculated by the meter</strong> from its voltage and current measurements. It is not a separate sensor. The calculation method follows IEEE 1459-2025 (formerly 1459-2010), which defines power quantities under sinusoidal, non-sinusoidal, balanced, and unbalanced conditions.</p>
+
+  <h3>How power factor affects billing</h3>
+
+  <p>Utilities penalise poor power factor through one or more of these mechanisms:</p>
+
+  <div class="exhibit">
+    <div class="exhibit-label">
+      <span class="num">Exhibit 3</span>
+      <span class="desc">Power factor billing mechanisms</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Mechanism</th><th>How it works</th><th>Common in</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>kVA demand billing</strong></td><td>Demand charge based on kVA instead of kW. Since kVA = kW ÷ PF, a PF of 0.80 inflates billed demand by 25%</td><td>UK, Australia, parts of Asia</td></tr>
+        <tr><td><strong>Reactive power charge</strong></td><td>Direct charge per kVArh consumed, typically above a PF threshold of 0.95 or 0.90</td><td>UK (DUoS), EU</td></tr>
+        <tr><td><strong>PF penalty surcharge</strong></td><td>Percentage surcharge on the total bill when PF falls below a threshold (e.g., 0.90). Some tariffs escalate the penalty as PF drops further</td><td>North America, Middle East, South America</td></tr>
+        <tr><td><strong>PF adjustment multiplier</strong></td><td>Demand charge multiplied by (target PF ÷ actual PF). E.g., at PF 0.80 with target 0.95: multiplier = 0.95/0.80 = 1.1875</td><td>Parts of US, Latin America</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <div class="label">Measured vs calculated</div>
+    <p><strong>Power factor is calculated from measured data, not directly measured.</strong> The meter samples V and I, computes kW and kVA, and derives PF. The <strong>threshold at which penalties apply</strong> (e.g., 0.90, 0.95) is a contractual/tariff parameter, not a measurement — it comes from the utility's rate schedule. The <strong>IEEE 1459 standard</strong> defines how PF should be calculated, especially under harmonic conditions.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 04</h2>
+  <p class="section-title">Harmonic Distortion: The Hidden Energy Tax</p>
+
+  <h3>What the meter measures</h3>
+
+  <p>The meter computes Total Harmonic Distortion (THD) by performing a Fast Fourier Transform (FFT) on the sampled voltage and current waveforms, decomposing them into their fundamental and harmonic components. The standard definition per IEEE 519-2022:</p>
+
+  <div class="callout-block">
+    <div class="label">Formula</div>
+    <p><strong>THD = √(∑ Iₙ²) ÷ I₁ × 100%</strong></p>
+    <p>Where Iₙ is the RMS current of the nth harmonic and I₁ is the fundamental. Harmonics up to the 50th order are typically included per IEC 61000-4-7.</p>
+  </div>
+
+  <p><strong>Source:</strong> THD is <strong>calculated by the meter</strong> from its voltage and current samples. The limits that define acceptable distortion come from <strong>IEEE 519-2022</strong> (the standard for harmonic control in electric power systems).</p>
+
+  <h3>How harmonics affect kWh</h3>
+
+  <p>Harmonics increase your kWh consumption through several mechanisms — all of which are <strong>real energy losses captured by the meter</strong>:</p>
+
+  <ol>
+    <li><strong>Increased I²R losses in conductors</strong> — Harmonic currents flow through the same conductors as the fundamental. Because they add to the total RMS current, resistive losses increase by I²R. The meter sees this as real power consumed.</li>
+    <li><strong>Eddy current and hysteresis losses in transformers</strong> — These losses increase with the square of frequency. A 5th harmonic at 250 Hz causes 25× more eddy current losses than the fundamental at 50 Hz, per unit current.</li>
+    <li><strong>Skin effect losses</strong> — At higher frequencies, current concentrates on the conductor surface, increasing effective resistance by 10–20% for typical 5th and 7th harmonics.</li>
+    <li><strong>Neutral conductor loading</strong> — Triplen harmonics (3rd, 9th, 15th) add arithmetically in the neutral, potentially causing neutral currents exceeding phase currents.</li>
+  </ol>
+
+  <div class="key-stat">
+    <div class="number">5–20<span>%</span></div>
+    <div class="caption">Estimated energy losses attributable to harmonics in industrial facilities, according to studies by CIGRE and EPRI. This is energy the meter registers as consumed — it appears directly in your kWh total.</div>
+  </div>
+
+  <div class="exhibit">
+    <div class="exhibit-label">
+      <span class="num">Exhibit 4</span>
+      <span class="desc">IEEE 519-2022 current distortion limits at PCC</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>I<sub>SC</sub>/I<sub>L</sub></th><th>h &lt; 11</th><th>11 ≤ h &lt; 17</th><th>17 ≤ h &lt; 23</th><th>23 ≤ h &lt; 35</th><th>35 ≤ h ≤ 50</th><th>TDD (%)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>&lt; 20</td><td>4.0</td><td>2.0</td><td>1.5</td><td>0.6</td><td>0.3</td><td>5.0</td></tr>
+        <tr><td>20–50</td><td>7.0</td><td>3.5</td><td>2.5</td><td>1.0</td><td>0.5</td><td>8.0</td></tr>
+        <tr><td>50–100</td><td>10.0</td><td>4.5</td><td>4.0</td><td>1.5</td><td>0.7</td><td>12.0</td></tr>
+        <tr><td>100–1000</td><td>12.0</td><td>5.5</td><td>5.0</td><td>2.0</td><td>1.0</td><td>15.0</td></tr>
+        <tr><td>&gt; 1000</td><td>15.0</td><td>7.0</td><td>6.0</td><td>2.5</td><td>1.4</td><td>20.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Important:</strong> IEEE 519 limits apply at the <strong>Point of Common Coupling (PCC)</strong> — the metering point between the utility and the customer. These are <strong>standard-defined limits</strong>, not direct meter measurements. The meter measures actual THD; the standard defines what is acceptable.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 05</h2>
+  <p class="section-title">Voltage Imbalance Between Phases</p>
+
+  <h3>What the meter measures</h3>
+
+  <p>The meter measures voltage on each of the three phases independently. Voltage imbalance (or unbalance) is then calculated using one of two standard definitions:</p>
+
+  <div class="exhibit">
+    <div class="exhibit-label">
+      <span class="num">Exhibit 5</span>
+      <span class="desc">Voltage imbalance definitions</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Standard</th><th>Definition</th><th>Limit</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>NEMA MG1 / ANSI C84.1</strong></td><td>% Unbalance = (Max deviation from average) ÷ Average × 100</td><td>≤ 3% at revenue meter (no load); ≤ 1% for motor derating threshold</td></tr>
+        <tr><td><strong>IEC 61000 / EN 50160</strong></td><td>Negative sequence voltage ÷ Positive sequence voltage × 100 (true symmetrical components)</td><td>≤ 2% (measured over 10-min intervals, 95th percentile over one week)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Source:</strong> Per-phase voltages are <strong>directly measured</strong>. The imbalance percentage is <strong>calculated</strong> using the formulas above. The IEC method (symmetrical components) is more mathematically rigorous and is the method specified in IEC 61000-4-30:2025 for Class A power quality instruments.</p>
+
+  <h3>How voltage imbalance affects your bill</h3>
+
+  <p>Voltage imbalance does not typically appear as a separate line item on your bill, but its effects are captured in your kWh and kW readings through:</p>
+
+  <ol>
+    <li><strong>Negative-sequence currents in motors</strong> — A 2% voltage imbalance can cause a 15–20% current imbalance, dramatically increasing I²R losses in motor windings. These losses are real energy consumed and metered.</li>
+    <li><strong>Motor derating</strong> — Per NEMA MG1-2009, motors operating with voltage imbalance above 1% must be derated. A 3% voltage imbalance requires approximately 10% derating, meaning the motor draws more current to deliver the same shaft power.</li>
+    <li><strong>Increased maximum demand</strong> — The excess current drawn due to imbalance increases the kW demand reading during each demand interval.</li>
+  </ol>
+
+  <div class="insight-box">
+    <div class="label">Measured vs standard-derived</div>
+    <p><strong>Voltage on each phase: directly measured.</strong> Imbalance percentage: calculated by the meter or power quality analyser. The <strong>acceptable limits</strong> (3% NEMA, 2% IEC) and <strong>derating factors</strong> are defined by the respective standards, not by the meter.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 06</h2>
+  <p class="section-title">Temperature: The Off-Meter Variable</p>
+
+  <h3>What the meter does NOT measure</h3>
+
+  <p>Unlike all the parameters above, <strong>temperature is not measured by the electricity meter</strong>. It is, however, one of the most significant factors affecting how much energy your facility actually consumes — and therefore what the meter registers.</p>
+
+  <h3>How temperature affects your kWh</h3>
+
+  <div class="exhibit">
+    <div class="exhibit-label">
+      <span class="num">Exhibit 6</span>
+      <span class="desc">Temperature effects on electrical systems</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Effect</th><th>Mechanism</th><th>Standard reference</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Conductor resistance increase</strong></td><td>Copper resistance increases ~0.39% per °C above 20°C. A 40°C rise increases resistance by ~15.6%, increasing I²R losses proportionally</td><td>IEC 60228</td></tr>
+        <tr><td><strong>Transformer losses</strong></td><td>Load losses increase with winding temperature. The IEEE Arrhenius rule predicts insulation life halves for every 10°C rise above rated temperature</td><td>IEEE C57.91, IEEE C57.12.00</td></tr>
+        <tr><td><strong>Motor efficiency degradation</strong></td><td>Stator winding resistance increases with temperature, reducing motor efficiency by 0.5–1.5% for every 25°C rise above design ambient</td><td>NEMA MG1, IEC 60034</td></tr>
+        <tr><td><strong>Cooling load increase</strong></td><td>Higher ambient temperatures increase HVAC and refrigeration compressor run times, directly increasing kWh consumption</td><td>ASHRAE 90.1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <div class="label">Key distinction</div>
+    <p><strong>Temperature is entirely off-meter.</strong> The utility does not measure it, and no standard requires them to. However, temperature is a root cause of increased losses in conductors, transformers, and motors — and those increased losses are captured by the meter as higher kWh. This is why the IEEE Arrhenius rule is so important: <strong>every 10°C reduction in operating temperature halves the rate of insulation degradation</strong> and meaningfully reduces resistive losses. See our <a href="arrhenius-rule.html">Arrhenius Rule article</a> for the full analysis.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 07</h2>
+  <p class="section-title">Other Key Inputs and Billing Variables</p>
+
+  <h3>Frequency</h3>
+  <p><strong>Directly measured</strong> by the meter from the voltage waveform zero-crossings. Grid frequency is tightly regulated at 50 Hz (UK/EU) or 60 Hz (North America) and rarely deviates enough to affect billing. However, frequency is used internally by the meter to synchronise its sampling and FFT calculations.</p>
+
+  <h3>Maximum Import Capacity (MIC)</h3>
+  <p>This is a <strong>contractual parameter</strong>, not a measurement. It is the maximum demand (in kVA or kW) that the Distribution Network Operator (DNO) has agreed to supply. If your measured maximum demand exceeds the MIC, an <strong>Excess Capacity Charge</strong> is levied. This is purely a tariff mechanism.</p>
+
+  <h3>Time-of-Use (ToU) periods</h3>
+  <p>The meter's internal clock assigns each kWh and kW reading to a time-of-use band (peak, off-peak, shoulder). These bands are <strong>programmed into the meter</strong> based on the tariff schedule — they are contractual, not measured. However, they directly affect the rate applied to each unit of energy.</p>
+
+  <h3>Distribution Use of System (DUoS) bands</h3>
+  <p>In the UK, DUoS charges vary by time band (Red, Amber, Green). The meter records consumption per band, and the charges are applied per the DNO's published tariff. These are <strong>tariff-derived</strong>, not measurement-derived.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 08</h2>
+  <p class="section-title">Measured vs Standard-Derived: The Complete Picture</p>
+
+  <div class="exhibit">
+    <div class="exhibit-label">
+      <span class="num">Exhibit 7</span>
+      <span class="desc">Complete classification of billing inputs</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Input</th><th>Category</th><th>Standard / Source</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voltage (each phase)</td><td style="color: var(--accent); font-weight:600;">Directly measured</td><td>ANSI C12.1 / IEC 62052-11</td></tr>
+        <tr><td>Current (each phase)</td><td style="color: var(--accent); font-weight:600;">Directly measured</td><td>ANSI C12.1 / IEC 62052-11</td></tr>
+        <tr><td>Frequency</td><td style="color: var(--accent); font-weight:600;">Directly measured</td><td>IEC 61000-4-30</td></tr>
+        <tr><td>kW (real power)</td><td>Calculated from V × I</td><td>IEEE 1459-2025</td></tr>
+        <tr><td>kVA (apparent power)</td><td>Calculated from V<sub>rms</sub> × I<sub>rms</sub></td><td>IEEE 1459-2025</td></tr>
+        <tr><td>kVAr (reactive power)</td><td>Calculated from kVA and kW</td><td>IEEE 1459-2025</td></tr>
+        <tr><td>Power factor</td><td>Calculated (kW ÷ kVA)</td><td>IEEE 1459-2025</td></tr>
+        <tr><td>THD (current and voltage)</td><td>Calculated via FFT</td><td>IEC 61000-4-7 / IEEE 519</td></tr>
+        <tr><td>Voltage imbalance</td><td>Calculated from per-phase V</td><td>IEC 61000-4-30 / NEMA MG1</td></tr>
+        <tr><td>kWh (energy)</td><td>Calculated (∫ kW · dt)</td><td>ANSI C12.1 / IEC 62053</td></tr>
+        <tr><td>kW demand (max)</td><td>Calculated (interval average)</td><td>ANSI C12.1 (15 min) / Ofgem (30 min)</td></tr>
+        <tr><td>Temperature</td><td style="color: #DC2626; font-weight:600;">NOT measured by meter</td><td>IEEE C57.91, NEMA MG1</td></tr>
+        <tr><td>PF penalty threshold</td><td style="color: #F59E0B; font-weight:600;">Tariff / contractual</td><td>Utility rate schedule</td></tr>
+        <tr><td>ToU bands</td><td style="color: #F59E0B; font-weight:600;">Tariff / programmed</td><td>Utility rate schedule</td></tr>
+        <tr><td>Max Import Capacity</td><td style="color: #F59E0B; font-weight:600;">Contractual</td><td>DNO connection agreement</td></tr>
+        <tr><td>Demand ratchet %</td><td style="color: #F59E0B; font-weight:600;">Tariff / contractual</td><td>Utility rate schedule</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 09</h2>
+  <p class="section-title">How Long for Power Quality Improvements to Fully Materialise in Billing</p>
+
+  <p>This is the critical question. The answer depends on <strong>which billing component</strong> you are looking at, because each has a fundamentally different time lag.</p>
+
+  <h3>kWh (energy consumption)</h3>
+
+  <div class="callout-block">
+    <div class="label">Time to full benefit</div>
+    <p><strong>Immediate.</strong> kWh is a continuous integration. The moment power quality improves — whether through better power factor, reduced harmonics, or corrected voltage imbalance — the meter registers fewer kWh from that instant onward. There is zero lag. The next billing cycle will reflect the reduced consumption for whatever portion of the month the improvement was active.</p>
+  </div>
+
+  <h3>kW demand (within current billing period)</h3>
+
+  <div class="callout-block">
+    <div class="label">Time to full benefit</div>
+    <p><strong>15 to 30 minutes</strong> (one demand interval). After the improvement is activated, the very next demand interval will produce a lower average kW. However, the <strong>Maximum Demand for that billing period</strong> is already locked at whatever the highest interval was before the improvement. If your peak demand of 800 kW occurred on day 3, and you install a correction system on day 15, your billed demand for that month remains 800 kW.</p>
+    <p>The full demand benefit is therefore captured in the <strong>first full billing period</strong> after the improvement — typically the following calendar month.</p>
+  </div>
+
+  <h3>kW demand (with ratchet clause)</h3>
+
+  <p>This is where the lag becomes significant. Many commercial and industrial tariffs include a <strong>demand ratchet clause</strong> that locks your minimum billable demand at a percentage of your highest peak from the previous 11–12 months.</p>
+
+  <div class="key-stat">
+    <div class="number">12<span> months</span></div>
+    <div class="caption">The maximum time for a demand ratchet to fully release. With a typical 80% ratchet, your billed demand cannot fall below 80% of your highest peak demand from the previous 11 months — even if your actual demand has dropped significantly.</div>
+  </div>
+
+  <div class="exhibit">
+    <div class="exhibit-label">
+      <span class="num">Exhibit 8</span>
+      <span class="desc">Time to full benefit by billing component</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Billing component</th><th>Time to first impact</th><th>Time to full benefit</th><th>Mechanism</th></tr>
+      </thead>
+      <tbody>
+        <tr class="row-highlight"><td>kWh (energy)</td><td>Immediate</td><td>Next bill</td><td>Continuous integration — no averaging delay</td></tr>
+        <tr><td>kW demand (no ratchet)</td><td>15–30 min</td><td>Next full billing month</td><td>MD resets each billing period</td></tr>
+        <tr><td>kW demand (with ratchet)</td><td>15–30 min</td><td><strong>Up to 12 months</strong></td><td>80% ratchet on trailing 11-month peak</td></tr>
+        <tr><td>PF penalty / surcharge</td><td>Immediate</td><td>Next bill</td><td>PF is calculated per billing period</td></tr>
+        <tr><td>Reactive power charge (kVArh)</td><td>Immediate</td><td>Next bill</td><td>Continuous integration like kWh</td></tr>
+        <tr><td>Excess capacity charge</td><td>15–30 min</td><td>Next full billing month</td><td>Based on MD vs MIC comparison</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SVG: Ratchet release timeline -->
+  <div style="margin: 40px 0; text-align: center;">
+    <svg viewBox="0 0 600 200" width="100%" style="max-width: 600px; display: inline-block;">
+      <rect width="600" height="200" fill="var(--bg-secondary)" rx="8" />
+      <text x="300" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="var(--text-muted)" letter-spacing="1.5">DEMAND RATCHET RELEASE TIMELINE (80% RATCHET)</text>
+
+      <!-- Axes -->
+      <line x1="60" y1="160" x2="570" y2="160" stroke="var(--border)" stroke-width="1" />
+      <line x1="60" y1="40" x2="60" y2="160" stroke="var(--border)" stroke-width="1" />
+
+      <!-- Y-axis labels -->
+      <text x="52" y="162" text-anchor="end" font-family="Inter,sans-serif" font-size="8" fill="var(--text-muted)">0</text>
+      <text x="52" y="100" text-anchor="end" font-family="Inter,sans-serif" font-size="8" fill="var(--text-muted)">500</text>
+      <text x="52" y="44" text-anchor="end" font-family="Inter,sans-serif" font-size="8" fill="var(--text-muted)">1000 kW</text>
+
+      <!-- Improvement point -->
+      <line x1="180" y1="35" x2="180" y2="160" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 3" />
+      <text x="180" y="175" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="600" fill="var(--accent)">PQ improvement installed</text>
+
+      <!-- Actual demand (drops after improvement) -->
+      <path d="M 60 60 L 100 55 L 140 65 L 180 58 L 220 100 L 260 105 L 300 98 L 340 102 L 380 100 L 420 95 L 460 98 L 500 100 L 540 95" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.5" />
+
+      <!-- Ratchet floor (80% of pre-improvement peak) -->
+      <line x1="180" y1="72" x2="540" y2="72" stroke="#DC2626" stroke-width="2" stroke-dasharray="6 4" />
+      <text x="545" y="68" font-family="Inter,sans-serif" font-size="7" fill="#DC2626">80% ratchet floor</text>
+
+      <!-- Pre-improvement peak -->
+      <line x1="60" y1="55" x2="180" y2="55" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 3" opacity="0.4" />
+      <text x="63" y="50" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">Previous peak (800 kW)</text>
+
+      <!-- Billed demand (follows ratchet until it releases) -->
+      <path d="M 180 58 L 220 72 L 260 72 L 300 72 L 340 72 L 380 72 L 420 72 L 460 72 L 500 72 L 540 72" fill="none" stroke="#DC2626" stroke-width="2" />
+
+      <!-- Month labels -->
+      <text x="100" y="175" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">M-2</text>
+      <text x="260" y="175" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">M+2</text>
+      <text x="380" y="175" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">M+6</text>
+      <text x="500" y="175" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">M+10</text>
+      <text x="540" y="175" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">M+12</text>
+
+      <!-- Legend -->
+      <line x1="100" y1="192" x2="120" y2="192" stroke="var(--accent)" stroke-width="1.5" opacity="0.5" />
+      <text x="125" y="195" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">Actual demand</text>
+      <line x1="250" y1="192" x2="270" y2="192" stroke="#DC2626" stroke-width="2" />
+      <text x="275" y="195" font-family="Inter,sans-serif" font-size="7" fill="var(--text-muted)">Billed demand (ratchet floor)</text>
+    </svg>
+  </div>
+
+  <h3>The complete timeline</h3>
+
+  <p>If a facility improves its power factor from 0.80 to 0.98, reduces THD from 25% to 5%, and corrects a 3% voltage imbalance to below 1%, the benefits materialise as follows:</p>
+
+  <div class="art-steps">
+    <div class="art-step">
+      <div class="art-step-num">1</div>
+      <div class="art-step-body">
+        <h4>Instant (0–15 minutes)</h4>
+        <p>kWh savings begin immediately. The next demand interval (15 or 30 min) records a lower average kW. Power factor, as calculated by the meter, improves to 0.98.</p>
+      </div>
+    </div>
+    <div class="art-step">
+      <div class="art-step-num">2</div>
+      <div class="art-step-body">
+        <h4>First full bill (Month 1)</h4>
+        <p>kWh savings fully reflected for the portion of the month post-improvement. PF penalty eliminated. Reactive power charges (kVArh) reduced. However, kW maximum demand may still reflect the pre-improvement peak if it occurred earlier in the billing period.</p>
+      </div>
+    </div>
+    <div class="art-step">
+      <div class="art-step-num">3</div>
+      <div class="art-step-body">
+        <h4>Second full bill (Month 2)</h4>
+        <p>First billing period where the <strong>entire month</strong> operates at improved power quality. kWh, kW demand, PF, and reactive power charges all fully reflect the improvement — <strong>unless a demand ratchet applies</strong>.</p>
+      </div>
+    </div>
+    <div class="art-step">
+      <div class="art-step-num">4</div>
+      <div class="art-step-body">
+        <h4>Month 12 (with ratchet)</h4>
+        <p>The ratchet clause fully releases. The old peak demand from before the improvement has now dropped out of the 11-month trailing window. From this point forward, billed demand reflects actual, improved demand with no floor.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>"The kWh benefit is immediate. The kW benefit can take up to twelve months to fully materialise — and most facility managers don't realise their demand ratchet is the reason."</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Section 10</h2>
+  <p class="section-title">References</p>
+
+  <ol>
+    <li><strong>ANSI C12.1-2026</strong> — American National Standard Code for Electricity Metering. Specifies performance criteria for revenue meters including demand measurement intervals.</li>
+    <li><strong>IEEE 1459-2025</strong> — Standard Definitions for the Measurement of Electric Power Quantities Under Sinusoidal, Nonsinusoidal, Balanced, or Unbalanced Conditions. Defines kW, kVA, kVAr, and power factor calculations.</li>
+    <li><strong>IEEE 519-2022</strong> — Standard for Harmonic Control in Electric Power Systems. Establishes THD limits at the Point of Common Coupling.</li>
+    <li><strong>IEC 61000-4-30:2025</strong> — Testing and measurement techniques – Power quality measurement methods. Defines Class A and Class S measurement methods including voltage unbalance.</li>
+    <li><strong>IEC 61000-4-7</strong> — General guide on harmonics and interharmonics measurements and instrumentation. Defines FFT methodology for harmonic analysis.</li>
+    <li><strong>IEC 62052-11 / IEC 62053</strong> — Electricity metering equipment – General requirements, tests, and test conditions.</li>
+    <li><strong>EN 50160</strong> — Voltage characteristics of electricity supplied by public electricity distribution networks. Defines 2% voltage unbalance limit.</li>
+    <li><strong>NEMA MG1-2009</strong> — Motors and Generators. Section 14.36 defines motor derating factors for voltage unbalance exceeding 1%.</li>
+    <li><strong>IEEE C57.91</strong> — Guide for Loading Mineral-Oil-Immersed Transformers and Step-Voltage Regulators. Includes the Arrhenius thermal life model.</li>
+    <li><strong>IEC 60034</strong> — Rotating electrical machines. Includes temperature rise classes and efficiency standards.</li>
+    <li><strong>CIGRE / EPRI studies</strong> — Multiple studies estimating harmonic-related energy losses at 5–20% of total industrial plant consumption. Originally estimated at 2% by Washington State Energy Office (1990s), subsequently revised upward.</li>
+    <li><strong>Ofgem BSC P272</strong> — Mandatory Half-Hourly Settlement for Profile Classes 05–08. Defines 30-minute settlement periods for UK commercial metering.</li>
+    <li><strong>ASHRAE 90.1</strong> — Energy Standard for Buildings (referenced for cooling load calculations).</li>
+  </ol>
+
+</div><!-- end article-body -->
+
+<!-- CTA -->
+<div class="article-cta">
+  <div class="article-cta-card">
+    <h3>Want to see the impact on your bill?</h3>
+    <p>Use our Savings Calculator to model how power quality improvements translate to savings on each billing component — including demand ratchet recovery.</p>
+    <a href="../savings-calculator.html" class="btn btn-primary">Calculate Your Savings</a>
+  </div>
+</div>
+
+<div class="article-back">
+  <a href="../blog.html">← Back to Insights</a>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="../index.html" class="nav-logo" style="display: inline-flex;"><img src="../assets/logo.png" alt="HarmoniQ Technologies" class="nav-logo-img" /></a><p>Patented power optimization. 10–25% energy savings across 120+ sites globally.</p></div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="../how-it-works.html">How It Works</a></li><li><a href="../savings-calculator.html">Savings Calculator</a></li><li><a href="../case-studies.html">Case Studies</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../partners.html">Partners</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../blog.html">Insights</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="../js/main.js"></script>
+<script src="../js/search.js"></script>
+</body>
+</html>

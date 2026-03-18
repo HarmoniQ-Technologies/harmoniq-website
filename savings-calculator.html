@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savings Calculator — HarmoniQ Technologies</title>
+  <meta name="description" content="Calculate your site's potential energy savings with HarmoniQ. Enter your electricity spend and see your estimated annual savings in seconds." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Savings Calculator — HarmoniQ Technologies" />
+  <meta property="og:description" content="Calculate your site's potential energy savings with HarmoniQ. Enter your electricity spend and see your estimated annual savings in seconds." />
+  <meta property="og:url" content="https://harmoniqtechnologies.com/savings-calculator.html" />
+  <meta property="og:image" content="https://harmoniqtechnologies.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Savings Calculator — HarmoniQ Technologies" />
+  <meta name="twitter:description" content="Calculate your site's potential energy savings with HarmoniQ. Enter your electricity spend and see your estimated annual savings in seconds." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="nav scrolled" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><img src="assets/q-icon.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="savings-calculator.html" class="nav-link active">Savings Calculator</a>
+        <a href="case-studies.html" class="nav-link">Case Studies</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Insights</a>
+      </div>
+      <div class="nav-actions">
+        <a href="contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="savings-calculator.html">Savings Calculator</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="about.html">About</a>
+  <a href="contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
+</div>
+
+<main id="main">
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="eyebrow">Savings Calculator</div>
+      <h1 class="display-2">How Much Could <span class="accent">You Save?</span></h1>
+      <p>Enter what you know about your site — even just a monthly electricity bill — and get an instant savings estimate based on real deployment data.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="roi-calc reveal">
+      <div style="text-align: center; margin-bottom: 36px;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: var(--accent-dim); border: 1px solid var(--border); padding: 6px 16px; border-radius: 100px; font-size: 0.8rem; color: var(--accent); font-weight: 600;">
+          ⚡ Results update instantly as you type
+        </div>
+      </div>
+      <div class="roi-grid">
+        <div class="roi-inputs">
+          <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 20px;">Your Site Details</div>
+
+          <!-- Input mode selector -->
+          <div class="roi-field">
+            <label for="roi-input-mode">What do you know about your electricity usage?</label>
+            <select id="roi-input-mode">
+              <option value="monthly">I know my monthly electricity bill</option>
+              <option value="annual">I know my annual electricity spend</option>
+              <option value="kw">I know my facility size (kW)</option>
+            </select>
+          </div>
+
+          <!-- Monthly bill (default) -->
+          <div class="roi-field" id="field-monthly">
+            <label for="roi-monthly">Monthly Electricity Bill (USD)</label>
+            <input type="number" id="roi-monthly" placeholder="e.g. 5,000" min="0" />
+          </div>
+
+          <!-- Annual spend -->
+          <div class="roi-field" id="field-annual" style="display: none;">
+            <label for="roi-spend">Annual Electricity Spend (USD)</label>
+            <input type="number" id="roi-spend" placeholder="e.g. 60,000" min="0" />
+          </div>
+
+          <!-- Facility kW -->
+          <div class="roi-field" id="field-kw" style="display: none;">
+            <label for="roi-kw">Facility Size (kW)</label>
+            <input type="number" id="roi-kw" placeholder="e.g. 500" min="0" />
+          </div>
+
+          <div class="roi-field">
+            <label for="roi-industry">Industry / Facility Type</label>
+            <select id="roi-industry">
+              <option value="manufacturing">Manufacturing / Industrial</option>
+              <option value="food_beverage">Food & Beverage / Kitchens</option>
+              <option value="cold_storage">Cold Storage / Refrigeration</option>
+              <option value="commercial">Commercial / Office / Retail</option>
+              <option value="healthcare">Healthcare / Hospitals</option>
+              <option value="hotels">Hotels / Hospitality</option>
+              <option value="mining">Mining / Heavy Industry</option>
+              <option value="oil_gas">Oil & Gas / Petrochemical</option>
+              <option value="steel">Steel / Metals Processing (AC Loads)</option>
+              <option value="water">Water / Wastewater Treatment</option>
+              <option value="pharma">Pharmaceutical</option>
+              <option value="airports">Airports / Aviation</option>
+              <option value="ports">Ports / Marine Terminals</option>
+              <option value="logistics">Logistics / Warehousing</option>
+              <option value="universities">Universities / Education</option>
+              <option value="data_centres">Data Centres / IT</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="roi-field">
+            <label for="roi-country">Country / Region</label>
+            <select id="roi-country">
+              <optgroup label="Europe">
+                <option value="UK" selected>United Kingdom</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Italy">Italy</option>
+                <option value="Spain">Spain</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Poland">Poland</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Norway">Norway</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Finland">Finland</option>
+                <option value="Austria">Austria</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Greece">Greece</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Romania">Romania</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Turkey">Turkey</option>
+              </optgroup>
+              <optgroup label="Middle East & Africa">
+                <option value="UAE">UAE</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="Oman">Oman</option>
+                <option value="Israel">Israel</option>
+                <option value="Egypt">Egypt</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Morocco">Morocco</option>
+              </optgroup>
+              <optgroup label="Americas">
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Chile">Chile</option>
+                <option value="Argentina">Argentina</option>
+              </optgroup>
+              <optgroup label="Asia-Pacific">
+                <option value="Australia">Australia</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Japan">Japan</option>
+                <option value="South Korea">South Korea</option>
+                <option value="China">China</option>
+                <option value="India">India</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Indonesia">Indonesia</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="Other">Other</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="roi-field">
+            <label for="roi-pf">Current Power Factor <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">(if known)</span></label>
+            <select id="roi-pf">
+              <option value="unknown" selected>I don't know — estimate for me</option>
+              <option value="0.95">0.95 — Good (near unity)</option>
+              <option value="0.90">0.90 — Typical</option>
+              <option value="0.85">0.85 — Below average</option>
+              <option value="0.80">0.80 — Poor (penalties likely)</option>
+              <option value="0.75">0.75 — Very poor</option>
+              <option value="0.70">0.70 — Critical</option>
+            </select>
+            <div id="pf-industry-hint" style="margin-top: 6px; font-size: 0.78rem; color: var(--text-muted); font-style: italic;">
+              We'll estimate your power factor based on typical facilities in your industry. Most sites don't know this number, and that's fine.
+            </div>
+          </div>
+
+          <div style="margin-top: 8px; padding: 14px; background: var(--accent-dim); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--text-secondary);">
+            <strong style="color: var(--accent);">How we calculate:</strong> Savings are modelled from I²R system losses (motor windings, transformers, distribution), harmonic elimination, line conditioning, demand charge reduction, and PF penalty avoidance. Calculations follow <a href="articles/utility-kwh-calculation-report.html" class="std-ref">IEEE 519-2022</a>, <a href="articles/arrhenius-rule.html" class="std-ref">IEEE C57.110-2018</a>, <a href="articles/utility-kwh-calculation-report.html" class="std-ref">IEC 60034</a>, and <a href="articles/arrhenius-rule.html" class="std-ref">NEMA MG 1-2016</a>. Calibrated against field-verified data from 120+ deployments.
+          </div>
+        </div>
+
+        <div>
+          <!-- Main results: Energy savings only -->
+          <div class="roi-results">
+            <div class="roi-result-title">Estimated Annual Energy Savings</div>
+
+            <div class="roi-result-item">
+              <span class="roi-result-label">Total Savings Rate</span>
+              <span class="roi-result-value" id="roi-result-savings-rate">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">PF Correction & Harmonic Elimination</span>
+              <span class="roi-result-value" id="roi-result-energy-saving">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Line Conditioning & Phase Balancing</span>
+              <span class="roi-result-value" id="roi-result-linecond-saving">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">PF Penalty Elimination</span>
+              <span class="roi-result-value" id="roi-result-pf-saving">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Demand Charge Reduction</span>
+              <span class="roi-result-value" id="roi-result-demand-saving">—</span>
+            </div>
+
+            <div class="roi-result-item" style="border-top: 2px solid var(--accent); margin-top: 8px; padding-top: 16px;">
+              <span class="roi-result-label" style="font-weight: 700; color: var(--text-primary);">Total Annual Energy Savings</span>
+              <span class="roi-result-value" id="roi-result-total" style="font-size: 1.3rem;">—</span>
+            </div>
+            <div class="roi-headline">
+              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 6px;">Your Estimated Annual Savings</div>
+              <div class="roi-headline-value" id="roi-headline-value">—</div>
+              <div class="roi-headline-label">Based on field-verified deployment data</div>
+            </div>
+          </div>
+
+          <!-- Equipment life extension: separate, smaller section -->
+          <div style="margin-top: 16px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);">
+            <div style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 12px;">Additional Benefit — Equipment Life Extension</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px;">
+              Cooler-running equipment lasts longer. By reducing current and harmonics, HarmoniQ lowers winding temperatures — extending the life of motors, transformers, and cabling.
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <div style="flex: 1; padding: 10px; background: var(--accent-dim); border-radius: var(--radius-sm); text-align: center;">
+                <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">Est. Temp Reduction</div>
+                <div style="font-size: 1.05rem; font-weight: 700; color: var(--accent);" id="roi-result-delta-t">—</div>
+              </div>
+              <div style="flex: 1; padding: 10px; background: var(--accent-dim); border-radius: var(--radius-sm); text-align: center;">
+                <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">Equipment Life</div>
+                <div style="font-size: 1.05rem; font-weight: 700; color: var(--accent);" id="roi-result-life-ext">—</div>
+              </div>
+              <div style="flex: 1; padding: 10px; background: var(--accent-dim); border-radius: var(--radius-sm); text-align: center;">
+                <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">Est. CapEx Saving</div>
+                <div style="font-size: 1.05rem; font-weight: 700; color: var(--accent);" id="roi-result-equip-value">—</div>
+              </div>
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 8px; font-style: italic;">
+              <a href="articles/arrhenius-rule.html" class="std-ref">Based on the Arrhenius relationship per IEEE 117, NEMA MG 1-2016, and IEC 60085: every 10°C reduction in winding temperature doubles insulation life.</a>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; text-align: center;">
+            <a href="contact.html#demo" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              Get a Precise Site Assessment
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;">Free. No obligation. Results guaranteed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Qualification Criteria -->
+    <div style="max-width: 900px; margin: 64px auto 0;">
+      <div class="section-header" style="margin-bottom: 40px;">
+        <div class="eyebrow">Who Qualifies</div>
+        <h2 class="h1">Is Your Site a Good Fit?</h2>
+        <p>An ideal HarmoniQ site has one or more of these characteristics. The more that apply, the greater your savings.</p>
+      </div>
+      <div class="grid-2" style="gap: 16px;">
+        <div class="card reveal" style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="color: var(--accent); font-size: 1.2rem; flex-shrink: 0;">✓</div>
+          <div><h4 style="font-size: 0.95rem; margin-bottom: 4px;">Monthly electricity bill over $2,000</h4><p style="font-size: 0.82rem; color: var(--text-secondary);">The higher your spend, the larger the absolute savings.</p></div>
+        </div>
+        <div class="card reveal" style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="color: var(--accent); font-size: 1.2rem; flex-shrink: 0;">✓</div>
+          <div><h4 style="font-size: 0.95rem; margin-bottom: 4px;">Significant inductive motor load</h4><p style="font-size: 0.82rem; color: var(--text-secondary);">Motors, pumps, fans, compressors, and conveyors are major sources of reactive power.</p></div>
+        </div>
+        <div class="card reveal" style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="color: var(--accent); font-size: 1.2rem; flex-shrink: 0;">✓</div>
+          <div><h4 style="font-size: 0.95rem; margin-bottom: 4px;">Power factor below 0.95</h4><p style="font-size: 0.82rem; color: var(--text-secondary);">Utility penalties apply and reactive losses compound energy costs.</p></div>
+        </div>
+        <div class="card reveal" style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="color: var(--accent); font-size: 1.2rem; flex-shrink: 0;">✓</div>
+          <div><h4 style="font-size: 0.95rem; margin-bottom: 4px;">Sub-600V linear and non-linear loads</h4><p style="font-size: 0.82rem; color: var(--text-secondary);">Variable speed drives, UPS systems, servers, and rectifiers all generate harmonics.</p></div>
+        </div>
+        <div class="card reveal" style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="color: var(--accent); font-size: 1.2rem; flex-shrink: 0;">✓</div>
+          <div><h4 style="font-size: 0.95rem; margin-bottom: 4px;">Total harmonic distortion (THD) above 5%</h4><p style="font-size: 0.82rem; color: var(--text-secondary);">High THD indicates significant harmonic losses that HarmoniQ eliminates.</p></div>
+        </div>
+        <div class="card reveal" style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="color: var(--accent); font-size: 1.2rem; flex-shrink: 0;">✓</div>
+          <div><h4 style="font-size: 0.95rem; margin-bottom: 4px;">Sites constrained on power capacity</h4><p style="font-size: 0.82rem; color: var(--text-secondary);">Improving power factor effectively releases capacity — often avoiding costly infrastructure upgrades.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-lg cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="display-2">Ready for a <span class="accent">Precise Number?</span></h2>
+      <p>Our engineers will assess your site, measure your actual power profile, and give you an exact savings figure — free of charge.</p>
+      <div class="cta-actions">
+        <a href="contact.html#demo" class="btn btn-primary btn-lg">Book Free Site Assessment</a>
+        <a href="case-studies.html" class="btn btn-secondary btn-lg">See Real Results</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo" style="display: inline-flex;"><img src="assets/logo.png" alt="HarmoniQ Technologies" class="nav-logo-img" /></a><p>Patented power optimization. 10–25% energy savings across 120+ sites globally.</p></div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="savings-calculator.html">Savings Calculator</a></li><li><a href="case-studies.html">Case Studies</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Insights</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+<script src="js/search.js"></script>
+<script src="js/roi.js"></script>
+</body>
+</html>
