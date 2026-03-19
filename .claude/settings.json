@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ \"$(git rev-parse --abbrev-ref HEAD)\" = \"main\" ]; then git pull --ff-only origin main 2>/dev/null; else git fetch origin main:main 2>/dev/null; fi; exit 0"
+          }
+        ]
+      }
+    ]
+  }
+}
