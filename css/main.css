@@ -3,7 +3,8 @@
    Design language: Palantir-inspired. Flat. Sharp. Typography-led.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap');
 
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
@@ -47,7 +48,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -58,10 +59,10 @@ ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
 /* ── Typography ────────────────────────────────────────────── */
-.display-1 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: clamp(2.75rem, 6vw, 5.25rem); font-weight: 700; line-height: 1.03; letter-spacing: -0.04em; }
-.display-2 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem);     font-weight: 700; line-height: 1.06; letter-spacing: -0.035em; }
-.h1 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: clamp(1.6rem, 3vw, 2.5rem);  font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; }
-.h2 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: clamp(1.3rem, 2.5vw, 1.875rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+.display-1 { font-family: 'Instrument Sans', 'Satoshi', sans-serif; font-size: clamp(2.75rem, 6vw, 5.25rem); font-weight: 700; line-height: 1.03; letter-spacing: -0.04em; }
+.display-2 { font-family: 'Instrument Sans', 'Satoshi', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem);     font-weight: 700; line-height: 1.06; letter-spacing: -0.035em; }
+.h1 { font-family: 'Instrument Sans', 'Satoshi', sans-serif; font-size: clamp(1.6rem, 3vw, 2.5rem);  font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; }
+.h2 { font-family: 'Instrument Sans', 'Satoshi', sans-serif; font-size: clamp(1.3rem, 2.5vw, 1.875rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
 .h3 { font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-weight: 600; line-height: 1.3; }
 .body-lg { font-size: 1.125rem; line-height: 1.7; }
 .body-md { font-size: 1rem; line-height: 1.65; }
@@ -98,6 +99,35 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .section-header .eyebrow { margin-bottom: 16px; }
 .section-header h2 { margin-bottom: 16px; }
 .section-header p { color: var(--text-secondary); max-width: 580px; margin: 0 auto; font-size: 1.1rem; }
+
+/* Split header — left-aligned, description below heading */
+.section-header--split {
+  text-align: left;
+  display: block;
+  max-width: 720px;
+}
+.section-header--split-left .eyebrow { margin-bottom: 14px; }
+.section-header--split-left h2 { margin-bottom: 20px; }
+.section-header--split-right p { margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); max-width: 580px; }
+
+/* Get Started — heading left, steps 2x2 right */
+.getstarted-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+.getstarted-heading { text-align: left; position: sticky; top: calc(var(--nav-height) + 32px); }
+.getstarted-heading .eyebrow { color: var(--accent-light); }
+.getstarted-heading h2 { margin-bottom: 16px; color: var(--dark-text); }
+.getstarted-heading p { color: var(--dark-muted); font-size: 1.05rem; line-height: 1.7; max-width: 400px; }
+.getstarted-layout .steps-flow {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.getstarted-layout .steps-flow::before { display: none; }
+.getstarted-layout .flow-step { text-align: left; padding: 24px; background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: var(--radius-md); }
 
 /* Dark context section headers */
 .dark-section .section-header .eyebrow,
@@ -302,7 +332,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   border: 1.5px solid rgba(0, 168, 128, 0.45);
   border-radius: 24px;
   color: #00B880;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
@@ -371,13 +401,13 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 .problem-card {
   padding: 36px 32px;
   border: 1px solid var(--border);
+  border-left: 2px solid transparent;
   margin-right: -1px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .problem-card:hover {
   background: var(--bg-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+  border-left-color: #DC2626;
 }
 .problem-card-num {
   font-size: 2.2rem;
@@ -387,6 +417,11 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   line-height: 1;
   margin-bottom: 12px;
   font-family: 'JetBrains Mono', monospace;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.problem-card:hover .problem-card-num {
+  transform: scale(1.12);
+  transform-origin: left center;
 }
 .problem-card h4 {
   font-size: 0.95rem;
@@ -573,13 +608,15 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 .team-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  transition: box-shadow 0.25s, transform 0.25s;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
 }
 .team-card:hover {
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   transform: translateY(-3px);
+  border-bottom-color: var(--accent);
 }
 .team-photo {
   width: 100%;
@@ -725,7 +762,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   border-radius: var(--radius-md); padding: 28px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.card:hover { border-color: rgba(26,122,68,0.30); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 0 0 1px rgba(26,122,68,0.08); }
+.card:hover { border-color: rgba(26,122,68,0.35); box-shadow: 0 0 0 3px rgba(26,122,68,0.08); }
 .card-accent { border-top: 2px solid var(--accent); }
 
 /* ── FAQ ───────────────────────────────────────────────────── */
@@ -1215,11 +1252,13 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 
 /* ── Water Purification Analogy ────────────────────────────── */
 .water-analogy {
-  margin: 36px 0 0;
+  margin: 36px auto 0;
   padding: 28px 32px;
   border-left: 3px solid var(--accent);
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  max-width: 580px;
+  text-align: left;
 }
 .water-analogy p {
   font-size: 1.05rem;
@@ -1591,6 +1630,9 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   .resp-4col > *:nth-child(1),
   .resp-4col > *:nth-child(2) { border-bottom: 1px solid var(--border); }
   .grid-2, .solution-grid, .roi-grid { grid-template-columns: 1fr; gap: 40px; }
+  .section-header--split { grid-template-columns: 1fr; gap: 16px; }
+  .getstarted-layout { grid-template-columns: 1fr; gap: 32px; }
+  .getstarted-heading { position: static; }
   .problem-cards { grid-template-columns: 1fr 1fr 1fr; }
   .pq-scope-header { flex-direction: column; gap: 8px; align-items: flex-start; }
   .grid-3 { grid-template-columns: 1fr 1fr; }
@@ -1631,6 +1673,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   .problem-cards { grid-template-columns: 1fr; }
   .problem-card { margin-right: 0; margin-bottom: -1px; }
   .steps-flow { grid-template-columns: 1fr; }
+  .getstarted-layout .steps-flow { grid-template-columns: 1fr; }
   .clients-logos { grid-template-columns: repeat(2, 1fr); }
   .about-founders { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
   .pedigree-logos { grid-template-columns: repeat(2, 1fr); }
@@ -1725,7 +1768,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   flex: 1;
   background: none; border: none; outline: none;
   color: #EEF2FF;
-  font-size: 1rem; font-weight: 400; font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 400; font-family: 'Satoshi', sans-serif;
   caret-color: var(--accent-light);
 }
 .search-input::placeholder { color: rgba(255,255,255,0.25); }
@@ -1905,7 +1948,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
 }
 .error-content { max-width: 520px; }
 .error-code {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Satoshi', sans-serif;
   font-size: clamp(5rem, 15vw, 10rem);
   font-weight: 700; line-height: 1;
   letter-spacing: -0.04em;
