@@ -407,11 +407,11 @@
 
     // ── Contact info ───────────────────────────────────────────
     {
-      title: 'Phone: 020 3494 4044',
+      title: 'Phone: +44 20 3494 4044',
       description: 'Call us to discuss your energy optimization needs.',
       url: 'contact.html',
       category: 'Contact',
-      keywords: 'phone telephone number call ring 020 3494 4044'
+      keywords: 'phone telephone number call ring +44 20 3494 4044'
     },
     {
       title: 'Email: enquiries@harmoniqtechnology.com',

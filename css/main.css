@@ -1032,15 +1032,17 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   opacity: 0;
   pointer-events: none;
 }
-.page-transition-logo img {
+.page-transition-logo img,
+.page-transition-logo svg {
   width: 48vh; height: 48vh;
-  object-fit: contain;
   display: block;
 }
+.page-transition-logo svg { object-fit: contain; }
 .page-transition.exit .page-transition-logo {
   animation: qLogoIn 0.35s 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
-.page-transition.exit .page-transition-logo img {
+.page-transition.exit .page-transition-logo img,
+.page-transition.exit .page-transition-logo svg {
   animation: qGlow 1.8s 0.5s ease-in-out infinite;
 }
 .page-transition.enter .page-transition-logo {

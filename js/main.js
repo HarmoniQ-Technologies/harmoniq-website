@@ -592,10 +592,18 @@ document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observ
     col.style.animationDelay = (i * STAGGER) + 'ms';
     overlay.appendChild(col);
   }
-  // Q logo LED
+  // Q logo LED — inline SVG so it works from any path
   var qLogo = document.createElement('div');
   qLogo.className = 'page-transition-logo';
-  qLogo.innerHTML = '<img src="/assets/logos/harmoniq-q-sm.png" alt="" />';
+  qLogo.innerHTML = '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="page-transition-q">'
+    + '<defs><mask id="qWaveMask"><rect width="200" height="200" fill="white"/>'
+    + '<path d="M 30 105 L 60 105 L 72 80 L 82 125 L 92 70 L 102 130 L 112 78 L 122 120 L 132 95 L 145 105 L 170 105" '
+    + 'stroke="black" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></mask></defs>'
+    + '<circle cx="95" cy="95" r="70" stroke="#0E7A46" stroke-width="14" fill="none" mask="url(#qWaveMask)"/>'
+    + '<path d="M 30 105 L 60 105 L 72 80 L 82 125 L 92 70 L 102 130 L 112 78 L 122 120 L 132 95 L 145 105 L 170 105" '
+    + 'stroke="#0E7A46" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    + '<rect x="135" y="140" width="14" height="38" rx="4" fill="#0E7A46" transform="rotate(-45 142 159)"/>'
+    + '</svg>';
   overlay.appendChild(qLogo);
 
   document.body.appendChild(overlay);
@@ -796,13 +804,13 @@ window.addEventListener('scroll', () => {
   ];
 
   var HQ_UNITS = [
-    { edge: 0,  phase: 0, num: '1', line1: 'Switchgear', line2: 'Power Booster',  pos: 0.62, side: 'right' },  // Top
+    { edge: 0,  phase: 0, num: '1', line1: 'HarmoniQ', line2: 'Booster',  pos: 0.62, side: 'right' },  // Top
     { edge: 5,  phase: 1, num: '2', line1: 'Line',        line2: 'Conditioner',    pos: 0.58, side: 'right' },  // Busbar -> MCC-2
     { edge: 8,  phase: 2, num: '3', line1: 'Line',        line2: 'Conditioner',    pos: 0.50, side: 'left'  },  // UPS -> PDU (far left)
     { edge: 9,  phase: 3, num: '4', line1: 'Line',        line2: 'Conditioner',    pos: 0.88, side: 'left'  },  // MCC-1 -> Motor
-    { edge: 10, phase: 3, num: '5', line1: 'Active',      line2: 'Power Filter',   pos: 0.82, side: 'right' },  // MCC-1 -> VFD
+    { edge: 10, phase: 3, num: '5', line1: 'Active',      line2: 'Filter',   pos: 0.82, side: 'right' },  // MCC-1 -> VFD
     { edge: 14, phase: 4, num: '6', line1: 'Line',        line2: 'Conditioner',    pos: 0.82, side: 'left'  },  // HVAC -> AHU
-    { edge: 13, phase: 4, num: '7', line1: 'Active',      line2: 'Power Filter',   pos: 0.82, side: 'right' },  // HVAC -> Chiller (far right)
+    { edge: 13, phase: 4, num: '7', line1: 'Active',      line2: 'Filter',   pos: 0.82, side: 'right' },  // HVAC -> Chiller (far right)
   ];
 
   var NODE_TEMPS = {
@@ -888,11 +896,11 @@ window.addEventListener('scroll', () => {
   }
 
   // Which HQ phase primarily fixes each node (5 phases, 7 units)
-  // Unit 1 (phase 0): Switchgear Power Booster — Transformer/Switchgear (0)
+  // Unit 1 (phase 0): HarmoniQ Booster — Transformer/Switchgear (0)
   // Unit 2 (phase 1): MCC-2 branch — HarmoniQ Alpha (4,10,11)
   // Unit 3 (phase 2): UPS/PDU branch — HarmoniQ Alpha (2,7,14)
-  // Units 4,5 (phase 3): MCC-1 branch — HarmoniQ Alpha on Motor, HarmoniQ Power Filter on VFD (3,8,9,15)
-  // Units 6,7 (phase 4): HVAC branch — HarmoniQ Alpha on AHU, HarmoniQ Power Filter on Chiller (5,6,12,13)
+  // Units 4,5 (phase 3): MCC-1 branch — HarmoniQ Alpha on Motor, HarmoniQ Filter on VFD (3,8,9,15)
+  // Units 6,7 (phase 4): HVAC branch — HarmoniQ Alpha on AHU, HarmoniQ Filter on Chiller (5,6,12,13)
   var NODE_PRIMARY = { 0:0, 2:2, 3:3, 4:1, 5:4, 6:4, 7:2, 8:3, 9:3, 10:1, 11:1, 12:4, 13:4, 14:2, 15:3 };
   function nodeFix(id) {
     var base = tp(0) * 0.12;

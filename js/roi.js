@@ -208,14 +208,14 @@ function calculate() {
   // Estimate facility kW from spend
   const estKW = annualSpend / (8760 * 0.60 * rate);
 
-  // ── 1. Energy savings from I²R loss reduction (Power Booster — PF correction) ──
+  // ── 1. Energy savings from I²R loss reduction (HarmoniQ Booster — PF correction) ──
   // Current ratio: I_new/I_old = PF_old/PF_new
   // Loss reduction = 1 - (PF_old/PF_new)²
   // Applied to system loss fraction (all copper losses in facility)
   const lossReductionPF = 1 - Math.pow(currentPF / targetPF, 2);
   const energySavingsPF = annualSpend * lossReductionPF * lossFraction;
 
-  // ── 2. Energy savings from harmonic elimination (HarmoniQ Power Filter) ──
+  // ── 2. Energy savings from harmonic elimination (HarmoniQ Filter) ──
   // Reference: IEEE 519-2022 (Harmonic Control), IEEE C57.110-2018 (harmonic loss factors)
   // Harmonic RMS: I_total = I_fund × √(1 + THD²)
   // But harmonic losses are worse than basic I²R because:
