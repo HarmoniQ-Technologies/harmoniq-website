@@ -414,7 +414,7 @@
       keywords: 'phone telephone number call ring +44 20 3494 4044'
     },
     {
-      title: 'Email: enquiries@harmoniqtechnology.com',
+      title: 'Email: enquiries@harmoniqtechnologies.com',
       description: 'Send us an email with your enquiry.',
       url: 'contact.html',
       category: 'Contact',
