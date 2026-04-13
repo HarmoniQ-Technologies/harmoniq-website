@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Do You Prove Energy Savings Are Real? | HarmoniQ Technologies</title>
+  <meta name="description" content="A facility cuts its electricity bill by 10%. Is that the intervention working, or was last year just warmer? The answer requires weather normalisation, regression analysis, and compliance with IPMVP, ASHRAE Guideline 14, and ISO 50015." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How Do You Prove Energy Savings Are Real? | HarmoniQ Technologies" />
+  <meta property="og:description" content="A facility cuts its electricity bill by 10%. Is that the intervention working, or was last year just warmer? The answer requires weather normalisation, regression analysis, and compliance with IPMVP, ASHRAE Guideline 14, and ISO 50015." />
+  <meta property="og:url" content="https://harmoniqtechnologies.com/articles/proving-energy-savings.html" />
+  <meta property="og:image" content="https://harmoniqtechnologies.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How Do You Prove Energy Savings Are Real? | HarmoniQ Technologies" />
+  <meta name="twitter:description" content="A facility cuts its electricity bill by 10%. Is that the intervention working, or was last year just warmer? The answer requires weather normalisation, regression analysis, and compliance with IPMVP, ASHRAE Guideline 14, and ISO 50015." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/articles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
+
+<nav class="nav scrolled" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon-sm.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../how-it-works.html" class="nav-link">Product</a>
+        <a href="../industries.html" class="nav-link">Industries</a>
+        <a href="../savings-calculator.html" class="nav-link">Savings Calculator</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../blog.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html">Home</a>
+  <a href="../how-it-works.html">Product</a>
+  <a href="../industries.html">Industries</a>
+  <a href="../savings-calculator.html">Savings Calculator</a>
+  <a href="../about.html">About</a>
+  <a href="../blog.html">Insights</a>
+  <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
+</div>
+
+<main id="main">
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-hero-tag">Measurement & Verification</div>
+    <h1>How Do You Prove Energy Savings Are Real?</h1>
+    <p class="article-hero-sub">A facility cuts its electricity bill by 10%. Is that the intervention working, or was last year just warmer? The answer requires weather normalisation, regression analysis, and compliance with IPMVP, ASHRAE Guideline 14, and ISO 50015.</p>
+    <div class="article-hero-meta">
+      <span>HarmoniQ Engineering Team</span>
+      <span>11 min read</span>
+      <span>April 2026</span>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top: 40px;">
+  <div class="article-back">
+    <a href="../blog.html">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+<h2>1. The Problem with Before-and-After Comparisons</h2>
+
+  <p style="font-size: 1.125rem; line-height: 1.7; color: var(--text-primary);">The simplest approach to measuring energy savings is to compare consumption <strong>before</strong> and <strong>after</strong> an intervention. If a facility used 1,000,000 kWh last year and 920,000 kWh this year, did the intervention save 80,000 kWh?</p>
+
+  <p>Not necessarily. This year might have been milder &mdash; less air conditioning in summer, less heating in winter. Occupancy might have dropped. A production line might have shut down. A new piece of equipment might have been added. Any of these factors could explain the change, wholly or partly, without the intervention having had any effect at all.</p>
+
+  <p>To make a credible savings claim, you need to answer a harder question: <strong>what would consumption have been this year, under this year&rsquo;s conditions, if the intervention had never been installed?</strong> The difference between that prediction and actual consumption is the true saving.</p>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">The core equation</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;"><strong>Savings = Predicted baseline consumption &minus; Actual post-intervention consumption &plusmn; Adjustments</strong><br><br>Where &ldquo;predicted baseline&rdquo; is what the facility would have consumed under actual post-period conditions (weather, occupancy, production) if nothing had changed.</div></div>
+
+
+  <h2>2. Weather Normalisation</h2>
+
+  <p style="font-size: 1.125rem; line-height: 1.7; color: var(--text-primary);">Weather is the single largest variable affecting energy consumption in most buildings. <strong>Weather normalisation</strong> is the process of mathematically removing weather&rsquo;s influence so that genuine savings become visible.</p>
+
+  <h3>How it works</h3>
+
+  <p>During the <strong>baseline period</strong> (typically 12 months before the intervention), metered energy data is paired with weather data from a nearby weather station &mdash; temperature, humidity, solar radiation. A <strong>regression model</strong> is built that describes the mathematical relationship between weather conditions and energy consumption at that specific facility.</p>
+
+  <p>After the intervention, the model is fed <strong>actual post-period weather data</strong> and predicts what consumption would have been without any changes. The difference between this prediction and the actual metered consumption is the <strong>weather-normalised saving</strong>.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Collect baseline data</div>
+        <div class="step-desc">12+ months of metered energy data paired with concurrent weather data. The baseline must cover the full range of seasonal conditions.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Build the regression model</div>
+        <div class="step-desc">Establish the mathematical relationship between energy use and independent variables (temperature, humidity, occupancy, production). The model must pass statistical validation tests.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Install the intervention</div>
+        <div class="step-desc">Power quality correction, lighting upgrade, HVAC optimisation &mdash; whatever the energy conservation measure is.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Collect post-period data</div>
+        <div class="step-desc">Continue metering energy consumption under actual operating conditions. Collect the same weather and operational data.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Calculate normalised savings</div>
+        <div class="step-desc">Feed actual post-period weather into the baseline model to predict &ldquo;what would have happened.&rdquo; Subtract actual consumption. The difference is the verified saving.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem;">Why this matters</div><div style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;">Without weather normalisation, a mild winter could make an ineffective intervention look successful, or a harsh summer could make a genuinely effective one look like it failed. Weather normalisation removes this noise and reveals the <strong>true signal</strong>.</div></div>
+
+
+  <h2>3. The Verification Frameworks</h2>
+
+  <p style="font-size: 1.125rem; line-height: 1.7; color: var(--text-primary);">Three internationally recognised frameworks govern how energy savings should be measured and verified. They are complementary, not competing.</p>
+
+  <h3>IPMVP &mdash; International Performance Measurement and Verification Protocol</h3>
+
+  <p>Maintained by the Efficiency Valuation Organization (EVO), IPMVP is the overarching framework used worldwide. It defines <strong>four options</strong> depending on the type of intervention and available data:</p>
+
+  <table>
+    <tr><th>Option</th><th>Name</th><th>Method</th><th>Best For</th></tr>
+    <tr><td><strong>A</strong></td><td>Retrofit Isolation &mdash; Key Parameter</td><td>Measure the most critical parameter; estimate the rest</td><td>Simple, single-system changes (e.g., lighting)</td></tr>
+    <tr><td><strong>B</strong></td><td>Retrofit Isolation &mdash; All Parameters</td><td>Continuously measure all parameters of the affected system</td><td>Complex single systems with variable loads</td></tr>
+    <tr><td class="g"><strong>C</strong></td><td class="g">Whole Facility</td><td>Analyse utility meter data using regression</td><td class="g">Multiple measures, whole-building savings</td></tr>
+    <tr><td><strong>D</strong></td><td>Calibrated Simulation</td><td>Calibrated energy model</td><td>When baseline metering was unavailable</td></tr>
+  </table>
+
+  <p><strong>Option C</strong> is the most common for power quality projects because the savings affect the entire facility &mdash; reduced I&sup2;R losses in every cable, cooler transformers, lower demand charges. These benefits are distributed and best captured at the utility meter level.</p>
+
+  <h3>ASHRAE Guideline 14</h3>
+
+  <p><strong>ASHRAE Guideline 14-2014: Measurement of Energy, Demand, and Water Savings</strong> provides the detailed statistical criteria that IPMVP references. It specifies how to build regression models, what validation tests they must pass, and how to calculate savings uncertainty. It is the quantitative backbone behind IPMVP&rsquo;s qualitative framework.</p>
+
+  <h3>ISO 50015</h3>
+
+  <p><strong>ISO 50015:2014</strong> (Energy management systems &mdash; Measurement and verification of energy performance) provides an internationally recognised M&amp;V framework that complements both IPMVP and ASHRAE. It is particularly relevant for organisations with <strong>ISO 50001</strong> energy management systems, as it provides the M&amp;V methodology to demonstrate ongoing energy performance improvement.</p>
+
+
+  <h2>4. What Makes Results Credible</h2>
+
+  <p style="font-size: 1.125rem; line-height: 1.7; color: var(--text-primary);">A savings claim is only as good as the statistics behind it. The following metrics determine whether results should be trusted.</p>
+
+  <table>
+    <tr><th>Metric</th><th>What It Measures</th><th>Acceptable Threshold</th></tr>
+    <tr><td><strong>CV(RMSE)</strong></td><td>How well the model fits the data (lower is better)</td><td>&le;15% for monthly data, &le;30% for hourly</td></tr>
+    <tr><td><strong>NMBE</strong></td><td>Systematic bias in predictions (closer to 0% is better)</td><td>&le;5% for monthly, &le;10% for hourly</td></tr>
+    <tr><td><strong>p-value</strong></td><td>Probability that results are due to chance</td><td>&lt;0.05 (ideally &lt;0.01)</td></tr>
+    <tr><td><strong>R&sup2;</strong></td><td>Proportion of variance explained by the model</td><td>&gt;0.75 (though CV(RMSE) is more meaningful)</td></tr>
+    <tr><td><strong>Cohen&rsquo;s d</strong></td><td>Practical significance / effect size</td><td>&gt;0.5 = large effect</td></tr>
+    <tr><td><strong>Fractional Savings Uncertainty</strong></td><td>Uncertainty range of reported savings</td><td>&lt;50% of savings at 68% confidence</td></tr>
+  </table>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Statistical significance vs practical significance</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">A result can be statistically significant (low p-value) but practically insignificant (tiny effect size). Conversely, a large effect size with weak statistics means the effect might be real but the data isn&rsquo;t conclusive. <strong>Credible M&amp;V requires both</strong>: a low p-value (the savings aren&rsquo;t due to chance) and a meaningful effect size (the savings are large enough to matter).</div></div>
+
+
+  <h2>5. Common Pitfalls</h2>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Cherry-picking baselines</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Selecting an unrepresentative baseline period &mdash; for example, a year with unusually high consumption &mdash; inflates apparent savings. Baselines must cover the <strong>full range of normal operating conditions</strong> (all seasons, typical occupancy, representative production).</div></div>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Insufficient data</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">A minimum of <strong>12 months baseline</strong> is needed for weather-sensitive facilities to capture all seasonal variation. Shorter baselines risk missing heating or cooling seasons entirely, producing models that fail outside the conditions they were trained on.</div></div>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Ignoring non-routine events</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Production changes, equipment additions, occupancy shifts, or operational changes between the baseline and post periods must be <strong>identified and adjusted for</strong>. Otherwise savings are misattributed &mdash; a factory that reduced production will show lower consumption regardless of any intervention.</div></div>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Overfitting</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Including too many variables relative to available data points produces a model that fits historical data perfectly but <strong>predicts poorly</strong>. A good regression model is parsimonious &mdash; it uses only the variables that genuinely drive consumption.</div></div>
+
+
+  <h2>6. Why This Matters for Power Quality</h2>
+
+  <p style="font-size: 1.125rem; line-height: 1.7; color: var(--text-primary);">Power quality improvements &mdash; harmonic filtering, power factor correction, voltage stabilisation &mdash; typically reduce facility consumption by <strong>5&ndash;15%</strong>. That&rsquo;s a genuine and valuable saving, but it&rsquo;s modest enough that weather variation, production changes, or seasonal shifts can easily mask or exaggerate it.</p>
+
+  <p>Without rigorous M&amp;V, a facility manager has no way to know whether a 10% drop in consumption was caused by the power quality intervention, a mild winter, or a production slowdown. With it, the savings are <strong>isolated, quantified, and statistically validated</strong> &mdash; giving confidence to everyone from the facility manager to the CFO to the board.</p>
+
+  <div style="background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem;">What HarmoniQ provides</div><div style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;">Every HarmoniQ deployment includes comprehensive measurement and verification. We meter at 15-minute intervals using Class 0.2 equipment, build weather-normalised regression models, and validate results to recognised statistical thresholds. Our savings reports are independently verifiable, fully documented, and suitable for submission to utility incentive programmes, ESG reporting, and regulatory compliance.</div></div>
+
+  <p>The result: when we say a facility saved 8% on its electricity consumption, that number has been <strong>weather-normalised, statistically validated, and verified against international standards</strong>. It&rsquo;s not an estimate. It&rsquo;s a measurement.</p
+
+</div>
+
+<div class="article-cta">
+  <div class="article-cta-card">
+    <h3>Want this assessed for your own site?</h3>
+    <p>Our engineers run a free site assessment, measure your actual power profile, and give you an exact savings figure.</p>
+    <a href="../contact.html#demo" class="btn btn-primary btn-lg">Book a Free Site Assessment</a>
+  </div>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="../index.html" class="nav-logo" style="display: inline-flex;"><img src="../assets/logo.png" alt="HarmoniQ Technologies" class="nav-logo-img" /></a><p>Patented power optimization. 10–25% energy savings across 4,250+ units deployed globally.</p></div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="../how-it-works.html">How It Works</a></li><li><a href="../savings-calculator.html">Savings Calculator</a></li><li><a href="../industries.html">Industries</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../partners.html">Partners</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../blog.html">Insights</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../patents.html">Patents</a></div></div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="../js/main.js"></script>
+<script src="../js/search.js"></script>
+</body>
+</html>

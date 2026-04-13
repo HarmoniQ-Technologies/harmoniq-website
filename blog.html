@@ -90,106 +90,188 @@
         <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 24px;">Most facility managers know their kWh cost. Almost none know what reactive power is costing them on top. This guide breaks down exactly where the money goes — and how to get it back.</p>
         <div style="display: flex; align-items: center; gap: 16px;">
           <a href="articles/hidden-cost.html" class="btn btn-primary btn-sm">Read Article</a>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">12 min read · Feb 2025</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">12 min read · 16 Mar 2026</span>
         </div>
       </div>
-      <div style="background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; min-height: 280px; border-left: 1px solid var(--border-subtle); overflow: hidden;">
-        <svg viewBox="0 0 400 280" width="100%" height="100%" style="display:block;">
-          <rect width="400" height="280" fill="var(--bg-secondary)" />
-          <!-- Abstract bill/invoice lines -->
-          <rect x="80" y="40" width="240" height="200" rx="4" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1" />
-          <rect x="100" y="60" width="100" height="6" rx="2" fill="var(--border)" />
-          <rect x="100" y="78" width="160" height="4" rx="2" fill="var(--border-subtle)" />
-          <rect x="100" y="92" width="140" height="4" rx="2" fill="var(--border-subtle)" />
-          <rect x="100" y="106" width="180" height="4" rx="2" fill="var(--border-subtle)" />
-          <!-- Highlighted "hidden" line -->
-          <rect x="96" y="124" width="208" height="18" rx="3" fill="var(--accent)" opacity="0.1" />
-          <rect x="100" y="130" width="120" height="4" rx="2" fill="var(--accent)" />
-          <text x="280" y="136" text-anchor="end" font-family="Satoshi,sans-serif" font-size="10" font-weight="700" fill="var(--accent)">5–30%</text>
-          <!-- More lines -->
-          <rect x="100" y="152" width="150" height="4" rx="2" fill="var(--border-subtle)" />
-          <rect x="100" y="166" width="130" height="4" rx="2" fill="var(--border-subtle)" />
-          <rect x="100" y="188" width="200" height="6" rx="2" fill="var(--text-primary)" opacity="0.15" />
-          <!-- Magnifying glass -->
-          <circle cx="310" cy="180" r="28" fill="none" stroke="var(--accent)" stroke-width="2.5" opacity="0.5" />
-          <line x1="330" y1="200" x2="348" y2="218" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.5" />
-        </svg>
+      <div style="background: #0A0B0E; min-height: 280px; border-left: 1px solid var(--border-subtle); overflow: hidden; position: relative;">
+        <img src="assets/blog/meter.jpg" alt="Three-phase industrial energy meter" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
 
     <div class="blog-grid" id="blogGrid">
-      <!-- 1. Electrification — dark bg, bold stat -->
+      <!-- NEW. Solar PV & Power Quality -->
+      <a href="articles/solar-pv-power-quality.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #052e16; padding: 0; position: relative;">
+          <img src="assets/blog/solar.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Renewables</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Renewables</div>
+          <h3 class="h3" style="margin-bottom: 8px;">The Solar Blind Spot: How Clean Energy Creates Dirty Power</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">PV inverters inject harmonic distortion that degrades power quality, damages equipment, and partially erodes the financial return of solar investment.</p>
+          <div class="blog-date">14 min read · 13 Apr 2026</div>
+        </div>
+      </a>
+
+      <!-- NEW. Proving Energy Savings -->
+      <a href="articles/proving-energy-savings.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/fluke.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Measurement &amp; Verification</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Measurement &amp; Verification</div>
+          <h3 class="h3" style="margin-bottom: 8px;">How Do You Prove Energy Savings Are Real?</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Weather normalisation, regression analysis, and the verification frameworks (IPMVP, ASHRAE Guideline 14, ISO 50015) that separate real savings from favourable weather.</p>
+          <div class="blog-date">11 min read · 6 Apr 2026</div>
+        </div>
+      </a>
+
+      <!-- 1. Electrification — data centre photo -->
       <a href="articles/electrification-of-everything.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb blog-thumb-dark">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">Energy Trends</span>
-          <div style="text-align: center;">
-            <div class="blog-thumb-stat" style="font-size: 4rem; color: #00C87A;">+75%</div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 1px; margin-top: 4px;">PROJECTED DEMAND GROWTH BY 2050</div>
-          </div>
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/datacenter.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Energy Trends</span>
         </div>
         <div class="blog-body">
           <div class="blog-tag">Energy Trends</div>
           <h3 class="h3" style="margin-bottom: 8px;">The Electrification of Everything: Why Global Power Demand Is About to Surge</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">EVs, heat pumps, data centres, and green hydrogen are driving a 75% increase in global electricity demand. What this means for industrial power quality.</p>
-          <div class="blog-date">14 min read · Mar 2026</div>
+          <div class="blog-date">14 min read · 9 Mar 2026</div>
         </div>
       </a>
 
       <!-- 2. Global Prices — dark bg, price range -->
       <a href="articles/global-electricity-prices.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb blog-thumb-dark">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">Energy Costs</span>
-          <div style="text-align: center;">
-            <div style="display: flex; align-items: baseline; justify-content: center; gap: 12px;">
-              <span class="blog-thumb-stat" style="font-size: 2rem; color: #86efac;">$0.02</span>
-              <span style="font-size: 1.2rem; color: rgba(255,255,255,0.25);">&rarr;</span>
-              <span class="blog-thumb-stat" style="font-size: 2rem; color: #DC2626;">$0.25</span>
-            </div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 1px; margin-top: 8px;">PER kWh &mdash; 12x RANGE GLOBALLY</div>
-          </div>
+        <div class="blog-thumb blog-thumb-dark" style="padding: 0;">
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.4); z-index: 2;">Energy Costs</span>
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block;">
+            <defs>
+              <radialGradient id="globeCore" cx="35%" cy="30%">
+                <stop offset="0" stop-color="#0d1418"/>
+                <stop offset="1" stop-color="#05080a"/>
+              </radialGradient>
+              <radialGradient id="globeAtm" cx="50%" cy="50%">
+                <stop offset="75%" stop-color="transparent"/>
+                <stop offset="100%" stop-color="#00C47A" stop-opacity="0.15"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="180" fill="#0A0B0E"/>
+
+            <!-- Blueprint grid background -->
+            <g stroke="#00C47A" stroke-width="0.3" opacity="0.08">
+              <line x1="0" y1="30" x2="400" y2="30"/><line x1="0" y1="60" x2="400" y2="60"/>
+              <line x1="0" y1="90" x2="400" y2="90"/><line x1="0" y1="120" x2="400" y2="120"/>
+              <line x1="0" y1="150" x2="400" y2="150"/>
+              <line x1="50" y1="0" x2="50" y2="180"/><line x1="100" y1="0" x2="100" y2="180"/>
+              <line x1="150" y1="0" x2="150" y2="180"/><line x1="250" y1="0" x2="250" y2="180"/>
+              <line x1="300" y1="0" x2="300" y2="180"/><line x1="350" y1="0" x2="350" y2="180"/>
+            </g>
+
+            <!-- Corner registration marks -->
+            <g stroke="#00C47A" stroke-width="0.8" opacity="0.45" fill="none">
+              <path d="M10,10 L22,10 M10,10 L10,22"/>
+              <path d="M390,10 L378,10 M390,10 L390,22"/>
+              <path d="M10,170 L22,170 M10,170 L10,158"/>
+              <path d="M390,170 L378,170 M390,170 L390,158"/>
+            </g>
+
+            <!-- Globe -->
+            <g transform="translate(200, 92)">
+              <!-- Atmospheric glow -->
+              <circle cx="0" cy="0" r="86" fill="url(#globeAtm)"/>
+              <!-- Core sphere shadow -->
+              <circle cx="0" cy="0" r="72" fill="url(#globeCore)"/>
+              <!-- Outer sphere outline -->
+              <circle cx="0" cy="0" r="72" fill="none" stroke="#00C47A" stroke-width="1.5"/>
+              <!-- Latitude rings -->
+              <ellipse cx="0" cy="-44" rx="57" ry="4" fill="none" stroke="#00C47A" stroke-width="0.7" opacity="0.4"/>
+              <ellipse cx="0" cy="-22" rx="68" ry="7" fill="none" stroke="#00C47A" stroke-width="0.8" opacity="0.5"/>
+              <ellipse cx="0" cy="0" rx="72" ry="10" fill="none" stroke="#00C47A" stroke-width="1" opacity="0.7"/>
+              <ellipse cx="0" cy="22" rx="68" ry="7" fill="none" stroke="#00C47A" stroke-width="0.8" opacity="0.5"/>
+              <ellipse cx="0" cy="44" rx="57" ry="4" fill="none" stroke="#00C47A" stroke-width="0.7" opacity="0.4"/>
+              <!-- Longitude arcs -->
+              <ellipse cx="0" cy="0" rx="20" ry="72" fill="none" stroke="#00C47A" stroke-width="0.8" opacity="0.5"/>
+              <ellipse cx="0" cy="0" rx="44" ry="72" fill="none" stroke="#00C47A" stroke-width="0.8" opacity="0.35"/>
+              <line x1="0" y1="-72" x2="0" y2="72" stroke="#00C47A" stroke-width="1" opacity="0.6"/>
+
+              <!-- Crosshair reticle -->
+              <g stroke="#00C47A" stroke-width="1" opacity="0.55">
+                <line x1="-88" y1="0" x2="-78" y2="0"/>
+                <line x1="78" y1="0" x2="88" y2="0"/>
+                <line x1="0" y1="-88" x2="0" y2="-78"/>
+                <line x1="0" y1="78" x2="0" y2="88"/>
+              </g>
+
+              <!-- Industrial hub dots with pulse halos -->
+              <g opacity="0.5">
+                <circle cx="-12" cy="-32" r="9" fill="none" stroke="#00C47A" stroke-width="0.7"/>
+                <circle cx="24" cy="-20" r="10" fill="none" stroke="#00C47A" stroke-width="0.7"/>
+                <circle cx="44" cy="8" r="8" fill="none" stroke="#00C47A" stroke-width="0.7"/>
+                <circle cx="-42" cy="8" r="10" fill="none" stroke="#00C47A" stroke-width="0.7"/>
+                <circle cx="14" cy="30" r="8" fill="none" stroke="#00C47A" stroke-width="0.7"/>
+                <circle cx="-16" cy="40" r="8" fill="none" stroke="#00C47A" stroke-width="0.7"/>
+              </g>
+              <g fill="#00C47A">
+                <circle cx="-12" cy="-32" r="3.5"/>
+                <circle cx="24" cy="-20" r="4.5"/>
+                <circle cx="44" cy="8" r="3"/>
+                <circle cx="-42" cy="8" r="4"/>
+                <circle cx="14" cy="30" r="3"/>
+                <circle cx="-16" cy="40" r="3"/>
+              </g>
+
+              <!-- Geodesic arcs -->
+              <path d="M-42,8 Q-28,-14 -12,-32" fill="none" stroke="#00C47A" stroke-width="1" opacity="0.6" stroke-dasharray="1.5,2.5"/>
+              <path d="M24,-20 Q34,-6 44,8" fill="none" stroke="#00C47A" stroke-width="1" opacity="0.6" stroke-dasharray="1.5,2.5"/>
+              <path d="M-12,-32 Q-5,0 14,30" fill="none" stroke="#00C47A" stroke-width="0.9" opacity="0.4" stroke-dasharray="1.5,2.5"/>
+            </g>
+
+            <!-- Technical annotations -->
+            <g font-family="'JetBrains Mono', monospace" font-size="7" fill="#00C47A" opacity="0.55" letter-spacing="0.5">
+              <text x="20" y="165">LAT 52.5°N</text>
+              <text x="380" y="165" text-anchor="end">LON 13.4°E</text>
+            </g>
+          </svg>
         </div>
         <div class="blog-body">
           <div class="blog-tag">Energy Costs</div>
           <h3 class="h3" style="margin-bottom: 8px;">Global Electricity Prices: What Industrial Operators Pay Around the World</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">From $0.02/kWh in Kuwait to $0.25/kWh in Germany — a comprehensive analysis of industrial electricity costs across 40+ countries.</p>
-          <div class="blog-date">14 min read · Mar 2026</div>
+          <div class="blog-date">14 min read · 2 Mar 2026</div>
         </div>
       </a>
 
       <!-- 3. Grid Capacity — green accent bg -->
       <a href="articles/unlocking-grid-capacity.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: #0A0B0E;">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">Grid & Infrastructure</span>
-          <div style="text-align: center;">
-            <div class="blog-thumb-stat" style="font-size: 4rem; color: #00C87A;">30%</div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 1px; margin-top: 4px;">OF GRID CAPACITY WASTED</div>
-          </div>
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/transmission.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Grid &amp; Infrastructure</span>
         </div>
         <div class="blog-body">
           <div class="blog-tag">Grid & Infrastructure</div>
           <h3 class="h3" style="margin-bottom: 8px;">Unlocking Grid Capacity Without Building New Infrastructure</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Most industrial facilities waste 15–30% of their grid connection capacity on reactive power and harmonics. Here's how to get it back.</p>
-          <div class="blog-date">14 min read · Mar 2026</div>
+          <div class="blog-date">14 min read · 23 Feb 2026</div>
         </div>
       </a>
 
       <!-- 4. Motor Cost — light bg, iceberg concept -->
       <a href="articles/true-cost-industrial-motor.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%);">
-          <span class="blog-thumb-label" style="color: var(--text-muted);">Equipment Lifecycle</span>
-          <div style="text-align: center;">
-            <div style="font-size: 0.6rem; font-weight: 600; color: var(--text-muted); letter-spacing: 1px;">PURCHASE PRICE</div>
-            <div class="blog-thumb-stat" style="font-size: 1.5rem; color: var(--text-muted); opacity: 0.5;">3%</div>
-            <div style="width: 120px; height: 1px; background: var(--border); margin: 6px auto;"></div>
-            <div class="blog-thumb-stat" style="font-size: 3.5rem; color: #1A7A44;">97%</div>
-            <div style="font-size: 0.6rem; font-weight: 600; color: var(--text-muted); letter-spacing: 1px;">IS ELECTRICITY</div>
-          </div>
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/motor.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Equipment Lifecycle</span>
         </div>
         <div class="blog-body">
           <div class="blog-tag">Equipment Lifecycle</div>
           <h3 class="h3" style="margin-bottom: 8px;">The True Cost of an Industrial Motor</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The purchase price is just 3% of a motor's lifetime cost. The other 97% is electricity — and poor power quality inflates it significantly.</p>
-          <div class="blog-date">14 min read · Mar 2026</div>
+          <div class="blog-date">14 min read · 16 Feb 2026</div>
         </div>
       </a>
 
@@ -206,7 +288,7 @@
           <div class="blog-tag">ESG & Sustainability</div>
           <h3 class="h3" style="margin-bottom: 8px;">The ESG Case for Equipment Life Extension</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Extending motor and transformer life by 2–4x through power quality optimisation avoids hundreds of tonnes of embodied carbon per facility.</p>
-          <div class="blog-date">14 min read · Mar 2026</div>
+          <div class="blog-date">14 min read · 9 Feb 2026</div>
         </div>
       </a>
 
@@ -234,25 +316,22 @@
           <div class="blog-tag">Energy Management</div>
           <h3 class="h3" style="margin-bottom: 8px;">Energy Efficiency vs Power Quality Optimisation</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Most energy strategies focus on reducing consumption but ignore the 5–30% wasted through poor power quality. Why you need both disciplines.</p>
-          <div class="blog-date">14 min read · Mar 2026</div>
+          <div class="blog-date">14 min read · 2 Feb 2026</div>
         </div>
       </a>
 
       <!-- 7. Europe — blue tint, price premium -->
       <a href="articles/europe-industrial-energy.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">Regional Insight</span>
-          <div style="text-align: center;">
-            <div style="font-size: 0.6rem; font-weight: 600; color: rgba(147,197,253,0.5); letter-spacing: 1.5px; margin-bottom: 4px;">EUROPE</div>
-            <div class="blog-thumb-stat" style="font-size: 3.5rem; color: #93C5FD;">2&ndash;3x</div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-top: 4px;">PRICE PREMIUM vs GLOBAL AVG</div>
-          </div>
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/europe.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Regional Insight</span>
         </div>
         <div class="blog-body">
           <div class="blog-tag">Regional Insight</div>
           <h3 class="h3" style="margin-bottom: 8px;">Europe's Industrial Energy Crisis: The Case for Power Quality Investment</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">With the highest industrial electricity prices globally, European manufacturers face a unique imperative to optimise every kilowatt.</p>
-          <div class="blog-date">14 min read · Mar 2026</div>
+          <div class="blog-date">14 min read · 26 Jan 2026</div>
         </div>
       </a>
 
@@ -270,24 +349,22 @@
           <div class="blog-tag">Regional Insight</div>
           <h3 class="h3" style="margin-bottom: 8px;">The Middle East's Industrial Power Challenge: Beyond Cheap Electricity</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Subsidy reform, 50°C ambient temperatures, and Vision 2030 industrialisation are transforming the Middle East power quality landscape.</p>
-          <div class="blog-date">14 min read · Mar 2026</div>
+          <div class="blog-date">14 min read · 19 Jan 2026</div>
         </div>
       </a>
 
       <!-- 9. Arrhenius — warm red accent -->
       <a href="articles/arrhenius-rule.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%);">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">Equipment Life</span>
-          <div style="text-align: center;">
-            <div class="blog-thumb-stat" style="font-size: 3.5rem; color: #FCA5A5;">10°C</div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 1px; margin-top: 4px;">HALVES INSULATION LIFE</div>
-          </div>
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/thermal.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Equipment Life</span>
         </div>
         <div class="blog-body">
           <div class="blog-tag">Equipment Life</div>
           <h3 class="h3" style="margin-bottom: 8px;">The IEEE Arrhenius Rule: Why Every 10°C Matters</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How reducing operating temperature by 20°C can double the lifespan of motors, transformers, and insulation systems — and what this means for your capital budget.</p>
-          <div class="blog-date">8 min read · Jan 2025</div>
+          <div class="blog-date">8 min read · 12 Jan 2026</div>
         </div>
       </a>
 
@@ -309,25 +386,22 @@
           <div class="blog-tag">Power Factor</div>
           <h3 class="h3" style="margin-bottom: 8px;">Power Factor Penalties: What Your Utility Isn't Telling You</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">A guide to understanding how utilities calculate PF penalties, which tariffs are most affected, and how to eliminate these charges entirely.</p>
-          <div class="blog-date">10 min read · Dec 2024</div>
+          <div class="blog-date">10 min read · 5 Jan 2026</div>
         </div>
       </a>
 
       <!-- 11. Scope 2 — green gradient -->
       <a href="articles/scope2-emissions.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">ESG</span>
-          <div style="text-align: center;">
-            <div style="font-size: 0.6rem; font-weight: 600; color: rgba(134,239,172,0.5); letter-spacing: 1.5px; margin-bottom: 4px;">SCOPE 2 EMISSIONS</div>
-            <div class="blog-thumb-stat" style="font-size: 2rem; color: #86efac;">Fastest Lever</div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-top: 6px;">MOST COMPANIES OVERLOOK</div>
-          </div>
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/scope2.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">ESG</span>
         </div>
         <div class="blog-body">
           <div class="blog-tag">ESG</div>
           <h3 class="h3" style="margin-bottom: 8px;">Scope 2 Emissions: The Fastest Lever Most Companies Overlook</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Energy efficiency remains the highest-ROI path to Scope 2 reduction. We explain why power quality optimisation should be the first item on every sustainability roadmap.</p>
-          <div class="blog-date">7 min read · Nov 2024</div>
+          <div class="blog-date">7 min read · 29 Dec 2025</div>
         </div>
       </a>
 
@@ -353,7 +427,7 @@
           <div class="blog-tag">Technology</div>
           <h3 class="h3" style="margin-bottom: 8px;">Active vs Passive Power Factor Correction: A Plain English Guide</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Capacitor banks vs active filters vs HarmoniQ — what's the difference, and why does the approach matter so much for the size of your savings?</p>
-          <div class="blog-date">6 min read · Aug 2024</div>
+          <div class="blog-date">6 min read · 22 Dec 2025</div>
         </div>
       </a>
     </div>
@@ -447,21 +521,6 @@
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- Newsletter -->
-<section class="section-sm" style="background: var(--bg-secondary);">
-  <div class="container">
-    <div style="max-width: 560px; margin: 0 auto; text-align: center;" class="reveal">
-      <h3 class="h2" style="margin-bottom: 12px;">Energy Intelligence, Monthly</h3>
-      <p style="color: var(--text-secondary); margin-bottom: 24px;">Join 2,000+ energy managers and facility operators receiving our monthly power quality insights.</p>
-      <div style="display: flex; gap: 12px; max-width: 440px; margin: 0 auto;">
-        <input type="email" placeholder="your@company.com" style="flex: 1; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px 16px; color: var(--text-primary); font-family: inherit; font-size: 0.9375rem; outline: none; transition: var(--transition);" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-subtle)'" />
-        <button class="btn btn-primary">Subscribe</button>
-      </div>
-      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">No spam. Unsubscribe anytime.</p>
-    </div>
   </div>
 </section>
 

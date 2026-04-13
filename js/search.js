@@ -247,6 +247,20 @@
       category: 'Articles',
       keywords: 'utility kwh calculation kw demand metering interval sliding window block demand charge meter measurement billing methodology technical report'
     },
+    {
+      title: 'The Solar Blind Spot: How Clean Energy Creates Dirty Power',
+      description: 'PV inverters inject 3-15% THD that degrades power quality, damages equipment, and erodes solar ROI. How to solve it.',
+      url: 'articles/solar-pv-power-quality.html',
+      category: 'Articles',
+      keywords: 'solar pv photovoltaic renewable energy harmonics thd inverter pwm clean energy green distortion capacitor bank resonance active filter partial load rooftop sustainability esg'
+    },
+    {
+      title: 'How Do You Prove Energy Savings Are Real?',
+      description: 'Weather normalisation, regression analysis, and the international frameworks (IPMVP, ASHRAE Guideline 14, ISO 50015) used to verify real savings.',
+      url: 'articles/proving-energy-savings.html',
+      category: 'Articles',
+      keywords: 'measurement verification m&v mv ipmvp ashrae guideline 14 iso 50015 50001 weather normalisation regression baseline savings proof verify credible cvrmse nmbe statistical confidence'
+    },
 
     // ── Features & Topics ──────────────────────────────────────
     {
