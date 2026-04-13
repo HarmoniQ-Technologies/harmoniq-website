@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harmonics: The Silent Equipment Killer | HarmoniQ Technologies</title>
+  <meta name="description" content="Modern industrial networks carry hundreds of hertz of harmonic currents on top of the fundamental. They are invisible on the bill, imperceptible at the breaker panel, and quietly destroying equipment. What they are, where they come from, and how to eliminate them." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Harmonics: The Silent Equipment Killer | HarmoniQ Technologies" />
+  <meta property="og:description" content="Modern industrial networks carry hundreds of hertz of harmonic currents on top of the fundamental. They are invisible on the bill, imperceptible at the breaker panel, and quietly destroying equipment. What they are, where they come from, and how to eliminate them." />
+  <meta property="og:url" content="https://harmoniqtechnologies.com/articles/harmonics.html" />
+  <meta property="og:image" content="https://harmoniqtechnologies.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Harmonics: The Silent Equipment Killer | HarmoniQ Technologies" />
+  <meta name="twitter:description" content="Modern industrial networks carry hundreds of hertz of harmonic currents on top of the fundamental. They are invisible on the bill, imperceptible at the breaker panel, and quietly destroying equipment. What they are, where they come from, and how to eliminate them." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/articles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
+
+<nav class="nav scrolled" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon-sm.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../how-it-works.html" class="nav-link">Product</a>
+        <a href="../industries.html" class="nav-link">Industries</a>
+        <a href="../savings-calculator.html" class="nav-link">Savings Calculator</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../blog.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html">Home</a>
+  <a href="../how-it-works.html">Product</a>
+  <a href="../industries.html">Industries</a>
+  <a href="../savings-calculator.html">Savings Calculator</a>
+  <a href="../about.html">About</a>
+  <a href="../blog.html">Insights</a>
+  <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
+</div>
+
+<main id="main">
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-hero-tag">Technology</div>
+    <h1>Harmonics: The Silent Equipment Killer</h1>
+    <p class="article-hero-sub">Modern industrial networks no longer carry pure 50&nbsp;Hz sine waves. Every variable-speed drive, UPS, LED driver, and rectifier injects currents at 150&nbsp;Hz, 250&nbsp;Hz, 350&nbsp;Hz, and higher &mdash; harmonics. Invisible on the bill, imperceptible at the panel, and quietly destroying your equipment.</p>
+    <div class="article-hero-meta">
+      <span>HarmoniQ Engineering Team</span>
+      <span>12 min read</span>
+      <span>February 2026</span>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top: 40px;">
+  <div class="article-back">
+    <a href="../blog.html">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>In a pre-electronic industrial facility, electricity was simple. Motors drew smooth sinusoidal current at 50 or 60 Hz. Transformers saw a clean waveform. The utility meter counted kWh, and that was what the bill reflected. The physics was straightforward, and a century of power-engineering practice was built on that assumption.</p>
+
+  <p>Modern industrial facilities are different. Variable-speed drives (VFDs), UPS systems, server power supplies, LED drivers, induction heaters, welding equipment, EV chargers, and PV inverters all draw current in pulses, not smooth sinusoids. The aggregate effect across a facility is a distorted current waveform made up of the fundamental 50/60 Hz component plus a series of <strong>harmonic</strong> components at multiples of the fundamental: 150 Hz, 250 Hz, 350 Hz, 550 Hz, and higher.</p>
+
+  <p>These harmonic currents are invisible on the utility meter. They do not show up as a line item on the bill. A technician running a multimeter at the breaker panel sees a current reading that looks normal. The facility operator has no reason to suspect anything is wrong. And yet the harmonics are actively degrading transformers, overheating motor windings, tripping capacitor banks, corrupting sensitive electronics, and wasting 3&ndash;8% of the facility's total energy consumption as useless heat.</p>
+
+  <p>This article explains what harmonics are, where they come from, why they are worse than they look, and what the internationally recognised standards &mdash; IEEE 519, IEC 61000, IEEE C57.110 &mdash; say about them.</p>
+
+  <div style="background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;">
+    <div style="font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem;">The core mechanism</div>
+    <div style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;">Harmonic losses do not scale linearly with harmonic magnitude. They scale with the <strong>square of the harmonic order</strong>. A 5th harmonic current at 10% of the fundamental produces approximately <strong>25 times</strong> the additional I&sup2;R loss of the same magnitude of fundamental current. This is why 20% THD can add 3&ndash;5% to a transformer's losses while barely moving the total RMS current.</div>
+  </div>
+
+  <h2>1. What harmonics actually are</h2>
+
+  <p>Any periodic waveform &mdash; no matter how complex or distorted &mdash; can be expressed mathematically as a sum of pure sine waves at integer multiples of a fundamental frequency. This is Fourier's theorem, and it is the entire basis of harmonic analysis.</p>
+
+  <p>In a 50 Hz power system, the <strong>fundamental</strong> frequency is 50 Hz. Harmonic components are sine waves at:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>3rd harmonic</strong>: 150 Hz</li>
+    <li><strong>5th harmonic</strong>: 250 Hz</li>
+    <li><strong>7th harmonic</strong>: 350 Hz</li>
+    <li><strong>11th harmonic</strong>: 550 Hz</li>
+    <li><strong>13th harmonic</strong>: 650 Hz</li>
+    <li>&hellip;and so on, up to the 50th or 60th harmonic in some industrial spectra.</li>
+  </ul>
+
+  <p>A clean, purely resistive linear load draws current at the fundamental frequency only. Its harmonic content is zero. A non-linear load draws current that is rich in harmonic components. The aggregate current waveform on a facility's main bus is the sum of fundamental current plus every harmonic current injected by every non-linear load downstream.</p>
+
+  <p>The industry measures distortion using <strong>Total Harmonic Distortion</strong> (THD), defined as the ratio of the RMS harmonic content to the RMS fundamental:</p>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+    THD = &radic;(I&sub2;&sup2; + I&sub3;&sup2; + I&sub4;&sup2; + &hellip;) &divide; I&sub1;
+  </div>
+
+  <p>Typical values in industrial facilities:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>Clean linear facility</strong> (old factory, mostly induction motors): 3&ndash;5% THD</li>
+    <li><strong>Modern mixed-load facility</strong> (HVAC VFDs, LED lighting, some computing): 10&ndash;18% THD</li>
+    <li><strong>VFD-heavy industrial</strong> (manufacturing, cold storage, water treatment): 18&ndash;28% THD</li>
+    <li><strong>Ports / mining / steel</strong> (large-drive environments, regenerative braking): 22&ndash;35% THD</li>
+  </ul>
+
+  <h2>2. Where harmonics come from</h2>
+
+  <p>Harmonic currents are produced by any load that does not draw current proportional to the applied voltage &mdash; that is, any <strong>non-linear load</strong>. The dominant sources in a modern industrial facility are:</p>
+
+  <h3>Variable-speed drives (VFDs)</h3>
+  <p>The single largest source of harmonic current in industry. A six-pulse diode rectifier at the front end of a VFD pulls current in narrow pulses near the voltage peaks, producing a spectrum dominated by the 5th, 7th, 11th, and 13th harmonics. A typical VFD produces 25&ndash;45% THD-I at rated output. Twelve-pulse and active-front-end drives reduce this substantially but are more expensive and less common.</p>
+
+  <h3>UPS systems and rectifiers</h3>
+  <p>Server UPS, battery chargers, and DC power supplies all use rectifiers. Legacy UPS topologies produce 25&ndash;35% THD; modern double-conversion UPS with active PFC produce 3&ndash;5%. Blended across a typical data centre or hospital UPS bank, expect 12&ndash;20% THD.</p>
+
+  <h3>Switch-mode power supplies (SMPS)</h3>
+  <p>Every computer, server, LED driver, CFL ballast, and consumer electronic device uses an SMPS. Individually they are small. In aggregate &mdash; a large office, a commercial building, a data centre &mdash; they are prolific harmonic producers, particularly at the 3rd, 5th, and 7th.</p>
+
+  <h3>Welding, induction heating, arc furnaces</h3>
+  <p>High-power, rapidly switching loads in heavy industry. Arc furnaces in particular produce time-varying, wideband spectra that are difficult to characterise and harder to filter.</p>
+
+  <h3>PV inverters</h3>
+  <p>As covered in <a href="solar-pv-power-quality.html" class="std-ref">a separate article</a>, photovoltaic inverters produce 3&ndash;15% THD depending on loading. The partial-load problem is particularly acute: THD rises sharply as irradiance drops.</p>
+
+  <h2>3. Why harmonics are worse than they look</h2>
+
+  <p>The common misconception is that a current with 20% THD is "only 20% worse" than a clean sinusoid. The reality is much more severe, because harmonic losses are not linear with harmonic magnitude &mdash; they scale with the <strong>square of the harmonic frequency</strong>.</p>
+
+  <h3>Eddy current losses</h3>
+  <p>In transformer cores and motor iron laminations, alternating flux induces circulating currents (eddy currents) that generate heat. Eddy current losses are proportional to the square of the frequency. A 5th harmonic current (250 Hz) produces 5&sup2; = <strong>25 times</strong> the eddy current loss of a fundamental current of equal magnitude. The 7th harmonic produces 49 times. IEEE C57.110-2018 codifies this effect in the <strong>K-factor</strong> &mdash; a measure of a transformer's ability to tolerate harmonic load without thermal failure.</p>
+
+  <h3>Skin effect</h3>
+  <p>In conductors (cables, busbars, winding wire), alternating current tends to concentrate near the surface. The effect strengthens with frequency: at 250 Hz (5th harmonic), the effective AC resistance of a typical power cable is 10&ndash;20% higher than at 50 Hz. Over thousands of metres of facility wiring, this adds meaningful I&sup2;R losses that scale with harmonic content.</p>
+
+  <h3>Proximity effect</h3>
+  <p>When multiple conductors run close together, the AC magnetic field from each conductor induces current redistribution in its neighbours, further increasing effective resistance. Proximity effect also strengthens with frequency.</p>
+
+  <h3>Negative-sequence rotor heating</h3>
+  <p>In three-phase systems, certain harmonic orders rotate in reverse relative to the fundamental. The 5th, 11th, 17th&hellip; are <strong>negative-sequence</strong>. When they appear in a motor's stator current, they induce backward-rotating flux in the air gap, which interacts with the forward-rotating rotor to produce braking torque and concentrated rotor heating. Per IEC 60034, negative-sequence heating can be 6&times; the equivalent positive-sequence heating at the same current magnitude.</p>
+
+  <h3>Triplen harmonics in the neutral</h3>
+  <p>The 3rd, 9th, 15th&hellip; harmonics (multiples of 3) are <strong>zero-sequence</strong>. In a balanced three-phase system, fundamental currents cancel in the neutral conductor. Triplen harmonics do not. They <em>add</em>. In an LED-heavy or SMPS-heavy commercial environment, it is entirely possible for the neutral conductor to carry more RMS current than any individual phase &mdash; a condition most buildings are not wired for, leading to overheating, insulation degradation, and fire risk.</p>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;">
+    <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">The cumulative effect</div>
+    <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">A facility with 20% THD-I is not 20% less efficient than a clean facility. It is typically <strong>3&ndash;8% less efficient in total energy consumption</strong>, suffers 2&ndash;4&times; faster equipment ageing per the Arrhenius thermal rule, and carries 15&ndash;25% lower effective grid capacity &mdash; before accounting for nuisance trips, malfunctions, and maintenance.</div>
+  </div>
+
+  <h2>4. What harmonics cost</h2>
+
+  <p>The financial impact compounds across five distinct mechanisms:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>Transformer derating</strong>. IEEE C57.110-2018 requires transformers feeding non-linear loads to be derated &mdash; often by 15&ndash;25% of rated capacity. If you bought 1000 kVA of transformer to serve a 20% THD load, you effectively bought 800&ndash;850 kVA.</li>
+    <li><strong>Cable and conductor overheating</strong>. Elevated I&sup2;R losses plus skin effect raise conductor operating temperatures, accelerating insulation ageing.</li>
+    <li><strong>Motor insulation degradation</strong>. Harmonic heating in motor windings raises operating temperature. Per IEEE 117 / NEMA MG 1-2016, every 10&deg;C of additional temperature halves remaining insulation life.</li>
+    <li><strong>Capacitor bank failures</strong>. Capacitor impedance decreases with frequency, so harmonic currents flow preferentially into capacitor banks. This leads to overheating, de-rating, and eventual catastrophic failure &mdash; worse still if resonance amplifies the harmonic content.</li>
+    <li><strong>Sensitive equipment malfunction</strong>. PLCs, CNC controllers, medical imaging, and laboratory equipment can drop inputs, corrupt data, or trip protection when voltage THD exceeds 5&ndash;8%.</li>
+    <li><strong>True power factor degradation</strong>. Harmonic currents reduce <em>true</em> power factor even when <em>displacement</em> power factor looks acceptable. Utilities that charge on true PF (many European and Gulf tariffs) see the difference on the bill.</li>
+  </ul>
+
+  <h2>5. The standards that govern harmonics</h2>
+
+  <p>Five internationally recognised standards define the limits, measurement methods, and equipment tolerance requirements for harmonic content in industrial power networks.</p>
+
+  <h3>IEEE 519-2022</h3>
+  <p><strong>IEEE Recommended Practice and Requirements for Harmonic Control in Electric Power Systems.</strong> The definitive standard for THD limits at the <em>point of common coupling</em> (PCC) &mdash; the boundary between the utility and the facility. IEEE 519 specifies voltage-distortion limits (typically &le; 5% THD-V for medium-voltage systems) and current-distortion limits that scale with the short-circuit ratio of the installation. Compliance with IEEE 519 is contractually required on an increasing share of industrial utility connections.</p>
+
+  <h3>IEC 61000 series</h3>
+  <p><strong>Electromagnetic Compatibility.</strong> The international framework for emission limits and measurement methods. Key parts for industrial facilities:</p>
+  <ul style="margin: 12px 0 20px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>IEC 61000-3-2</strong>: Harmonic emission limits for equipment drawing &le; 16 A per phase.</li>
+    <li><strong>IEC 61000-3-12</strong>: Emission limits for equipment 16&ndash;75 A per phase (most industrial equipment).</li>
+    <li><strong>IEC 61000-4-7</strong>: Testing and measurement techniques &mdash; general guide on harmonics and interharmonics.</li>
+    <li><strong>IEC 61000-4-30</strong>: The authoritative standard for power-quality measurement, defining Class A instruments used by most national grids for compliance verification.</li>
+  </ul>
+
+  <h3>IEEE C57.110-2018</h3>
+  <p><strong>Recommended Practice for Establishing Liquid-Immersed and Dry-Type Power and Distribution Transformer Capability When Supplying Nonsinusoidal Load Currents.</strong> Defines the K-factor methodology used to derate transformers under harmonic load. A K-1 transformer is rated for clean linear load; K-4 is typical for modern commercial; K-13 for heavy industrial; K-20+ for data centres with legacy UPS topologies.</p>
+
+  <h3>IEEE 1459-2010</h3>
+  <p><strong>Standard Definitions for the Measurement of Electric Power Quantities Under Sinusoidal, Nonsinusoidal, Balanced, or Unbalanced Conditions.</strong> The mathematical framework for decomposing power into fundamental, harmonic, and unbalance components. The basis for any true-power-factor calculation and for modern utility tariffs that account for harmonic content.</p>
+
+  <h3>IEC 60034-2-1</h3>
+  <p>Rotating electrical machines &mdash; standard methods for determining losses and efficiency. Specifies how to account for harmonic-induced losses in motor testing and nameplate ratings.</p>
+
+  <h2>6. How to measure harmonics</h2>
+
+  <p>A portable power analyser that meets <strong>IEC 61000-4-30 Class A</strong> is the industry-standard instrument. These devices sample voltage and current at 20,000+ samples per second per channel, perform FFT analysis over sliding 200 ms windows, and report THD, individual harmonic magnitudes, flicker, unbalance, and power quality events synchronised to GPS time.</p>
+
+  <p>Key metrics to capture during a site assessment:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>Current THD (THD-I)</strong>: the distortion of the current being drawn by loads.</li>
+    <li><strong>Voltage THD (THD-V)</strong>: the distortion of the bus voltage &mdash; indicative of upstream impedance and harmonic loading.</li>
+    <li><strong>Individual harmonic spectrum</strong>: which orders dominate (5th-and-7th, 11th-and-13th, or triplen-heavy).</li>
+    <li><strong>Time-of-day variation</strong>: harmonic content often peaks during VFD-heavy production hours.</li>
+    <li><strong>K-factor</strong>: the weighted harmonic content as seen by a transformer.</li>
+    <li><strong>Total Demand Distortion (TDD)</strong>: an alternative metric preferred by IEEE 519, expressing harmonic content as a fraction of peak demand rather than instantaneous fundamental.</li>
+  </ul>
+
+  <h2>7. How to eliminate harmonics</h2>
+
+  <p>Three broad categories of mitigation exist, with increasing effectiveness and cost.</p>
+
+  <h3>Passive filters</h3>
+  <p>Tuned LC circuits that present a low impedance at a specific harmonic frequency, absorbing harmonic current before it propagates upstream. Effective and inexpensive, but only for specific harmonic orders (typically the 5th or 7th) and only for loads that do not vary significantly. Passive filters cannot track a changing spectrum, and they interact with the network in ways that can cause <strong>resonance</strong> &mdash; amplifying harmonics rather than suppressing them.</p>
+
+  <h3>Active harmonic filters</h3>
+  <p>Power-electronic devices that continuously measure the current waveform, identify every harmonic component, and inject a mirror-image current that cancels the distortion in real time. Unlike passive filters, active filters handle the full harmonic spectrum, adapt dynamically to load changes, and do not create resonance risk. IEC 61000 compliance is straightforward to verify post-installation.</p>
+
+  <h3>Hybrid systems</h3>
+  <p>A combination of passive filtering (for bulk reactive compensation at the fundamental) and active filtering (for harmonic correction). Common in heavy-industrial installations where kVAR loads are very large and fixed, with separate active filtering for the non-linear load subset.</p>
+
+  <p>HarmoniQ's three-component architecture &mdash; Filter (active harmonic cancellation), Alpha (impedance matching and line conditioning), Booster (solid-state power factor correction) &mdash; addresses all three facets of the problem at the load level, not just at the utility meter. Detailed in <a href="../how-it-works.html" class="std-ref">the product documentation</a>.</p>
+
+  <div style="background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;">
+    <div style="font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem;">The rule of thumb</div>
+    <div style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;">If a facility has any combination of variable-speed drives, UPS systems, LED lighting, or rectifier-fronted equipment &mdash; which today describes virtually every industrial site &mdash; assume 10&ndash;25% THD-I at the main bus. Assume 2&ndash;4% of annual electricity cost is direct harmonic I&sup2;R loss. Assume equipment insulation life is shortened by 40&ndash;70% compared to a clean sinusoidal environment. These numbers are not worst-case. They are typical.</div>
+  </div>
+
+  <h2>Summary</h2>
+
+  <p>Harmonics are the defining power-quality problem of the 21st-century industrial network. They are the unavoidable by-product of the power-electronic loads that run every modern facility, and they inflict steady, compounding damage that does not show up on the bill but shows up in every other metric that matters: equipment life, energy efficiency, grid capacity, process reliability.</p>
+
+  <p>The standards framework is mature: IEEE 519 defines limits, IEC 61000 defines measurement, IEEE C57.110 defines transformer tolerance, IEEE 1459 defines the power mathematics. The mitigation technology &mdash; active harmonic filtering &mdash; is mature and commercially available. What is generally missing is measurement: most facilities have never had a power analyser on their main bus long enough to see what is actually there.</p>
+
+  <p>A proper site assessment, conducted with IEC 61000-4-30 Class A instrumentation over a representative load cycle, is the starting point. Everything else follows from what the measurement reveals.</p>
+
+</div>
+
+<div class="article-cta">
+  <div class="article-cta-card">
+    <h3>What does your actual harmonic profile look like?</h3>
+    <p>Our engineers run a free power-quality assessment using Class A instrumentation. We measure your real harmonic spectrum, calculate the K-factor on your transformers, and quantify the energy and equipment-life impact specific to your site.</p>
+    <a href="../contact.html#demo" class="btn btn-primary btn-lg">Book a Free Site Assessment</a>
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="../index.html" class="nav-logo" style="display: inline-flex;"><img src="../assets/logo.png" alt="HarmoniQ Technologies" class="nav-logo-img" /></a><p>Patented power optimization. 10&ndash;25% energy savings across 4,250+ units deployed globally.</p></div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="../how-it-works.html">How It Works</a></li><li><a href="../industries.html">Industries</a></li><li><a href="../savings-calculator.html">Savings Calculator</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../partners.html">Partners</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../blog.html">Insights</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../patents.html">Patents</a></div></div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="../js/main.js"></script>
+<script src="../js/search.js"></script>
+</body>
+</html>

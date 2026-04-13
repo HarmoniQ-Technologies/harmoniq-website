@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Capacitor Banks Don't Solve the Full Problem | HarmoniQ Technologies</title>
+  <meta name="description" content="Capacitor banks compensate reactive power at the fundamental frequency. Modern industrial facilities have several more power quality problems that capacitor banks cannot touch — and in some cases make worse." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Why Capacitor Banks Don't Solve the Full Problem | HarmoniQ Technologies" />
+  <meta property="og:description" content="Capacitor banks compensate reactive power at the fundamental frequency. Modern industrial facilities have several more power quality problems that capacitor banks cannot touch — and in some cases make worse." />
+  <meta property="og:url" content="https://harmoniqtechnologies.com/articles/capacitor-banks.html" />
+  <meta property="og:image" content="https://harmoniqtechnologies.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Why Capacitor Banks Don't Solve the Full Problem | HarmoniQ Technologies" />
+  <meta name="twitter:description" content="Capacitor banks compensate reactive power at the fundamental frequency. Modern industrial facilities have several more power quality problems that capacitor banks cannot touch — and in some cases make worse." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/articles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
+
+<nav class="nav scrolled" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon-sm.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../how-it-works.html" class="nav-link">Product</a>
+        <a href="../industries.html" class="nav-link">Industries</a>
+        <a href="../savings-calculator.html" class="nav-link">Savings Calculator</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../blog.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html">Home</a>
+  <a href="../how-it-works.html">Product</a>
+  <a href="../industries.html">Industries</a>
+  <a href="../savings-calculator.html">Savings Calculator</a>
+  <a href="../about.html">About</a>
+  <a href="../blog.html">Insights</a>
+  <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
+</div>
+
+<main id="main">
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-hero-tag">Technology</div>
+    <h1>Why Capacitor Banks Don't Solve the Full Problem</h1>
+    <p class="article-hero-sub">Capacitor banks compensate reactive power at the fundamental frequency. That is all they do. Modern industrial facilities have several more power quality problems that capacitor banks cannot touch &mdash; and, in some cases, actively make worse.</p>
+    <div class="article-hero-meta">
+      <span>HarmoniQ Engineering Team</span>
+      <span>11 min read</span>
+      <span>January 2026</span>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top: 40px;">
+  <div class="article-back">
+    <a href="../blog.html">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>Capacitor banks have existed for over a hundred years. They are reliable, well-understood, widely deployed, and cheap relative to the savings they deliver on a narrow type of utility bill. For much of the 20th century, they were the right answer to the industrial power-quality problem as it was then defined.</p>
+
+  <p>The problem has since changed. Industrial facilities today run almost nothing on purely linear, fundamental-frequency loads. Variable-speed drives, UPS systems, LED lighting, server PSUs, induction-heating equipment, rectifiers, and battery chargers now generate the majority of the current drawn by a typical site. These loads inject <strong>harmonic currents</strong> into the electrical network &mdash; currents at 150 Hz, 250 Hz, 350 Hz, and higher, in addition to the 50 Hz or 60 Hz fundamental.</p>
+
+  <p>Capacitor banks were not designed for this world. They compensate reactive power at the <em>fundamental frequency only</em>. Everything else &mdash; harmonic distortion, voltage instability, phase imbalance, circulating currents, resonance risk &mdash; is invisible to them. The meter, happily, reports a better power factor after a capacitor bank is installed, and the utility stops charging the PF penalty. The bill improves. The internal network continues to bleed money and damage equipment, because the underlying problem was never power factor. It was power quality.</p>
+
+  <div style="background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;">
+    <div style="font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem;">The distinction that matters</div>
+    <div style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;"><strong>Power factor</strong> is a single number that describes the relationship between real and apparent power at the utility meter. <strong>Power quality</strong> is the full condition of the current and voltage waveforms across your entire network. A capacitor bank corrects the first. It does not correct the second.</div>
+  </div>
+
+  <h2>1. What capacitor banks actually do</h2>
+
+  <p>The physics is straightforward. Inductive loads &mdash; motors, transformers, fluorescent ballasts, welding equipment &mdash; draw current that lags the voltage waveform. This lagging current is called <strong>reactive current</strong>, and the component of apparent power it creates is called <strong>reactive power</strong>, measured in kVAR. Reactive power does no useful work, but it circulates through every conductor between the load and the utility substation, heating cables and transformers on its way.</p>
+
+  <p>Capacitors do the opposite. They draw current that <em>leads</em> the voltage waveform. Connecting a capacitor bank in parallel with the inductive load cancels the reactive component at the connection point: the leading current from the capacitor bank meets the lagging current from the motor, and the net current flowing upstream is reduced to approximately the real power component alone.</p>
+
+  <p>This is called <strong>displacement power factor correction</strong>, and for a linear, fundamental-frequency load, it is elegant and effective. The utility meter sees a power factor close to unity. The PF penalty is avoided. Copper losses upstream of the capacitor bank drop. Everyone wins.</p>
+
+  <p>The operative phrase is <em>for a linear, fundamental-frequency load</em>.</p>
+
+  <h2>2. What capacitor banks cannot do</h2>
+
+  <p>The moment a network contains non-linear loads &mdash; which today means essentially every industrial network &mdash; the problem extends beyond displacement power factor into the harmonic domain. And capacitor banks have no answer to any of the following.</p>
+
+  <h3>Harmonic current</h3>
+
+  <p>Non-linear loads draw current in pulses rather than smooth sinusoids. Mathematically, a pulsed waveform is equivalent to the sum of the fundamental frequency plus a series of harmonic frequencies &mdash; 5th, 7th, 11th, 13th, and higher. Each of these harmonic currents flows through the network, heating cables and transformers exactly as fundamental current does, but with an additional penalty: harmonic losses scale with the <em>square</em> of the harmonic order. A 5th harmonic current produces 25 times the eddy-current loss of the same magnitude of fundamental current in a transformer core.</p>
+
+  <p>Capacitor banks do nothing to cancel harmonic currents. The impedance of a capacitor actually <em>decreases</em> at higher frequencies, which means harmonic currents preferentially flow into the capacitor bank itself &mdash; overheating it, de-rating it, and eventually destroying it. More on this in Section 3.</p>
+
+  <h3>True power factor</h3>
+
+  <p>The power factor reported by a revenue meter is what engineers call <strong>displacement power factor</strong> &mdash; the cosine of the angle between fundamental voltage and fundamental current. But the more rigorous measure of how effectively current is being used is <strong>true power factor</strong>, which accounts for harmonic content as well (IEEE 1459-2010 defines this formally). A facility with displacement PF of 0.98 but 25% total harmonic distortion has a true power factor closer to 0.95. The meter sees the 0.98. The copper losses respond to the 0.95.</p>
+
+  <h3>Voltage stability</h3>
+
+  <p>Motor starts, compressor cycling, welding inrush, and rectifier switching all cause transient voltage sags and swells lasting milliseconds to seconds. These transients can trip sensitive equipment, drop PLC outputs, corrupt servers, and cause nuisance shutdowns. Capacitor banks are static elements. They do not respond to transients at all &mdash; in fact, switching a capacitor bank itself is one of the more common <em>causes</em> of transient voltage events on a network.</p>
+
+  <h3>Phase imbalance</h3>
+
+  <p>Industrial facilities rarely have perfectly balanced loading across the three phases of a distribution system. Single-phase loads, different equipment schedules, and asymmetric wiring all contribute. Phase imbalance creates circulating neutral currents, negative-sequence components that heat motor rotors, and additional copper losses across the network. Capacitor banks are typically connected in delta or wye across all three phases equally &mdash; they correct the average power factor but do nothing to rebalance individual phases.</p>
+
+  <h3>Neutral current</h3>
+
+  <p>Triplen harmonics (3rd, 9th, 15th) do not cancel across three-phase systems &mdash; they add in the neutral conductor. Modern LED lighting and server PSUs are prolific sources of triplen harmonics. A neutral conductor sized for fundamental current only can carry more current than any single phase when the load is triplen-rich, overheating the conductor and risking fire. Capacitor banks do nothing to attenuate triplens.</p>
+
+  <h2>3. When capacitor banks make it worse</h2>
+
+  <p>This is the part that gets overlooked. Capacitor banks are not merely incomplete in harmonic-rich environments &mdash; they can actively <em>amplify</em> harmonic problems through a mechanism called <strong>resonance</strong>.</p>
+
+  <p>Every electrical network has a natural frequency at which its inductance and capacitance reinforce each other. When a capacitor bank is connected in parallel with the supply transformer's leakage inductance, a <strong>parallel resonance</strong> is formed at a specific frequency. If that frequency happens to coincide with a harmonic being injected by loads on the network &mdash; most often the 5th or 7th &mdash; the harmonic current is amplified, sometimes by a factor of 3 to 10.</p>
+
+  <p>The consequences:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>The capacitor bank itself overheats and fails</strong>, often violently. Case histories of capacitor can-rupture explosions from harmonic resonance are documented in IEEE 1036 and IEC 60831.</li>
+    <li><strong>Voltage distortion spikes across the network</strong>, damaging sensitive loads that had been running fine before the capacitor bank was installed.</li>
+    <li><strong>Transformers and cables heat up further</strong>, as the amplified harmonic current circulates through them.</li>
+    <li><strong>Fuses blow, breakers trip, and the facility is mystified</strong> &mdash; because the symptoms started only after the "solution" was installed.</li>
+  </ul>
+
+  <p>A typical mitigation is to add a <strong>detuning reactor</strong> in series with the capacitor bank, shifting the resonance frequency below the lowest dominant harmonic (usually below the 5th, so the resonance sits around 200 Hz). This protects the capacitor bank from destructive resonance, but it does not reduce the harmonic currents in the rest of the network. The harmonics continue to circulate, continue to heat equipment, continue to erode efficiency. The detuned capacitor bank has simply removed itself from the crossfire.</p>
+
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;">
+    <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">What a detuned capacitor bank actually does</div>
+    <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Detuned capacitor banks correct displacement power factor and protect themselves from harmonic resonance. They do not remove harmonic current from the network, do not protect downstream equipment, and do not address voltage instability, phase imbalance, or neutral current. They are a capacitor bank with a seat belt, not a complete power quality solution.</div>
+  </div>
+
+  <h2>4. What your bill tells you vs what your network is doing</h2>
+
+  <p>The most common reason facilities believe their capacitor bank is working is that the utility bill improves after installation. The PF penalty line disappears. Apparent demand drops. There is a visible, measurable, financial benefit.</p>
+
+  <p>All of that is real. The capacitor bank <em>is</em> doing its job &mdash; the job of displacement power factor correction at the revenue meter. What the bill does not show is what is happening <em>inside</em> the network, between the capacitor bank and the loads it was meant to serve.</p>
+
+  <p>Consider a manufacturing facility with 500 kW of connected load, 20% total harmonic distortion, and a newly installed 200 kVAR detuned capacitor bank. The utility bill reflects a PF of 0.99 and the PF penalty is eliminated. The CFO sees a $45,000-per-year line-item disappear. The engineer sees the meter.</p>
+
+  <p>What neither of them sees:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>Harmonic losses in the main transformer</strong>: approximately 3&ndash;5% of the transformer's load losses, persisting unchanged. On a 1 MVA transformer running at 60% average load, that is roughly $12,000&ndash;$18,000 per year in wasted energy.</li>
+    <li><strong>Cable I²R losses</strong>: elevated by the 20% THD, contributing an additional 1&ndash;2% of the total facility energy consumption. On a $500,000 annual bill, that is $5,000&ndash;$10,000 per year.</li>
+    <li><strong>Motor stator heating</strong>: harmonics create pulsating torques and negative-sequence currents that heat motor rotors without doing useful work. The effect on equipment life is governed by the Arrhenius rule &mdash; every 10&deg;C of additional winding temperature halves the remaining insulation life (IEEE 117, NEMA MG 1-2016). A motor that should have lasted 20 years lasts 10.</li>
+    <li><strong>Demand charges</strong>: while <em>apparent</em> demand has been reduced by the capacitor bank, the <em>true</em> demand &mdash; which accounts for harmonic content &mdash; has not. On utilities that charge based on true kVA or include a true-power-factor clause, this delivers less billing benefit than expected.</li>
+  </ul>
+
+  <p>The bill improved. The network did not.</p>
+
+  <h2>5. Where capacitor banks still make sense</h2>
+
+  <p>This is not a condemnation of capacitor banks. It is a statement of what they are for. A capacitor bank is the right answer for the following situations:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li>A network with <strong>overwhelmingly linear loads</strong> &mdash; large synchronous motors, direct-online induction motors without variable-speed drives, resistive heating. These are increasingly rare in modern industry but still exist in certain legacy plants, water utilities, and simple pumping stations.</li>
+    <li>A network where the <strong>only symptom</strong> is a PF penalty on the utility bill, with verifiably low THD (under 5%) and no sensitive equipment affected by transients.</li>
+    <li><strong>Utility-side substation installations</strong>, where the capacitor bank sits at the transmission or distribution level and is managed by engineers with detailed knowledge of the local harmonic environment.</li>
+    <li>As a <strong>complement</strong> to an active harmonic filter, providing bulk displacement correction while the active filter handles harmonics. This is a legitimate hybrid design used in some high-kVAR installations.</li>
+  </ul>
+
+  <p>For a standard modern industrial facility with variable-speed drives, UPS, LED lighting, or rectifier loads &mdash; the description of almost every manufacturing plant, cold-storage operation, data centre, or hospital &mdash; a capacitor bank addresses one symptom of a larger problem and leaves the rest untouched.</p>
+
+  <h2>6. What complete power quality correction requires</h2>
+
+  <p>Correcting power factor and correcting power quality are different engineering problems. Full power quality correction requires:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>Active harmonic filtering</strong>, which monitors the current waveform in real time and injects a mirror-image current that cancels each harmonic order individually. Unlike capacitors, active filters are current sources; they do not create resonance risk and they adapt to changing harmonic spectra as loads cycle on and off. IEEE 519-2022 and IEC 61642 define the performance standards these filters are built to.</li>
+    <li><strong>Impedance matching and line conditioning</strong>, which stabilises voltage during transients, reduces circulating currents between parallel feeders, and balances phase loading without adding the phase imbalance penalty that simple static capacitors cannot address.</li>
+    <li><strong>True power factor correction</strong>, which corrects the full apparent-power denominator (including harmonic content), not just the fundamental-frequency displacement component. This is what a true power factor of 0.99 &mdash; versus a displacement power factor of 0.99 with 20% THD &mdash; actually looks like.</li>
+    <li><strong>Continuous measurement and adaptation</strong>. Load profiles in a modern industrial facility change minute to minute as production lines cycle, compressors stage, and HVAC systems modulate. A static capacitor bank sized for average conditions is incorrectly sized for almost every moment of actual operation.</li>
+  </ul>
+
+  <p>HarmoniQ's three-tier architecture &mdash; Filter (active harmonic cancellation), Alpha (impedance matching and line conditioning), and Booster (solid-state true power factor correction) &mdash; exists because the complete problem has three distinct components. A single-element solution that addresses only one of those components is not a complete solution. It is a partial one that the utility meter happens to reward.</p>
+
+  <div style="background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;">
+    <div style="font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem;">The rule of thumb</div>
+    <div style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;">If a facility has variable-speed drives, UPS systems, servers, LED lighting, induction heating, welding, or battery chargers &mdash; and almost every modern industrial facility has at least two of these &mdash; a capacitor bank alone is addressing approximately 30&ndash;40% of the power-quality problem. The remaining 60&ndash;70% continues to erode efficiency, inflate demand charges, and shorten equipment life, regardless of how clean the utility bill looks.</div>
+  </div>
+
+  <h2>Summary</h2>
+
+  <p>Capacitor banks are a mature, reliable technology that solves one specific problem: displacement power factor correction at the fundamental frequency. For the era in which they were developed, that was enough. For the modern industrial load profile, it is not.</p>
+
+  <p>Harmonic currents, voltage transients, phase imbalance, neutral current, resonance risk, and true power factor degradation all affect the efficiency and equipment-life economics of an industrial site. None of these are corrected by a capacitor bank. The utility bill improves because the utility meter reports displacement power factor &mdash; but the cables, transformers, and motors inside the network respond to the full current waveform, which the capacitor bank has not cleaned.</p>
+
+  <p>The solution is not to abandon capacitor banks where they still make sense. It is to recognise that "power factor correction" and "power quality correction" are different engineering problems, and to size the response to the actual problem present. For most modern industrial facilities, that means active harmonic filtering, line conditioning, and true power factor correction &mdash; in that order of importance.</p>
+
+</div>
+
+<div class="article-cta">
+  <div class="article-cta-card">
+    <h3>Want this assessed for your own site?</h3>
+    <p>Our engineers run a free site assessment, measure your actual harmonic and power factor profile, and show you exactly what a capacitor bank alone is missing.</p>
+    <a href="../contact.html#demo" class="btn btn-primary btn-lg">Book a Free Site Assessment</a>
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="../index.html" class="nav-logo" style="display: inline-flex;"><img src="../assets/logo.png" alt="HarmoniQ Technologies" class="nav-logo-img" /></a><p>Patented power optimization. 10&ndash;25% energy savings across 4,250+ units deployed globally.</p></div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="../how-it-works.html">How It Works</a></li><li><a href="../industries.html">Industries</a></li><li><a href="../savings-calculator.html">Savings Calculator</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../partners.html">Partners</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../blog.html">Insights</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../patents.html">Patents</a></div></div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="../js/main.js"></script>
+<script src="../js/search.js"></script>
+</body>
+</html>

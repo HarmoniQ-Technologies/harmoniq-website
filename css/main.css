@@ -675,7 +675,12 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 .about-founder-info {
   padding: 22px 24px 24px;
   border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
+.about-founder-text { flex: 1; min-width: 0; }
 .about-founder-name {
   font-size: 1.05rem;
   font-weight: 700;
@@ -688,6 +693,24 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   font-weight: 500;
   letter-spacing: 0.02em;
 }
+.about-founder-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(10, 102, 194, 0.2);
+  border-radius: var(--radius-sm);
+  color: #0A66C2;
+  background: var(--bg-card);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.about-founder-linkedin:hover {
+  border-color: #0A66C2;
+  background: rgba(10, 102, 194, 0.1);
+}
+.about-founder-linkedin svg { width: 22px; height: 22px; }
 .about-pedigree-wrap {
   border-top: 1px solid var(--border);
   padding-top: 36px;

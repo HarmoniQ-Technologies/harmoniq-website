@@ -27,12 +27,171 @@
     .blog-thumb-label { position: absolute; top: 14px; left: 16px; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; opacity: 0.4; }
     .blog-card:hover .blog-thumb { filter: brightness(1.05); }
     .blog-body { padding: 24px; }
+    /* Standards cards — two-button layout (external + explainer) */
+    .standards-card { display: flex; flex-direction: column; background: var(--bg-card); overflow: hidden; transition: var(--transition); }
+    .standards-card:hover { background: var(--bg-secondary); }
+    .standards-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .standards-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .standards-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .standards-action svg { width: 12px; height: 12px; flex-shrink: 0; }
+    .standards-action-external {
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      background: transparent;
+    }
+    .standards-action-external:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      background: var(--bg-secondary);
+    }
+    .standards-action-explainer {
+      color: #ffffff;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .standards-action-explainer:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      color: #060A08;
+    }
     .blog-tag { display: inline-block; padding: 2px 8px; background: var(--accent-dim); border: 1px solid var(--border); font-size: 0.65rem; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
     .blog-date { font-size: 0.72rem; color: var(--text-muted); margin-top: 10px; }
     #loadMoreBtn { transition: opacity 0.3s; }
     #loadMoreBtn.hidden { display: none; }
-    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+
+    .blog-essentials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 64px; }
+    .blog-essentials .blog-thumb { height: 220px; }
+    .blog-essentials .blog-body { padding: 32px; }
+    .blog-essentials .blog-body h3 { font-size: 1.25rem; }
+    @media (max-width: 900px) { .blog-grid, .blog-essentials { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .blog-grid, .blog-essentials { grid-template-columns: 1fr; } }
+
+    /* ── Scroll cue — prominent, fixed to viewport bottom ─── */
+    .scroll-cue {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: rgba(10, 11, 14, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 196, 122, 0.35);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #EEF2FF;
+      opacity: 1;
+      z-index: 60;
+      cursor: pointer;
+      transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.2s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+      flex-direction: row;
+      gap: 12px;
+    }
+    .scroll-cue:hover {
+      border-color: var(--accent-light);
+    }
+    .scroll-cue svg {
+      width: 18px; height: 18px;
+      color: var(--accent-light);
+      animation: scrollCueBob 1.6s ease-in-out infinite;
+    }
+    .scroll-cue.hidden {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+      pointer-events: none;
+    }
+    @keyframes scrollCueBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+    @media (max-width: 600px) {
+      .scroll-cue { bottom: 20px; padding: 12px 20px; font-size: 0.68rem; }
+    }
+
+    /* ── Sticky side anchor navigation (desktop only) ──────── */
+    #standards { scroll-margin-top: 100px; }
+    .insights-sidenav {
+      position: fixed;
+      top: 50%;
+      right: 28px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 50;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .insights-sidenav.visible { opacity: 1; visibility: visible; }
+    .insights-sidenav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: flex-end;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      padding: 4px 0;
+    }
+    .insights-sidenav a:hover { color: var(--text-primary); }
+    .insights-sidenav a.current { color: var(--accent); }
+    .insights-sidenav a::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: currentColor;
+      opacity: 0.4;
+      transition: width 0.2s ease, opacity 0.2s ease;
+    }
+    .insights-sidenav a.current::after {
+      width: 36px;
+      opacity: 1;
+    }
+    .insights-sidenav a .label {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      opacity: 0;
+      transform: translateX(8px);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .insights-sidenav:hover a .label,
+    .insights-sidenav a.current .label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    @media (max-width: 1100px) { .insights-sidenav { display: none; } }
   </style>
 </head>
 <body>
@@ -69,6 +228,15 @@
 </div>
 
 <main id="main">
+
+<!-- Sticky side anchor navigation — desktop only -->
+<nav class="insights-sidenav" id="insightsSidenav" aria-label="Section navigation">
+  <a href="#featured" data-section="featured"><span class="label">Featured</span></a>
+  <a href="#essentials" data-section="essentials"><span class="label">Essentials</span></a>
+  <a href="#latest" data-section="latest"><span class="label">Latest</span></a>
+  <a href="#standards" data-section="standards"><span class="label">Standards</span></a>
+</nav>
+
 <div class="page-hero">
   <div class="container">
     <div class="page-hero-inner">
@@ -82,54 +250,246 @@
 <section class="section">
   <div class="container">
     <!-- Featured -->
-    <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0;" class="reveal">
+    <div id="featured" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; scroll-margin-top: 100px;" class="reveal">
       <div style="padding: 48px; display: flex; flex-direction: column; justify-content: center;">
         <div style="display: inline-block; padding: 3px 10px; background: var(--accent); font-size: 0.65rem; font-weight: 700; color: #ffffff; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; width: fit-content;">Featured</div>
-        <div class="blog-tag">Power Quality</div>
-        <h2 class="h1" style="margin-bottom: 12px;">The Hidden Cost on Every Industrial Electricity Bill</h2>
-        <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 24px;">Most facility managers know their kWh cost. Almost none know what reactive power is costing them on top. This guide breaks down exactly where the money goes — and how to get it back.</p>
+        <div class="blog-tag">Renewables</div>
+        <h2 class="h1" style="margin-bottom: 12px;">The Solar Blind Spot: How Clean Energy Creates Dirty Power</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 24px;">PV inverters inject 3&ndash;15% harmonic distortion into electrical networks, degrading power quality, damaging equipment, and partially eroding the financial return on solar investment. The mechanism, why capacitor banks fail here, and how to solve it.</p>
         <div style="display: flex; align-items: center; gap: 16px;">
-          <a href="articles/hidden-cost.html" class="btn btn-primary btn-sm">Read Article</a>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">12 min read · 16 Mar 2026</span>
+          <a href="articles/solar-pv-power-quality.html" class="btn btn-primary btn-sm">Read Article</a>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">14 min read &middot; 13 Apr 2026</span>
         </div>
       </div>
-      <div style="background: #0A0B0E; min-height: 280px; border-left: 1px solid var(--border-subtle); overflow: hidden; position: relative;">
-        <img src="assets/blog/meter.jpg" alt="Three-phase industrial energy meter" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+      <div style="background: #052e16; min-height: 280px; border-left: 1px solid var(--border-subtle); overflow: hidden; position: relative;">
+        <img src="assets/blog/solar.jpg" alt="Solar panel array at sunset" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
 
-    <div class="blog-grid" id="blogGrid">
-      <!-- NEW. Solar PV & Power Quality -->
-      <a href="articles/solar-pv-power-quality.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: #052e16; padding: 0; position: relative;">
-          <img src="assets/blog/solar.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
-          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Renewables</span>
+
+    <!-- Essential Reading -->
+    <div id="essentials" class="reveal" style="scroll-margin-top: 100px; display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; margin-bottom: 32px; align-items: end;">
+      <div>
+        <div class="eyebrow">Essential Reading</div>
+        <h2 class="h1" style="margin-bottom: 0;">Start Here</h2>
+      </div>
+      <div>
+        <p style="color: var(--text-secondary); margin: 0; font-size: 1rem; line-height: 1.7; max-width: 560px;">Four foundational pieces. Read these to understand the problem, the physics, what differentiates us, and the ESG lever behind everything else on this page.</p>
+      </div>
+    </div>
+    <div class="blog-essentials reveal">
+      <a href="articles/hidden-cost.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.4); z-index: 2;">Power Quality</span>
+          <svg viewBox="0 0 540 200" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block;">
+            <defs>
+              <linearGradient id="hcThumbBg2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0d1418"/>
+                <stop offset="1" stop-color="#05080a"/>
+              </linearGradient>
+            </defs>
+            <rect width="540" height="200" fill="url(#hcThumbBg2)"/>
+
+            <g stroke="#00C47A" stroke-width="0.3" opacity="0.07">
+              <line x1="0" y1="50" x2="540" y2="50"/>
+              <line x1="0" y1="100" x2="540" y2="100"/>
+              <line x1="0" y1="150" x2="540" y2="150"/>
+              <line x1="100" y1="0" x2="100" y2="200"/>
+              <line x1="200" y1="0" x2="200" y2="200"/>
+              <line x1="300" y1="0" x2="300" y2="200"/>
+              <line x1="400" y1="0" x2="400" y2="200"/>
+            </g>
+            <g stroke="#00C47A" stroke-width="0.7" opacity="0.4" fill="none">
+              <path d="M12,12 L22,12 M12,12 L12,22"/>
+              <path d="M528,12 L518,12 M528,12 L528,22"/>
+              <path d="M12,188 L22,188 M12,188 L12,178"/>
+              <path d="M528,188 L518,188 M528,188 L528,178"/>
+            </g>
+
+            <!-- Bill document on LEFT -->
+            <g transform="translate(40, 30)">
+              <rect x="0" y="0" width="280" height="140" rx="2" fill="#10161c"/>
+              <rect x="0" y="0" width="280" height="140" rx="2" fill="none" stroke="#00C47A" stroke-width="1.1" opacity="0.6"/>
+
+              <text x="14" y="20" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="600" fill="#00C47A" letter-spacing="1" opacity="0.9">INDUSTRIAL ENERGY STATEMENT</text>
+              <line x1="14" y1="26" x2="266" y2="26" stroke="#00C47A" stroke-width="0.5" opacity="0.4"/>
+
+              <g font-family="'JetBrains Mono', monospace" fill="#EEF2FF">
+                <text x="14" y="42" font-size="8" opacity="0.85">Energy charge</text>
+                <text x="266" y="42" text-anchor="end" font-size="8" opacity="0.85">$48,217</text>
+
+                <text x="14" y="58" font-size="8" opacity="0.85">Transmission</text>
+                <text x="266" y="58" text-anchor="end" font-size="8" opacity="0.85">$11,842</text>
+
+                <text x="14" y="74" font-size="8" opacity="0.85">Distribution</text>
+                <text x="266" y="74" text-anchor="end" font-size="8" opacity="0.85">$8,690</text>
+
+                <!-- Highlighted hidden lines -->
+                <rect x="6" y="80" width="274" height="16" fill="#00C47A" opacity="0.15"/>
+                <rect x="6" y="80" width="3" height="16" fill="#00C47A"/>
+                <text x="14" y="92" font-size="8" font-weight="600" fill="#00C47A">Reactive power surcharge</text>
+                <text x="266" y="92" text-anchor="end" font-size="8" font-weight="600" fill="#00C47A">$5,204</text>
+
+                <rect x="6" y="98" width="274" height="16" fill="#00C47A" opacity="0.15"/>
+                <rect x="6" y="98" width="3" height="16" fill="#00C47A"/>
+                <text x="14" y="110" font-size="8" font-weight="600" fill="#00C47A">Peak demand (kVA)</text>
+                <text x="266" y="110" text-anchor="end" font-size="8" font-weight="600" fill="#00C47A">$14,390</text>
+
+                <line x1="14" y1="120" x2="266" y2="120" stroke="#EEF2FF" stroke-width="0.6" opacity="0.3"/>
+                <text x="14" y="132" font-size="8" font-weight="700" opacity="0.95" letter-spacing="0.4">TOTAL DUE</text>
+                <text x="266" y="132" text-anchor="end" font-size="9" font-weight="700" opacity="0.95">$88,343</text>
+              </g>
+            </g>
+
+            <!-- RIGHT: HIDDEN pill + callouts -->
+            <g transform="translate(360, 50)">
+              <rect x="0" y="0" width="140" height="26" rx="13" fill="#00C47A" opacity="0.15"/>
+              <rect x="0" y="0" width="140" height="26" rx="13" fill="none" stroke="#00C47A" stroke-width="1.1" opacity="0.75"/>
+              <text x="70" y="17" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" fill="#00C47A" letter-spacing="1.5">HIDDEN COST</text>
+            </g>
+            <!-- Big percentage -->
+            <g transform="translate(430, 120)">
+              <text x="0" y="0" text-anchor="middle" font-family="'Instrument Sans', sans-serif" font-size="36" font-weight="700" fill="#00C47A" letter-spacing="-0.03em">5&ndash;30%</text>
+              <text x="0" y="18" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#00C47A" opacity="0.65" letter-spacing="0.8">OF BILL</text>
+            </g>
+
+            <!-- Connection line from pill to bill -->
+            <path d="M360,65 Q340,80 310,95" fill="none" stroke="#00C47A" stroke-width="0.9" opacity="0.5" stroke-dasharray="2,3"/>
+
+            <g font-family="'JetBrains Mono', monospace" font-size="6" fill="#00C47A" opacity="0.5" letter-spacing="0.5">
+              <text x="20" y="194">IEEE 1459-2010</text>
+              <text x="520" y="194" text-anchor="end">PF &lt; 0.85</text>
+            </g>
+          </svg>
         </div>
         <div class="blog-body">
-          <div class="blog-tag">Renewables</div>
-          <h3 class="h3" style="margin-bottom: 8px;">The Solar Blind Spot: How Clean Energy Creates Dirty Power</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">PV inverters inject harmonic distortion that degrades power quality, damages equipment, and partially erodes the financial return of solar investment.</p>
-          <div class="blog-date">14 min read · 13 Apr 2026</div>
+          <div class="blog-tag">Power Quality</div>
+          <h3 class="h3" style="margin-bottom: 8px;">The Hidden Cost on Every Industrial Electricity Bill</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Most facility managers know their kWh cost. Almost none know what reactive power is costing them on top. A breakdown of where the money goes &mdash; and how to get it back.</p>
+          <div class="blog-date">12 min read &middot; 22 Dec 2025</div>
         </div>
       </a>
+      <a href="articles/arrhenius-rule.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/thermal.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Equipment Life</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Equipment Life</div>
+          <h3 class="h3" style="margin-bottom: 8px;">The IEEE Arrhenius Rule: Why Every 10°C Matters</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How reducing operating temperature by 20°C can double the lifespan of motors, transformers, and insulation systems — and what this means for your capital budget.</p>
+          <div class="blog-date">8 min read · 5 Jan 2026</div>
+        </div>
+      </a>
+      <a href="articles/scope2-emissions.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/scope2.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">ESG</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">ESG</div>
+          <h3 class="h3" style="margin-bottom: 8px;">Scope 2 Emissions: The Fastest Lever Most Companies Overlook</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Energy efficiency remains the highest-ROI path to Scope 2 reduction. We explain why power quality optimisation should be the first item on every sustainability roadmap.</p>
+          <div class="blog-date">7 min read · 9 Feb 2026</div>
+        </div>
+      </a>
+      <a href="articles/capacitor-banks.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.4); z-index: 2;">Technology</span>
+          <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block;">
+            <defs>
+              <linearGradient id="capThumbBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0d1418"/>
+                <stop offset="1" stop-color="#05080a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#capThumbBg)"/>
 
-      <!-- NEW. Proving Energy Savings -->
+            <g stroke="#00C47A" stroke-width="0.3" opacity="0.07">
+              <line x1="0" y1="55" x2="400" y2="55"/>
+              <line x1="0" y1="110" x2="400" y2="110"/>
+              <line x1="0" y1="165" x2="400" y2="165"/>
+              <line x1="80" y1="0" x2="80" y2="220"/>
+              <line x1="200" y1="0" x2="200" y2="220"/>
+              <line x1="320" y1="0" x2="320" y2="220"/>
+            </g>
+            <g stroke="#00C47A" stroke-width="0.7" opacity="0.4" fill="none">
+              <path d="M12,12 L22,12 M12,12 L12,22"/>
+              <path d="M388,12 L378,12 M388,12 L388,22"/>
+              <path d="M12,208 L22,208 M12,208 L12,198"/>
+              <path d="M388,208 L378,208 M388,208 L388,198"/>
+            </g>
+
+            <!-- Left: INPUT label + distorted waveform -->
+            <text x="70" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#EEF2FF" opacity="0.7" letter-spacing="2.5">INPUT</text>
+            <line x1="20" y1="110" x2="140" y2="110" stroke="#EEF2FF" stroke-width="0.4" opacity="0.2"/>
+            <path d="M20,110 L30,92 L38,122 L46,82 L54,130 L62,88 L70,128 L78,90 L86,126 L94,92 L102,124 L110,94 L118,120 L126,96 L134,116 L140,110"
+                  fill="none" stroke="#EEF2FF" stroke-width="1.3" opacity="0.78"/>
+            <text x="70" y="178" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#EEF2FF" opacity="0.55" letter-spacing="0.5">THD 22%</text>
+
+            <!-- Centre: capacitor bank symbol -->
+            <g transform="translate(200, 110)" stroke="#00C47A" fill="none">
+              <line x1="-22" y1="0" x2="-8" y2="0" stroke-width="1.8"/>
+              <line x1="-8" y1="-18" x2="-8" y2="18" stroke-width="1.8"/>
+              <line x1="8" y1="-18" x2="8" y2="18" stroke-width="1.8"/>
+              <line x1="8" y1="0" x2="22" y2="0" stroke-width="1.8"/>
+              <text x="0" y="-30" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#00C47A" opacity="0.9" letter-spacing="1.5">CAPACITOR</text>
+              <text x="0" y="44" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#00C47A" opacity="0.9" letter-spacing="1.5">BANK</text>
+            </g>
+            <!-- Connection lines passing THROUGH the capacitor symbol -->
+            <line x1="140" y1="110" x2="178" y2="110" stroke="#EEF2FF" stroke-width="0.8" opacity="0.35" stroke-dasharray="2,2"/>
+            <line x1="222" y1="110" x2="260" y2="110" stroke="#EEF2FF" stroke-width="0.8" opacity="0.35" stroke-dasharray="2,2"/>
+
+            <!-- Right: OUTPUT label + STILL DISTORTED waveform -->
+            <text x="330" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#EEF2FF" opacity="0.7" letter-spacing="2.5">OUTPUT</text>
+            <line x1="260" y1="110" x2="380" y2="110" stroke="#EEF2FF" stroke-width="0.4" opacity="0.2"/>
+            <!-- Same distortion pattern carries through — slightly smoother but harmonics intact -->
+            <path d="M260,110 L270,95 L278,120 L286,86 L294,124 L302,90 L310,122 L318,92 L326,120 L334,94 L342,118 L350,96 L358,116 L366,98 L374,114 L380,110"
+                  fill="none" stroke="#EEF2FF" stroke-width="1.3" opacity="0.72"/>
+            <text x="330" y="178" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#EEF2FF" opacity="0.55" letter-spacing="0.5">THD 20%</text>
+
+            <!-- Red warning indicator — "no change" -->
+            <g transform="translate(380, 52)">
+              <circle cx="-8" cy="0" r="3" fill="#EEF2FF" opacity="0.4"/>
+            </g>
+
+            <g font-family="'JetBrains Mono', monospace" font-size="6" fill="#00C47A" opacity="0.55" letter-spacing="0.5">
+              <text x="20" y="214">HARMONICS UNCHANGED</text>
+              <text x="380" y="214" text-anchor="end">IEEE 1036 &middot; IEC 60831</text>
+            </g>
+          </svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Technology</div>
+          <h3 class="h3" style="margin-bottom: 8px;">Why Capacitor Banks Don't Solve the Full Problem</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Capacitor banks compensate reactive power at the fundamental frequency. Modern industrial facilities have several more power quality problems that capacitor banks cannot touch.</p>
+          <div class="blog-date">11 min read &middot; 19 Jan 2026</div>
+        </div>
+      </a>
+    </div>
+
+    <div id="latest" class="section-header reveal" style="scroll-margin-top: 100px; margin-bottom: 32px; text-align: left;">
+      <div class="eyebrow">Latest Insights</div>
+      <h2 class="h1" style="margin-bottom: 4px;">Recent Articles</h2>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
       <a href="articles/proving-energy-savings.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
         <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
-          <img src="assets/blog/fluke.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <img src="assets/blog/weather.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
           <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Measurement &amp; Verification</span>
         </div>
         <div class="blog-body">
           <div class="blog-tag">Measurement &amp; Verification</div>
-          <h3 class="h3" style="margin-bottom: 8px;">How Do You Prove Energy Savings Are Real?</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Weather normalisation, regression analysis, and the verification frameworks (IPMVP, ASHRAE Guideline 14, ISO 50015) that separate real savings from favourable weather.</p>
+          <h3 class="h3" style="margin-bottom: 8px;">Weather Normalisation: Proving Energy Savings Are Real</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Any facility can cut consumption in a mild winter. Real savings survive weather normalisation &mdash; the regression technique that isolates intervention impact under IPMVP and ASHRAE Guideline 14.</p>
           <div class="blog-date">11 min read · 6 Apr 2026</div>
         </div>
       </a>
 
-      <!-- 1. Electrification — data centre photo -->
       <a href="articles/electrification-of-everything.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
         <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
           <img src="assets/blog/datacenter.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
@@ -140,11 +500,24 @@
           <div class="blog-tag">Energy Trends</div>
           <h3 class="h3" style="margin-bottom: 8px;">The Electrification of Everything: Why Global Power Demand Is About to Surge</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">EVs, heat pumps, data centres, and green hydrogen are driving a 75% increase in global electricity demand. What this means for industrial power quality.</p>
-          <div class="blog-date">14 min read · 9 Mar 2026</div>
+          <div class="blog-date">14 min read · 30 Mar 2026</div>
         </div>
       </a>
 
-      <!-- 2. Global Prices — dark bg, price range -->
+      <a href="articles/unlocking-grid-capacity.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/transmission.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Grid &amp; Infrastructure</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Grid & Infrastructure</div>
+          <h3 class="h3" style="margin-bottom: 8px;">Unlocking Grid Capacity Without Building New Infrastructure</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Most industrial facilities waste 15–30% of their grid connection capacity on reactive power and harmonics. Here's how to get it back.</p>
+          <div class="blog-date">14 min read · 23 Mar 2026</div>
+        </div>
+      </a>
+
       <a href="articles/global-electricity-prices.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
         <div class="blog-thumb blog-thumb-dark" style="padding: 0;">
           <span class="blog-thumb-label" style="color: rgba(255,255,255,0.4); z-index: 2;">Energy Costs</span>
@@ -241,87 +614,25 @@
           <div class="blog-tag">Energy Costs</div>
           <h3 class="h3" style="margin-bottom: 8px;">Global Electricity Prices: What Industrial Operators Pay Around the World</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">From $0.02/kWh in Kuwait to $0.25/kWh in Germany — a comprehensive analysis of industrial electricity costs across 40+ countries.</p>
-          <div class="blog-date">14 min read · 2 Mar 2026</div>
+          <div class="blog-date">14 min read · 16 Mar 2026</div>
         </div>
       </a>
 
-      <!-- 3. Grid Capacity — green accent bg -->
-      <a href="articles/unlocking-grid-capacity.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+      <a href="articles/middle-east-industrial-energy.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
         <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
-          <img src="assets/blog/transmission.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <img src="assets/blog/middleeast.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Grid &amp; Infrastructure</span>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Regional Insight</span>
         </div>
         <div class="blog-body">
-          <div class="blog-tag">Grid & Infrastructure</div>
-          <h3 class="h3" style="margin-bottom: 8px;">Unlocking Grid Capacity Without Building New Infrastructure</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Most industrial facilities waste 15–30% of their grid connection capacity on reactive power and harmonics. Here's how to get it back.</p>
-          <div class="blog-date">14 min read · 23 Feb 2026</div>
+          <div class="blog-tag">Regional Insight</div>
+          <h3 class="h3" style="margin-bottom: 8px;">The Middle East's Industrial Power Challenge: Beyond Cheap Electricity</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Subsidy reform, 50°C ambient temperatures, and Vision 2030 industrialisation are transforming the Middle East power quality landscape.</p>
+          <div class="blog-date">14 min read · 9 Mar 2026</div>
         </div>
       </a>
 
-      <!-- 4. Motor Cost — light bg, iceberg concept -->
-      <a href="articles/true-cost-industrial-motor.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
-          <img src="assets/blog/motor.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
-          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Equipment Lifecycle</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-tag">Equipment Lifecycle</div>
-          <h3 class="h3" style="margin-bottom: 8px;">The True Cost of an Industrial Motor</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The purchase price is just 3% of a motor's lifetime cost. The other 97% is electricity — and poor power quality inflates it significantly.</p>
-          <div class="blog-date">14 min read · 16 Feb 2026</div>
-        </div>
-      </a>
-
-      <!-- 5. ESG Equipment Life — green gradient bg -->
-      <a href="articles/esg-equipment-life.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: linear-gradient(135deg, #052e16 0%, #14532d 100%);">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">ESG & Sustainability</span>
-          <div style="text-align: center;">
-            <div class="blog-thumb-stat" style="font-size: 3.5rem; color: #86efac;">2&ndash;4x</div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.45); letter-spacing: 1px; margin-top: 4px;">EQUIPMENT LIFE EXTENSION</div>
-          </div>
-        </div>
-        <div class="blog-body">
-          <div class="blog-tag">ESG & Sustainability</div>
-          <h3 class="h3" style="margin-bottom: 8px;">The ESG Case for Equipment Life Extension</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Extending motor and transformer life by 2–4x through power quality optimisation avoids hundreds of tonnes of embodied carbon per facility.</p>
-          <div class="blog-date">14 min read · 9 Feb 2026</div>
-        </div>
-      </a>
-
-      <!-- 6. Efficiency vs PQ — split design -->
-      <a href="articles/efficiency-vs-power-quality.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: #0A0B0E; padding: 0;">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35); z-index: 1;">Energy Management</span>
-          <div style="display: flex; width: 100%; height: 100%;">
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04);">
-              <div style="text-align: center;">
-                <div class="blog-thumb-stat" style="font-size: 2rem; color: rgba(255,255,255,0.3);">kWh</div>
-                <div style="font-size: 0.55rem; font-weight: 600; color: rgba(255,255,255,0.2); letter-spacing: 1px; margin-top: 4px;">EFFICIENCY</div>
-              </div>
-            </div>
-            <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-              <div style="text-align: center;">
-                <div class="blog-thumb-stat" style="font-size: 2rem; color: #00C87A;">kVA</div>
-                <div style="font-size: 0.55rem; font-weight: 600; color: rgba(0,200,122,0.5); letter-spacing: 1px; margin-top: 4px;">POWER QUALITY</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="blog-body">
-          <div class="blog-tag">Energy Management</div>
-          <h3 class="h3" style="margin-bottom: 8px;">Energy Efficiency vs Power Quality Optimisation</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Most energy strategies focus on reducing consumption but ignore the 5–30% wasted through poor power quality. Why you need both disciplines.</p>
-          <div class="blog-date">14 min read · 2 Feb 2026</div>
-        </div>
-      </a>
-
-      <!-- 7. Europe — blue tint, price premium -->
-      <a href="articles/europe-industrial-energy.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
+      <a href="articles/europe-industrial-energy.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
         <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
           <img src="assets/blog/europe.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
@@ -331,103 +642,277 @@
           <div class="blog-tag">Regional Insight</div>
           <h3 class="h3" style="margin-bottom: 8px;">Europe's Industrial Energy Crisis: The Case for Power Quality Investment</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">With the highest industrial electricity prices globally, European manufacturers face a unique imperative to optimise every kilowatt.</p>
+          <div class="blog-date">14 min read · 2 Mar 2026</div>
+        </div>
+      </a>
+
+      <a href="articles/harmonics.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.4); z-index: 2;">Technology</span>
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block;">
+            <defs>
+              <linearGradient id="harmBg3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0f172a"/>
+                <stop offset="1" stop-color="#0b1220"/>
+              </linearGradient>
+              <filter id="redDotGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="2.2" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect width="400" height="180" fill="url(#harmBg3)"/>
+
+            <!-- Subtle grid -->
+            <g stroke="#60A5FA" stroke-width="0.3" opacity="0.1">
+              <line x1="0" y1="45" x2="400" y2="45"/>
+              <line x1="0" y1="90" x2="400" y2="90"/>
+              <line x1="0" y1="135" x2="400" y2="135"/>
+              <line x1="100" y1="0" x2="100" y2="180"/>
+              <line x1="200" y1="0" x2="200" y2="180"/>
+              <line x1="300" y1="0" x2="300" y2="180"/>
+            </g>
+
+            <!-- Dashed ideal sine reference -->
+            <path d="M 0.0,90.0 L 2.0,86.2 L 4.0,82.5 L 6.0,78.8 L 8.0,75.3 L 10.0,71.8 L 12.0,68.6 L 14.0,65.5 L 16.0,62.6 L 18.0,60.0 L 20.0,57.6 L 22.0,55.6 L 24.0,53.8 L 26.0,52.4 L 28.0,51.3 L 30.0,50.5 L 32.0,50.1 L 34.0,50.0 L 36.0,50.3 L 38.0,51.0 L 40.0,52.0 L 42.0,53.3 L 44.0,54.9 L 46.0,56.9 L 48.0,59.2 L 50.0,61.7 L 52.0,64.5 L 54.0,67.5 L 56.0,70.7 L 58.0,74.1 L 60.0,77.6 L 62.0,81.3 L 64.0,85.0 L 66.0,88.7 L 68.0,92.5 L 70.0,96.3 L 72.0,99.9 L 74.0,103.5 L 76.0,107.0 L 78.0,110.4 L 80.0,113.5 L 82.0,116.5 L 84.0,119.2 L 86.0,121.6 L 88.0,123.8 L 90.0,125.6 L 92.0,127.2 L 94.0,128.4 L 96.0,129.3 L 98.0,129.8 L 100.0,130.0 L 102.0,129.8 L 104.0,129.3 L 106.0,128.4 L 108.0,127.2 L 110.0,125.6 L 112.0,123.8 L 114.0,121.6 L 116.0,119.2 L 118.0,116.5 L 120.0,113.5 L 122.0,110.4 L 124.0,107.0 L 126.0,103.5 L 128.0,99.9 L 130.0,96.3 L 132.0,92.5 L 134.0,88.7 L 136.0,85.0 L 138.0,81.3 L 140.0,77.6 L 142.0,74.1 L 144.0,70.7 L 146.0,67.5 L 148.0,64.5 L 150.0,61.7 L 152.0,59.2 L 154.0,56.9 L 156.0,54.9 L 158.0,53.3 L 160.0,52.0 L 162.0,51.0 L 164.0,50.3 L 166.0,50.0 L 168.0,50.1 L 170.0,50.5 L 172.0,51.3 L 174.0,52.4 L 176.0,53.8 L 178.0,55.6 L 180.0,57.6 L 182.0,60.0 L 184.0,62.6 L 186.0,65.5 L 188.0,68.6 L 190.0,71.8 L 192.0,75.3 L 194.0,78.8 L 196.0,82.5 L 198.0,86.2 L 200.0,90.0 L 202.0,93.8 L 204.0,97.5 L 206.0,101.2 L 208.0,104.7 L 210.0,108.2 L 212.0,111.4 L 214.0,114.5 L 216.0,117.4 L 218.0,120.0 L 220.0,122.4 L 222.0,124.4 L 224.0,126.2 L 226.0,127.6 L 228.0,128.7 L 230.0,129.5 L 232.0,129.9 L 234.0,130.0 L 236.0,129.7 L 238.0,129.0 L 240.0,128.0 L 242.0,126.7 L 244.0,125.1 L 246.0,123.1 L 248.0,120.8 L 250.0,118.3 L 252.0,115.5 L 254.0,112.5 L 256.0,109.3 L 258.0,105.9 L 260.0,102.4 L 262.0,98.7 L 264.0,95.0 L 266.0,91.3 L 268.0,87.5 L 270.0,83.7 L 272.0,80.1 L 274.0,76.5 L 276.0,73.0 L 278.0,69.6 L 280.0,66.5 L 282.0,63.5 L 284.0,60.8 L 286.0,58.4 L 288.0,56.2 L 290.0,54.4 L 292.0,52.8 L 294.0,51.6 L 296.0,50.7 L 298.0,50.2 L 300.0,50.0 L 302.0,50.2 L 304.0,50.7 L 306.0,51.6 L 308.0,52.8 L 310.0,54.4 L 312.0,56.2 L 314.0,58.4 L 316.0,60.8 L 318.0,63.5 L 320.0,66.5 L 322.0,69.6 L 324.0,73.0 L 326.0,76.5 L 328.0,80.1 L 330.0,83.7 L 332.0,87.5 L 334.0,91.3 L 336.0,95.0 L 338.0,98.7 L 340.0,102.4 L 342.0,105.9 L 344.0,109.3 L 346.0,112.5 L 348.0,115.5 L 350.0,118.3 L 352.0,120.8 L 354.0,123.1 L 356.0,125.1 L 358.0,126.7 L 360.0,128.0 L 362.0,129.0 L 364.0,129.7 L 366.0,130.0 L 368.0,129.9 L 370.0,129.5 L 372.0,128.7 L 374.0,127.6 L 376.0,126.2 L 378.0,124.4 L 380.0,122.4 L 382.0,120.0 L 384.0,117.4 L 386.0,114.5 L 388.0,111.4 L 390.0,108.2 L 392.0,104.7 L 394.0,101.2 L 396.0,97.5 L 398.0,93.8 L 400.0,90.0" fill="none" stroke="#EEF2FF" stroke-width="1" stroke-dasharray="3,5" opacity="0.32"/>
+
+            <!-- Distorted measured waveform -->
+            <path d="M 0.0,90.0 L 1.0,85.3 L 2.0,80.8 L 3.0,76.7 L 4.0,73.1 L 5.0,70.2 L 6.0,67.9 L 7.0,66.4 L 8.0,65.6 L 9.0,65.4 L 10.0,65.7 L 11.0,66.4 L 12.0,67.4 L 13.0,68.4 L 14.0,69.4 L 15.0,70.2 L 16.0,70.9 L 17.0,71.2 L 18.0,71.3 L 19.0,71.2 L 20.0,70.8 L 21.0,70.3 L 22.0,69.8 L 23.0,69.3 L 24.0,68.8 L 25.0,68.4 L 26.0,68.2 L 27.0,68.1 L 28.0,68.1 L 29.0,68.2 L 30.0,68.3 L 31.0,68.5 L 32.0,68.6 L 33.0,68.7 L 34.0,68.6 L 35.0,68.6 L 36.0,68.4 L 37.0,68.3 L 38.0,68.1 L 39.0,68.1 L 40.0,68.1 L 41.0,68.2 L 42.0,68.5 L 43.0,68.9 L 44.0,69.4 L 45.0,70.0 L 46.0,70.5 L 47.0,71.0 L 48.0,71.3 L 49.0,71.3 L 50.0,71.1 L 51.0,70.7 L 52.0,70.0 L 53.0,69.1 L 54.0,68.1 L 55.0,67.0 L 56.0,66.2 L 57.0,65.6 L 58.0,65.4 L 59.0,65.8 L 60.0,66.8 L 61.0,68.6 L 62.0,71.1 L 63.0,74.2 L 64.0,78.0 L 65.0,82.3 L 66.0,86.9 L 67.0,91.6 L 68.0,96.2 L 69.0,100.6 L 70.0,104.6 L 71.0,108.0 L 72.0,110.7 L 73.0,112.7 L 74.0,113.9 L 75.0,114.5 L 76.0,114.5 L 77.0,114.1 L 78.0,113.3 L 79.0,112.3 L 80.0,111.3 L 81.0,110.3 L 82.0,109.5 L 83.0,109.0 L 84.0,108.7 L 85.0,108.7 L 86.0,108.9 L 87.0,109.3 L 88.0,109.8 L 89.0,110.4 L 90.0,110.9 L 91.0,111.4 L 92.0,111.7 L 93.0,111.9 L 94.0,111.9 L 95.0,111.9 L 96.0,111.8 L 97.0,111.6 L 98.0,111.5 L 99.0,111.4 L 100.0,111.3 L 101.0,111.4 L 102.0,111.5 L 103.0,111.6 L 104.0,111.8 L 105.0,111.9 L 106.0,111.9 L 107.0,111.9 L 108.0,111.7 L 109.0,111.4 L 110.0,110.9 L 111.0,110.4 L 112.0,109.8 L 113.0,109.3 L 114.0,108.9 L 115.0,108.7 L 116.0,108.7 L 117.0,109.0 L 118.0,109.5 L 119.0,110.3 L 120.0,111.3 L 121.0,112.3 L 122.0,113.3 L 123.0,114.1 L 124.0,114.5 L 125.0,114.5 L 126.0,113.9 L 127.0,112.7 L 128.0,110.7 L 129.0,108.0 L 130.0,104.6 L 131.0,100.6 L 132.0,96.2 L 133.0,91.6 L 134.0,86.9 L 135.0,82.3 L 136.0,78.0 L 137.0,74.2 L 138.0,71.1 L 139.0,68.6 L 140.0,66.8 L 141.0,65.8 L 142.0,65.4 L 143.0,65.6 L 144.0,66.2 L 145.0,67.0 L 146.0,68.1 L 147.0,69.1 L 148.0,70.0 L 149.0,70.7 L 150.0,71.1 L 151.0,71.3 L 152.0,71.3 L 153.0,71.0 L 154.0,70.5 L 155.0,70.0 L 156.0,69.4 L 157.0,68.9 L 158.0,68.5 L 159.0,68.2 L 160.0,68.1 L 161.0,68.1 L 162.0,68.1 L 163.0,68.3 L 164.0,68.4 L 165.0,68.6 L 166.0,68.6 L 167.0,68.7 L 168.0,68.6 L 169.0,68.5 L 170.0,68.3 L 171.0,68.2 L 172.0,68.1 L 173.0,68.1 L 174.0,68.2 L 175.0,68.4 L 176.0,68.8 L 177.0,69.3 L 178.0,69.8 L 179.0,70.3 L 180.0,70.8 L 181.0,71.2 L 182.0,71.3 L 183.0,71.2 L 184.0,70.9 L 185.0,70.2 L 186.0,69.4 L 187.0,68.4 L 188.0,67.4 L 189.0,66.4 L 190.0,65.7 L 191.0,65.4 L 192.0,65.6 L 193.0,66.4 L 194.0,67.9 L 195.0,70.2 L 196.0,73.1 L 197.0,76.7 L 198.0,80.8 L 199.0,85.3 L 200.0,90.0 L 201.0,94.7 L 202.0,99.2 L 203.0,103.3 L 204.0,106.9 L 205.0,109.8 L 206.0,112.1 L 207.0,113.6 L 208.0,114.4 L 209.0,114.6 L 210.0,114.3 L 211.0,113.6 L 212.0,112.6 L 213.0,111.6 L 214.0,110.6 L 215.0,109.8 L 216.0,109.1 L 217.0,108.8 L 218.0,108.7 L 219.0,108.8 L 220.0,109.2 L 221.0,109.7 L 222.0,110.2 L 223.0,110.7 L 224.0,111.2 L 225.0,111.6 L 226.0,111.8 L 227.0,111.9 L 228.0,111.9 L 229.0,111.8 L 230.0,111.7 L 231.0,111.5 L 232.0,111.4 L 233.0,111.3 L 234.0,111.4 L 235.0,111.4 L 236.0,111.6 L 237.0,111.7 L 238.0,111.9 L 239.0,111.9 L 240.0,111.9 L 241.0,111.8 L 242.0,111.5 L 243.0,111.1 L 244.0,110.6 L 245.0,110.0 L 246.0,109.5 L 247.0,109.0 L 248.0,108.7 L 249.0,108.7 L 250.0,108.9 L 251.0,109.3 L 252.0,110.0 L 253.0,110.9 L 254.0,111.9 L 255.0,113.0 L 256.0,113.8 L 257.0,114.4 L 258.0,114.6 L 259.0,114.2 L 260.0,113.2 L 261.0,111.4 L 262.0,108.9 L 263.0,105.8 L 264.0,102.0 L 265.0,97.7 L 266.0,93.1 L 267.0,88.4 L 268.0,83.8 L 269.0,79.4 L 270.0,75.4 L 271.0,72.0 L 272.0,69.3 L 273.0,67.3 L 274.0,66.1 L 275.0,65.5 L 276.0,65.5 L 277.0,65.9 L 278.0,66.7 L 279.0,67.7 L 280.0,68.7 L 281.0,69.7 L 282.0,70.5 L 283.0,71.0 L 284.0,71.3 L 285.0,71.3 L 286.0,71.1 L 287.0,70.7 L 288.0,70.2 L 289.0,69.6 L 290.0,69.1 L 291.0,68.6 L 292.0,68.3 L 293.0,68.1 L 294.0,68.1 L 295.0,68.1 L 296.0,68.2 L 297.0,68.4 L 298.0,68.5 L 299.0,68.6 L 300.0,68.7 L 301.0,68.6 L 302.0,68.5 L 303.0,68.4 L 304.0,68.2 L 305.0,68.1 L 306.0,68.1 L 307.0,68.1 L 308.0,68.3 L 309.0,68.6 L 310.0,69.1 L 311.0,69.6 L 312.0,70.2 L 313.0,70.7 L 314.0,71.1 L 315.0,71.3 L 316.0,71.3 L 317.0,71.0 L 318.0,70.5 L 319.0,69.7 L 320.0,68.7 L 321.0,67.7 L 322.0,66.7 L 323.0,65.9 L 324.0,65.5 L 325.0,65.5 L 326.0,66.1 L 327.0,67.3 L 328.0,69.3 L 329.0,72.0 L 330.0,75.4 L 331.0,79.4 L 332.0,83.8 L 333.0,88.4 L 334.0,93.1 L 335.0,97.7 L 336.0,102.0 L 337.0,105.8 L 338.0,108.9 L 339.0,111.4 L 340.0,113.2 L 341.0,114.2 L 342.0,114.6 L 343.0,114.4 L 344.0,113.8 L 345.0,113.0 L 346.0,111.9 L 347.0,110.9 L 348.0,110.0 L 349.0,109.3 L 350.0,108.9 L 351.0,108.7 L 352.0,108.7 L 353.0,109.0 L 354.0,109.5 L 355.0,110.0 L 356.0,110.6 L 357.0,111.1 L 358.0,111.5 L 359.0,111.8 L 360.0,111.9 L 361.0,111.9 L 362.0,111.9 L 363.0,111.7 L 364.0,111.6 L 365.0,111.4 L 366.0,111.4 L 367.0,111.3 L 368.0,111.4 L 369.0,111.5 L 370.0,111.7 L 371.0,111.8 L 372.0,111.9 L 373.0,111.9 L 374.0,111.8 L 375.0,111.6 L 376.0,111.2 L 377.0,110.7 L 378.0,110.2 L 379.0,109.7 L 380.0,109.2 L 381.0,108.8 L 382.0,108.7 L 383.0,108.8 L 384.0,109.1 L 385.0,109.8 L 386.0,110.6 L 387.0,111.6 L 388.0,112.6 L 389.0,113.6 L 390.0,114.3 L 391.0,114.6 L 392.0,114.4 L 393.0,113.6 L 394.0,112.1 L 395.0,109.8 L 396.0,106.9 L 397.0,103.3 L 398.0,99.2 L 399.0,94.7 L 400.0,90.0" fill="none" stroke="#60A5FA" stroke-width="2.4" stroke-linejoin="round"/>
+
+            <!-- Red dots at harmonic kink points with glow -->
+            <g filter="url(#redDotGlow)">
+              <circle cx="6.0" cy="67.9" r="3" fill="#F87171"/>
+              <circle cx="33.0" cy="68.7" r="3" fill="#F87171"/>
+              <circle cx="61.0" cy="68.6" r="3" fill="#F87171"/>
+              <circle cx="73.0" cy="112.7" r="3" fill="#F87171"/>
+              <circle cx="100.0" cy="111.3" r="3" fill="#F87171"/>
+              <circle cx="127.0" cy="112.7" r="3" fill="#F87171"/>
+              <circle cx="139.0" cy="68.6" r="3" fill="#F87171"/>
+              <circle cx="167.0" cy="68.7" r="3" fill="#F87171"/>
+              <circle cx="194.0" cy="67.9" r="3" fill="#F87171"/>
+              <circle cx="206.0" cy="112.1" r="3" fill="#F87171"/>
+              <circle cx="233.0" cy="111.3" r="3" fill="#F87171"/>
+              <circle cx="261.0" cy="111.4" r="3" fill="#F87171"/>
+              <circle cx="273.0" cy="67.3" r="3" fill="#F87171"/>
+              <circle cx="300.0" cy="68.7" r="3" fill="#F87171"/>
+              <circle cx="327.0" cy="67.3" r="3" fill="#F87171"/>
+              <circle cx="339.0" cy="111.4" r="3" fill="#F87171"/>
+              <circle cx="367.0" cy="111.3" r="3" fill="#F87171"/>
+              <circle cx="394.0" cy="112.1" r="3" fill="#F87171"/>
+            </g>
+          </svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Technology</div>
+          <h3 class="h3" style="margin-bottom: 8px;">Harmonics: The Silent Equipment Killer</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Invisible on the bill and imperceptible at the breaker panel, harmonic currents from VFDs, UPS, and rectifiers silently waste 3&ndash;8% of facility energy and halve equipment life.</p>
+          <div class="blog-date">12 min read &middot; 23 Feb 2026</div>
+        </div>
+      </a>
+
+      <a href="articles/esg-equipment-life.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/esg.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">ESG &amp; Sustainability</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">ESG & Sustainability</div>
+          <h3 class="h3" style="margin-bottom: 8px;">The ESG Case for Equipment Life Extension</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Extending motor and transformer life by 2–4x through power quality optimisation avoids hundreds of tonnes of embodied carbon per facility.</p>
+          <div class="blog-date">14 min read · 16 Feb 2026</div>
+        </div>
+      </a>
+
+      <a href="articles/true-cost-industrial-motor.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/motor.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Equipment Lifecycle</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Equipment Lifecycle</div>
+          <h3 class="h3" style="margin-bottom: 8px;">The True Cost of an Industrial Motor</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The purchase price is just 3% of a motor's lifetime cost. The other 97% is electricity — and poor power quality inflates it significantly.</p>
+          <div class="blog-date">14 min read · 2 Feb 2026</div>
+        </div>
+      </a>
+
+      <a href="articles/efficiency-vs-power-quality.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <img src="assets/blog/billboard.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Energy Management</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Energy Management</div>
+          <h3 class="h3" style="margin-bottom: 8px;">Energy Efficiency vs Power Quality Optimisation</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Most energy strategies focus on reducing consumption but ignore the 5–30% wasted through poor power quality. Why you need both disciplines.</p>
           <div class="blog-date">14 min read · 26 Jan 2026</div>
         </div>
       </a>
 
-      <!-- 8. Middle East — amber/warm, tariff reform -->
-      <a href="articles/middle-east-industrial-energy.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: linear-gradient(135deg, #78350f 0%, #451a03 100%);">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">Regional Insight</span>
-          <div style="text-align: center;">
-            <div style="font-size: 0.6rem; font-weight: 600; color: rgba(253,224,71,0.5); letter-spacing: 1.5px; margin-bottom: 4px;">MIDDLE EAST</div>
-            <div class="blog-thumb-stat" style="font-size: 3rem; color: #FDE047;">+260%</div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-top: 4px;">SAUDI TARIFF INCREASE SINCE 2016</div>
-          </div>
-        </div>
-        <div class="blog-body">
-          <div class="blog-tag">Regional Insight</div>
-          <h3 class="h3" style="margin-bottom: 8px;">The Middle East's Industrial Power Challenge: Beyond Cheap Electricity</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Subsidy reform, 50°C ambient temperatures, and Vision 2030 industrialisation are transforming the Middle East power quality landscape.</p>
-          <div class="blog-date">14 min read · 19 Jan 2026</div>
-        </div>
-      </a>
-
-      <!-- 9. Arrhenius — warm red accent -->
-      <a href="articles/arrhenius-rule.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
-          <img src="assets/blog/thermal.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
-          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Equipment Life</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-tag">Equipment Life</div>
-          <h3 class="h3" style="margin-bottom: 8px;">The IEEE Arrhenius Rule: Why Every 10°C Matters</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How reducing operating temperature by 20°C can double the lifespan of motors, transformers, and insulation systems — and what this means for your capital budget.</p>
-          <div class="blog-date">8 min read · 12 Jan 2026</div>
-        </div>
-      </a>
-
-      <!-- 10. PF Penalties — dark, red accent -->
-      <a href="articles/pf-penalties.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb blog-thumb-dark">
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.35);">Power Factor</span>
-          <div style="text-align: center;">
-            <div style="font-size: 0.6rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 1.5px; margin-bottom: 4px;">POWER FACTOR</div>
-            <div style="display: flex; align-items: baseline; justify-content: center; gap: 8px;">
-              <span class="blog-thumb-stat" style="font-size: 2.5rem; color: #00C87A;">0.97</span>
-              <span style="font-size: 1rem; color: rgba(255,255,255,0.2);">&rarr;</span>
-              <span class="blog-thumb-stat" style="font-size: 2.5rem; color: #DC2626;">0.75</span>
-            </div>
-            <div style="font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-top: 6px;">PENALTY ESCALATION</div>
-          </div>
-        </div>
-        <div class="blog-body">
-          <div class="blog-tag">Power Factor</div>
-          <h3 class="h3" style="margin-bottom: 8px;">Power Factor Penalties: What Your Utility Isn't Telling You</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">A guide to understanding how utilities calculate PF penalties, which tariffs are most affected, and how to eliminate these charges entirely.</p>
-          <div class="blog-date">10 min read · 5 Jan 2026</div>
-        </div>
-      </a>
-
-      <!-- 11. Scope 2 — green gradient -->
-      <a href="articles/scope2-emissions.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
-          <img src="assets/blog/scope2.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
-          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
-          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">ESG</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-tag">ESG</div>
-          <h3 class="h3" style="margin-bottom: 8px;">Scope 2 Emissions: The Fastest Lever Most Companies Overlook</h3>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Energy efficiency remains the highest-ROI path to Scope 2 reduction. We explain why power quality optimisation should be the first item on every sustainability roadmap.</p>
-          <div class="blog-date">7 min read · 29 Dec 2025</div>
-        </div>
-      </a>
-
-      <!-- 14. Active vs Passive -->
       <a href="articles/active-vs-passive.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-thumb" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, #E0E7FF 100%);">
-          <span class="blog-thumb-label" style="color: var(--text-muted);">Technology</span>
-          <div style="text-align: center;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
-              <div>
-                <div style="font-size: 0.55rem; font-weight: 600; color: #DC2626; letter-spacing: 1px; opacity: 0.6;">PASSIVE</div>
-                <div class="blog-thumb-stat" style="font-size: 1.75rem; color: #DC2626; opacity: 0.5;">PFC</div>
-              </div>
-              <div style="font-size: 1.5rem; color: var(--text-muted); opacity: 0.3;">vs</div>
-              <div>
-                <div style="font-size: 0.55rem; font-weight: 600; color: #1A7A44; letter-spacing: 1px;">ACTIVE</div>
-                <div class="blog-thumb-stat" style="font-size: 1.75rem; color: #1A7A44;">PFC</div>
-              </div>
-            </div>
-          </div>
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.4); z-index: 2;">Technology</span>
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block;">
+            <defs>
+              <linearGradient id="avpBg2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0d1418"/>
+                <stop offset="1" stop-color="#05080a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="180" fill="url(#avpBg2)"/>
+
+            <!-- Grid -->
+            <g stroke="#00C47A" stroke-width="0.3" opacity="0.07">
+              <line x1="0" y1="60" x2="400" y2="60"/><line x1="0" y1="90" x2="400" y2="90"/><line x1="0" y1="120" x2="400" y2="120"/>
+              <line x1="50" y1="0" x2="50" y2="180"/><line x1="100" y1="0" x2="100" y2="180"/><line x1="150" y1="0" x2="150" y2="180"/>
+              <line x1="250" y1="0" x2="250" y2="180"/><line x1="300" y1="0" x2="300" y2="180"/><line x1="350" y1="0" x2="350" y2="180"/>
+            </g>
+            <g stroke="#00C47A" stroke-width="0.7" opacity="0.4" fill="none">
+              <path d="M10,10 L20,10 M10,10 L10,20"/>
+              <path d="M390,10 L380,10 M390,10 L390,20"/>
+              <path d="M10,170 L20,170 M10,170 L10,160"/>
+              <path d="M390,170 L380,170 M390,170 L390,160"/>
+            </g>
+
+            <!-- Divider -->
+            <line x1="200" y1="28" x2="200" y2="152" stroke="#00C47A" stroke-width="0.8" opacity="0.5" stroke-dasharray="2,4"/>
+
+            <!-- Zero axes -->
+            <line x1="28" y1="90" x2="190" y2="90" stroke="#EEF2FF" stroke-width="0.5" opacity="0.18"/>
+            <line x1="210" y1="90" x2="372" y2="90" stroke="#00C47A" stroke-width="0.5" opacity="0.3"/>
+
+            <!-- LEFT: PASSIVE — distorted waveform with harmonic spikes -->
+            <g>
+              <text x="110" y="46" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" fill="#EEF2FF" opacity="0.7" letter-spacing="3">PASSIVE</text>
+
+              <!-- Fundamental + dominant 5th & 7th harmonics — makes it look like an oscilloscope capture -->
+              <path d="M28,90 L36,70 L44,100 L52,62 L60,112 L68,68 L76,108 L84,74 L92,106 L100,76 L108,104 L116,80 L124,100 L132,84 L140,96 L148,86 L156,92 L164,88 L172,92 L180,90 L188,92 L196,90"
+                    fill="none" stroke="#EEF2FF" stroke-width="1.4" opacity="0.78"/>
+
+              <!-- Bottom readout -->
+              <g transform="translate(110, 135)">
+                <text x="0" y="0" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#EEF2FF" opacity="0.55" letter-spacing="0.5">THD 25%  &middot;  PF 0.75</text>
+              </g>
+            </g>
+
+            <!-- RIGHT: ACTIVE — clean sine with highlight -->
+            <g>
+              <text x="290" y="46" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" fill="#00C47A" opacity="0.95" letter-spacing="3">ACTIVE</text>
+
+              <!-- Clean sine wave -->
+              <path d="M210,90 Q225,58 240,90 Q255,122 270,90 Q285,58 300,90 Q315,122 330,90 Q345,58 360,90 Q375,106 380,90"
+                    fill="none" stroke="#00C47A" stroke-width="1.8"/>
+
+              <!-- Fundamental label at one peak -->
+              <line x1="240" y1="68" x2="240" y2="58" stroke="#00C47A" stroke-width="0.6" opacity="0.5"/>
+              <text x="240" y="54" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="6" fill="#00C47A" opacity="0.7" letter-spacing="0.5">50 Hz</text>
+
+              <!-- Bottom readout -->
+              <g transform="translate(290, 135)">
+                <text x="0" y="0" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#00C47A" opacity="0.85" letter-spacing="0.5">THD &lt;3%  &middot;  PF 0.99</text>
+              </g>
+            </g>
+
+            <!-- Technical annotations -->
+            <g font-family="'JetBrains Mono', monospace" font-size="6" fill="#00C47A" opacity="0.55" letter-spacing="0.5">
+              <text x="20" y="172">CAPACITOR BANK</text>
+              <text x="380" y="172" text-anchor="end">HARMONIC FILTER</text>
+            </g>
+          </svg>
         </div>
         <div class="blog-body">
           <div class="blog-tag">Technology</div>
           <h3 class="h3" style="margin-bottom: 8px;">Active vs Passive Power Factor Correction: A Plain English Guide</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Capacitor banks vs active filters vs HarmoniQ — what's the difference, and why does the approach matter so much for the size of your savings?</p>
-          <div class="blog-date">6 min read · 22 Dec 2025</div>
+          <div class="blog-date">6 min read · 12 Jan 2026</div>
+        </div>
+      </a>
+
+      <a href="articles/pf-penalties.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.4); z-index: 2;">Power Factor</span>
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block;">
+            <defs>
+              <linearGradient id="pfpBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0d1418"/>
+                <stop offset="1" stop-color="#05080a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="180" fill="url(#pfpBg)"/>
+
+            <!-- Blueprint grid -->
+            <g stroke="#00C47A" stroke-width="0.3" opacity="0.07">
+              <line x1="0" y1="45" x2="400" y2="45"/><line x1="0" y1="90" x2="400" y2="90"/><line x1="0" y1="135" x2="400" y2="135"/>
+              <line x1="100" y1="0" x2="100" y2="180"/><line x1="200" y1="0" x2="200" y2="180"/><line x1="300" y1="0" x2="300" y2="180"/>
+            </g>
+            <g stroke="#00C47A" stroke-width="0.7" opacity="0.4" fill="none">
+              <path d="M10,10 L20,10 M10,10 L10,20"/>
+              <path d="M390,10 L380,10 M390,10 L390,20"/>
+            </g>
+
+            <!-- Semi-circular gauge, centre at (200, 145), radius 100 -->
+            <!-- Arc from 180° (left) to 360° (right) covering PF 0.70–1.00 -->
+            <!-- Red zone: 180°–240° (PF 0.70–0.85) -->
+            <!-- Amber zone: 240°–300° (PF 0.85–0.90) — hmm recalc: PF 0.90 is at 180 + 0.2/0.3 * 180 = 300° -->
+            <!-- Cleaner: PF 0.70 = 180°, PF 1.00 = 360°, range = 180°. -->
+            <!-- Red: PF 0.70–0.85 → 180–270°  (bad penalty) -->
+            <!-- Amber: PF 0.85–0.90 → 270–300° (mild penalty) -->
+            <!-- Green: PF 0.90–1.00 → 300–360° (no penalty) -->
+
+            <!-- Red arc -->
+            <path d="M 100,145 A 100,100 0 0 1 200,45" fill="none" stroke="#DC2626" stroke-width="10" opacity="0.75"/>
+            <!-- Amber arc -->
+            <path d="M 200,45 A 100,100 0 0 1 250,58" fill="none" stroke="#D97706" stroke-width="10" opacity="0.75"/>
+            <!-- Green arc -->
+            <path d="M 250,58 A 100,100 0 0 1 300,145" fill="none" stroke="#00C47A" stroke-width="10" opacity="0.9"/>
+
+            <!-- Tick marks -->
+            <g stroke="#EEF2FF" stroke-width="1" opacity="0.45">
+              <line x1="100" y1="145" x2="94" y2="145"/>
+              <line x1="200" y1="45" x2="200" y2="39"/>
+              <line x1="300" y1="145" x2="306" y2="145"/>
+              <!-- Minor marks -->
+              <line x1="115" y1="96" x2="119" y2="99" stroke-width="0.7"/>
+              <line x1="150" y1="63" x2="153" y2="69" stroke-width="0.7"/>
+              <line x1="250" y1="58" x2="247" y2="63" stroke-width="0.7"/>
+              <line x1="285" y1="96" x2="281" y2="99" stroke-width="0.7"/>
+            </g>
+
+            <!-- Tick labels -->
+            <g font-family="'JetBrains Mono', monospace" font-size="7" fill="#EEF2FF" opacity="0.55" letter-spacing="0.3">
+              <text x="95" y="158" text-anchor="middle">0.70</text>
+              <text x="200" y="32" text-anchor="middle">0.90</text>
+              <text x="305" y="158" text-anchor="middle">1.00</text>
+            </g>
+
+            <!-- Needle pointing at PF ~0.80 (in red zone) — angle 240° from centre -->
+            <!-- At 240°: end point = (200 + 90*cos(240°), 145 + 90*sin(-60° from horiz)) -->
+            <!-- Let θ measured clockwise from 180° (left), 0.80 is 1/3 of way, so +60° → angle from x-axis is 180+60 = 240° -->
+            <!-- cos(240°) = -0.5, sin(240°) = -0.866 so endpoint = (200 - 45, 145 - 78) = (155, 67) -->
+            <g>
+              <line x1="200" y1="145" x2="155" y2="67" stroke="#EEF2FF" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="200" cy="145" r="5" fill="#EEF2FF"/>
+              <circle cx="200" cy="145" r="2" fill="#0A0B0E"/>
+            </g>
+
+            <!-- Central value display below dial -->
+            <text x="200" y="110" text-anchor="middle" font-family="'Instrument Sans', sans-serif" font-size="28" font-weight="800" fill="#DC2626" letter-spacing="-0.03em">0.80</text>
+            <text x="200" y="125" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="600" fill="#DC2626" letter-spacing="1.4" opacity="0.95">PENALTY ZONE</text>
+
+            <!-- Annotations -->
+            <g font-family="'JetBrains Mono', monospace" font-size="6" fill="#00C47A" opacity="0.55" letter-spacing="0.5">
+              <text x="20" y="172">POWER FACTOR</text>
+              <text x="380" y="172" text-anchor="end">+4% BILL IMPACT</text>
+            </g>
+          </svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Power Factor</div>
+          <h3 class="h3" style="margin-bottom: 8px;">Power Factor Penalties: What Your Utility Isn't Telling You</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">A guide to understanding how utilities calculate PF penalties, which tariffs are most affected, and how to eliminate these charges entirely.</p>
+          <div class="blog-date">10 min read · 29 Dec 2025</div>
         </div>
       </a>
     </div>
@@ -435,6 +920,8 @@
     <div style="text-align: center; margin-top: 48px;" id="loadMoreWrap">
       <button class="btn btn-secondary btn-lg" id="loadMoreBtn" onclick="loadMoreArticles()">Load More Articles</button>
     </div>
+
+
 
     <script>
     function loadMoreArticles() {
@@ -446,7 +933,6 @@
           count++;
         }
       });
-      // Hide button if no more hidden cards
       var remaining = document.querySelectorAll('#blogGrid .hidden-card');
       if (remaining.length === 0) {
         document.getElementById('loadMoreBtn').classList.add('hidden');
@@ -464,65 +950,89 @@
 
       <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr);">
 
-        <a href="articles/arrhenius-rule.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+        <div class="standards-card reveal" style="border-top: 3px solid var(--accent);">
+          <div class="standards-card-body">
             <div class="blog-tag">IEEE / IEC</div>
             <h3 class="h3" style="margin-bottom: 8px;">IEEE 117 &amp; IEC 60085 — Thermal Degradation</h3>
-            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The Arrhenius rule: every 10°C rise above rated temperature halves insulation life. The foundation of equipment life extension modelling.</p>
-            <div class="blog-date">Read our analysis &rarr;</div>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The Arrhenius rule: every 10&deg;C rise above rated temperature halves insulation life. The foundation of equipment life extension modelling.</p>
+            <div class="standards-actions">
+              <a href="https://standards.ieee.org/ieee/117/847/" target="_blank" rel="noopener noreferrer" class="standards-action standards-action-external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> IEEE 117 reference</a>
+              <a href="articles/arrhenius-rule.html" class="standards-action standards-action-explainer">Our explainer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a href="articles/utility-kwh-calculation-report.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-          <div class="blog-body" style="border-top: 3px solid var(--accent);">
-            <div class="blog-tag">IEEE / ANSI</div>
+        <div class="standards-card reveal" style="border-top: 3px solid var(--accent);">
+          <div class="standards-card-body">
+            <div class="blog-tag">IEEE</div>
             <h3 class="h3" style="margin-bottom: 8px;">IEEE 519-2022 — Harmonic Control in Power Systems</h3>
             <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The definitive standard for harmonic distortion limits. Defines voltage and current THD thresholds at the point of common coupling.</p>
-            <div class="blog-date">Read our analysis &rarr;</div>
+            <div class="standards-actions">
+              <a href="https://standards.ieee.org/ieee/519/10677/" target="_blank" rel="noopener noreferrer" class="standards-action standards-action-external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> IEEE 519 reference</a>
+              <a href="articles/harmonics.html" class="standards-action standards-action-explainer">Our explainer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a href="articles/arrhenius-rule.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+        <div class="standards-card reveal" style="border-top: 3px solid var(--accent);">
+          <div class="standards-card-body">
             <div class="blog-tag">IEEE</div>
             <h3 class="h3" style="margin-bottom: 8px;">IEEE C57.110-2018 — Transformer Derating Under Harmonics</h3>
             <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How harmonic currents force transformers to operate at reduced capacity. Quantifies eddy-current and stray losses from non-linear loads.</p>
-            <div class="blog-date">Read our analysis &rarr;</div>
+            <div class="standards-actions">
+              <a href="https://standards.ieee.org/ieee/C57.110/7100/" target="_blank" rel="noopener noreferrer" class="standards-action standards-action-external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> IEEE C57.110 reference</a>
+              <a href="articles/capacitor-banks.html" class="standards-action standards-action-explainer">Our explainer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a href="articles/pf-penalties.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+        <div class="standards-card reveal" style="border-top: 3px solid var(--accent);">
+          <div class="standards-card-body">
             <div class="blog-tag">NEMA</div>
             <h3 class="h3" style="margin-bottom: 8px;">NEMA MG 1-2016 — Motors &amp; Generators</h3>
             <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">Performance standards for motors including insulation class ratings, temperature rise limits, and derating factors under non-sinusoidal supply.</p>
-            <div class="blog-date">Read our analysis &rarr;</div>
+            <div class="standards-actions">
+              <a href="https://www.nema.org/standards/view/motors-and-generators-mg-1" target="_blank" rel="noopener noreferrer" class="standards-action standards-action-external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> NEMA MG 1 reference</a>
+              <a href="articles/arrhenius-rule.html" class="standards-action standards-action-explainer">Our explainer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a href="articles/active-vs-passive.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+        <div class="standards-card reveal" style="border-top: 3px solid var(--accent);">
+          <div class="standards-card-body">
             <div class="blog-tag">IEC</div>
             <h3 class="h3" style="margin-bottom: 8px;">IEC 61000 Series — Electromagnetic Compatibility</h3>
             <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The international framework for harmonic emission limits (IEC 61000-3-2/3-12), power quality monitoring (IEC 61000-4-30), and measurement methods.</p>
-            <div class="blog-date">Read our analysis &rarr;</div>
+            <div class="standards-actions">
+              <a href="https://en.wikipedia.org/wiki/IEC_61000" target="_blank" rel="noopener noreferrer" class="standards-action standards-action-external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> IEC 61000 overview</a>
+              <a href="articles/harmonics.html" class="standards-action standards-action-explainer">Our explainer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a href="articles/utility-kwh-calculation-report.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
-          <div class="blog-body" style="border-top: 3px solid var(--accent);">
+        <div class="standards-card reveal" style="border-top: 3px solid var(--accent);">
+          <div class="standards-card-body">
             <div class="blog-tag">ANSI / IEEE</div>
             <h3 class="h3" style="margin-bottom: 8px;">ANSI C12.1 &amp; IEEE 1459 — Metering &amp; Power Definitions</h3>
-            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How utilities measure kWh, kVA, and kVArh — and why the distinction between real, reactive, and apparent power directly affects your bill.</p>
-            <div class="blog-date">Read our analysis &rarr;</div>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">How utilities measure kWh, kVA, and kVArh &mdash; and why the distinction between real, reactive, and apparent power directly affects your bill.</p>
+            <div class="standards-actions">
+              <a href="https://standards.ieee.org/ieee/1459/3923/" target="_blank" rel="noopener noreferrer" class="standards-action standards-action-external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> IEEE 1459 reference</a>
+              <a href="articles/pf-penalties.html" class="standards-action standards-action-explainer">Our explainer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
           </div>
-        </a>
+        </div>
 
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- Floating scroll cue — appears over viewport bottom -->
+<button type="button" class="scroll-cue" id="scrollCue" aria-label="Scroll to articles">
+  <span>Keep scrolling</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+</button>
 
 </main>
 
@@ -544,5 +1054,69 @@
 
 <script src="js/main.js"></script>
 <script src="js/search.js"></script>
+
+
+<script>
+// ── Insights page: sticky side nav + scroll cue ──────────
+(function() {
+  var sidenav = document.getElementById('insightsSidenav');
+  var scrollCue = document.getElementById('scrollCue');
+  if (!sidenav) return;
+
+  var sections = [
+    { id: 'featured',   el: document.getElementById('featured') },
+    { id: 'essentials', el: document.getElementById('essentials') },
+    { id: 'latest',     el: document.getElementById('latest') },
+    { id: 'standards',  el: document.getElementById('standards') }
+  ].filter(function(s) { return s.el; });
+
+  var links = {};
+  sidenav.querySelectorAll('a[data-section]').forEach(function(a) {
+    links[a.dataset.section] = a;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById(a.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Scroll cue click → smooth scroll to Essentials
+  if (scrollCue) {
+    scrollCue.addEventListener('click', function() {
+      var ess = document.getElementById('essentials');
+      if (ess) ess.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  function update() {
+    var y = window.scrollY;
+
+    // Show side nav once user has scrolled past the page hero
+    if (y > 240) sidenav.classList.add('visible');
+    else sidenav.classList.remove('visible');
+
+    // Hide scroll cue after the reader starts scrolling past the featured article
+    if (scrollCue) {
+      if (y > 200) scrollCue.classList.add('hidden');
+      else scrollCue.classList.remove('hidden');
+    }
+
+    // Find current section (last one whose top is above mid-viewport)
+    var mid = y + window.innerHeight * 0.35;
+    var current = sections[0];
+    sections.forEach(function(s) {
+      var rect = s.el.getBoundingClientRect();
+      var top = rect.top + y;
+      if (top <= mid) current = s;
+    });
+    Object.values(links).forEach(function(a) { a.classList.remove('current'); });
+    if (current && links[current.id]) links[current.id].classList.add('current');
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 </body>
 </html>

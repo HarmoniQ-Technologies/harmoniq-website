@@ -255,11 +255,81 @@
       keywords: 'solar pv photovoltaic renewable energy harmonics thd inverter pwm clean energy green distortion capacitor bank resonance active filter partial load rooftop sustainability esg'
     },
     {
-      title: 'How Do You Prove Energy Savings Are Real?',
+      title: 'Weather Normalisation: Proving Energy Savings Are Real',
       description: 'Weather normalisation, regression analysis, and the international frameworks (IPMVP, ASHRAE Guideline 14, ISO 50015) used to verify real savings.',
       url: 'articles/proving-energy-savings.html',
       category: 'Articles',
       keywords: 'measurement verification m&v mv ipmvp ashrae guideline 14 iso 50015 50001 weather normalisation regression baseline savings proof verify credible cvrmse nmbe statistical confidence'
+    },
+    {
+      title: 'Why Capacitor Banks Don\'t Solve the Full Problem',
+      description: 'Capacitor banks correct displacement power factor at fundamental frequency. They do not address harmonics, voltage instability, phase imbalance, or resonance risk.',
+      url: 'articles/capacitor-banks.html',
+      category: 'Articles',
+      keywords: 'capacitor bank pfc power factor correction passive active harmonics resonance detuning reactor displacement true power factor ieee 1036 iec 60831 1459 519 capacitor failure'
+    },
+    {
+      title: 'Harmonics: The Silent Equipment Killer',
+      description: 'Modern industrial networks carry hundreds of hertz of harmonic currents on top of the fundamental. What they are, where they come from, and how to eliminate them.',
+      url: 'articles/harmonics.html',
+      category: 'Articles',
+      keywords: 'harmonics thd total harmonic distortion vfd variable speed drive rectifier ups power quality ieee 519 iec 61000 c57.110 eddy current skin effect negative sequence triplen k factor transformer derating active filter'
+    },
+    {
+      title: 'The Electrification of Everything: Why Global Power Demand Is About to Surge',
+      description: 'EVs, heat pumps, data centres, and green hydrogen are driving a 75% increase in global electricity demand. What this means for industrial power quality.',
+      url: 'articles/electrification-of-everything.html',
+      category: 'Articles',
+      keywords: 'electrification electric vehicle ev heat pump data centre green hydrogen demand growth 2050 global trend macro energy transition decarbonisation'
+    },
+    {
+      title: 'Global Electricity Prices: What Industrial Operators Pay Around the World',
+      description: 'From $0.02/kWh in Kuwait to $0.25/kWh in Germany — a comprehensive analysis of industrial electricity costs across 40+ countries.',
+      url: 'articles/global-electricity-prices.html',
+      category: 'Articles',
+      keywords: 'global electricity prices industrial rates cost kwh comparison countries international tariff energy cost kuwait germany uk france italy usa china japan'
+    },
+    {
+      title: 'Unlocking Grid Capacity Without Building New Infrastructure',
+      description: 'Most industrial facilities waste 15–30% of their grid connection capacity on reactive power and harmonics. Here is how to get it back.',
+      url: 'articles/unlocking-grid-capacity.html',
+      category: 'Articles',
+      keywords: 'grid capacity transformer upgrade reactive power harmonic load capacity release kva connection utility infrastructure constraint deferred capex expansion'
+    },
+    {
+      title: 'The True Cost of an Industrial Motor',
+      description: 'The purchase price is just 3% of a motor lifetime cost. The other 97% is electricity — and poor power quality inflates it significantly.',
+      url: 'articles/true-cost-industrial-motor.html',
+      category: 'Articles',
+      keywords: 'industrial motor total cost ownership tco electricity 97 percent lifetime purchase price energy cost motor efficiency ie3 ie4 premium'
+    },
+    {
+      title: 'The ESG Case for Equipment Life Extension',
+      description: 'Extending motor and transformer life by 2–4x through power quality optimisation avoids hundreds of tonnes of embodied carbon per facility.',
+      url: 'articles/esg-equipment-life.html',
+      category: 'Articles',
+      keywords: 'esg sustainability equipment life extension embodied carbon scope 3 avoided emissions circular economy motor transformer lifespan csrd reporting sbti'
+    },
+    {
+      title: 'Energy Efficiency vs Power Quality Optimisation',
+      description: 'Most energy strategies focus on reducing consumption but ignore the 5–30% wasted through poor power quality. Why you need both disciplines.',
+      url: 'articles/efficiency-vs-power-quality.html',
+      category: 'Articles',
+      keywords: 'energy efficiency power quality optimisation kwh kva distinction discipline audit eems iso 50001 energy management two disciplines both'
+    },
+    {
+      title: "Europe's Industrial Energy Crisis: The Case for Power Quality Investment",
+      description: 'With the highest industrial electricity prices globally, European manufacturers face a unique imperative to optimise every kilowatt.',
+      url: 'articles/europe-industrial-energy.html',
+      category: 'Articles',
+      keywords: 'europe european industrial energy crisis germany france uk italy spain netherlands manufacturing decarbonisation eu taxonomy csrd emissions pricing'
+    },
+    {
+      title: "The Middle East's Industrial Power Challenge: Beyond Cheap Electricity",
+      description: 'Subsidy reform, 50°C ambient temperatures, and Vision 2030 industrialisation are transforming the Middle East power quality landscape.',
+      url: 'articles/middle-east-industrial-energy.html',
+      category: 'Articles',
+      keywords: 'middle east saudi arabia uae qatar kuwait bahrain oman egypt gcc vision 2030 subsidy reform ambient temperature industrialisation tariff'
     },
 
     // ── Features & Topics ──────────────────────────────────────
