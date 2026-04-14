@@ -1114,6 +1114,82 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   .scroll-cue             { order: 9; }
 }
 
+
+/* ── Mobile polish ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hero: tighter spacing, full-width buttons */
+  .hero-actions {
+    flex-direction: column;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-sub {
+    font-size: 0.95rem;
+  }
+
+  /* Solution: tighter gap */
+  .solution-grid {
+    gap: 24px !important;
+  }
+  .solution-step {
+    padding: 14px 0;
+    gap: 14px;
+  }
+
+  /* Water analogy: less top margin */
+  .water-analogy {
+    margin-top: 24px !important;
+  }
+
+  /* Waveform panels: ensure readable */
+  .wf-morph-row {
+    grid-template-columns: 60px 1fr;
+    gap: 8px;
+  }
+  .wf-row-label {
+    font-size: 0.52rem;
+    padding-left: 6px;
+  }
+  .wf-canvas {
+    height: 80px;
+  }
+
+  /* Bill section: ensure header is readable */
+  .ibill-toggle {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  /* Section spacing: tighter on mobile */
+  .section-header {
+    margin-bottom: 36px !important;
+  }
+
+  /* Pilot protocol: stack properly */
+  .getstarted-layout {
+    gap: 24px !important;
+  }
+  .flow-step {
+    padding: 18px !important;
+  }
+  .flow-step h4 {
+    font-size: 0.95rem;
+  }
+  .flow-step p {
+    font-size: 0.85rem;
+  }
+
+  /* Footer: tighter */
+  .footer {
+    padding: 40px 0 24px;
+  }
+}
+
 /* ── Mobile Nav ────────────────────────────────────────────── */
 .mobile-nav {
   position: fixed; inset: 0; z-index: 999;
