@@ -182,63 +182,6 @@
       <canvas id="pqCanvas"></canvas>
     </div>
 
-    <!-- Mobile animated flow diagram (replaces SLD on small screens) -->
-    <div class="pq-mobile-summary reveal">
-      <div class="pq-mobile-flow" id="pqMobileFlow" data-state="before">
-
-        <!-- Toggle -->
-        <div class="pq-mobile-toggle">
-          <div class="pq-mobile-toggle-wrap">
-            <button class="pq-mobile-toggle-btn active" data-state="before">Before</button>
-            <button class="pq-mobile-toggle-btn" data-state="after">After HarmoniQ</button>
-          </div>
-        </div>
-
-        <!-- Animated vertical flow -->
-        <div class="pq-mobile-flow-path">
-
-          <!-- Power Grid node -->
-          <div class="pq-flow-node pq-flow-node-grid">Power Grid</div>
-
-          <!-- Connection line (animated particles) -->
-          <div class="pq-flow-line"></div>
-
-          <!-- Dirty/clean metric -->
-          <div class="pq-flow-metric" id="pqMobileMetric1">PF 0.78 &middot; THD 22%</div>
-
-          <!-- Connection line -->
-          <div class="pq-flow-line"></div>
-
-          <!-- Transformer node -->
-          <div class="pq-flow-node pq-flow-node-transformer">Transformer</div>
-
-          <!-- Connection line -->
-          <div class="pq-flow-line"></div>
-
-          <!-- HarmoniQ node (always highlighted) -->
-          <div class="pq-flow-node pq-flow-node-harmoniq">
-            <div class="pq-flow-node-label">HarmoniQ</div>
-            <div class="pq-flow-node-title">Filter + Alpha + Booster</div>
-          </div>
-
-          <!-- Connection line -->
-          <div class="pq-flow-line"></div>
-
-          <!-- Clean metric -->
-          <div class="pq-flow-metric" id="pqMobileMetric2">PF 0.78 &middot; THD 22%</div>
-
-          <!-- Connection line -->
-          <div class="pq-flow-line"></div>
-
-          <!-- Load nodes -->
-          <div class="pq-flow-loads">
-            <div class="pq-flow-load">Motors</div>
-            <div class="pq-flow-load">HVAC</div>
-            <div class="pq-flow-load">VFDs</div>
-            <div class="pq-flow-load">Lighting</div>
-          </div>
-        </div>
-
         <!-- Key result stats -->
         <div class="pq-flow-stats">
           <div class="pq-flow-stat">
@@ -709,46 +652,5 @@
 
 <script src="js/main.js"></script>
 <script src="js/search.js"></script>
-
-<script>
-// ── Mobile flow diagram toggle ──────────────────────────────
-(function() {
-  var flow = document.getElementById('pqMobileFlow');
-  if (!flow) return;
-
-  var beforeData = { pf: '0.78', thd: '22%', temp: '+20°C', save: '0%', metric1: 'PF 0.78 · THD 22%', metric2: 'PF 0.78 · THD 22%' };
-  var afterData  = { pf: '0.98+', thd: '4.5%', temp: '−10°C', save: '18%', metric1: 'PF 0.78 · THD 22%', metric2: 'PF 0.98+ · THD <5%' };
-
-  function setState(state) {
-    flow.dataset.state = state;
-    var d = state === 'after' ? afterData : beforeData;
-
-    var pf = document.getElementById('pqMobilePF');
-    var thd = document.getElementById('pqMobileTHD');
-    var temp = document.getElementById('pqMobileTemp');
-    var save = document.getElementById('pqMobileSave');
-    var m1 = document.getElementById('pqMobileMetric1');
-    var m2 = document.getElementById('pqMobileMetric2');
-
-    if (pf) pf.textContent = d.pf;
-    if (thd) thd.textContent = d.thd;
-    if (temp) temp.textContent = d.temp;
-    if (save) save.textContent = d.save;
-    if (m1) m1.textContent = d.metric1;
-    if (m2) m2.textContent = d.metric2;
-
-    // Update toggle buttons
-    flow.querySelectorAll('.pq-mobile-toggle-btn').forEach(function(btn) {
-      btn.classList.toggle('active', btn.dataset.state === state);
-    });
-  }
-
-  flow.querySelectorAll('.pq-mobile-toggle-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      setState(btn.dataset.state);
-    });
-  });
-})();
-</script>
 </body>
 </html>
