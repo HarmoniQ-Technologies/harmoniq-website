@@ -182,39 +182,84 @@
       <canvas id="pqCanvas"></canvas>
     </div>
 
-    <!-- Mobile simplified diagram (replaces SLD on small screens) -->
+    <!-- Mobile animated flow diagram (replaces SLD on small screens) -->
     <div class="pq-mobile-summary reveal">
-      <div style="background: #0b1120; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 28px 20px; text-align: center;">
+      <div class="pq-mobile-flow" id="pqMobileFlow" data-state="before">
 
-        <!-- Simplified vertical flow: Grid → Transformer → HarmoniQ → Clean Loads -->
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
-
-          <!-- Power Grid -->
-          <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase;">Power Grid</div>
-          <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.15);"></div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #F87171; margin: 4px 0;">PF 0.78 &middot; THD 22%</div>
-          <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.15);"></div>
-
-          <!-- Transformer -->
-          <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase;">Transformer</div>
-          <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.15);"></div>
-
-          <!-- HarmoniQ (highlighted) -->
-          <div style="padding: 14px 32px; background: rgba(0,196,122,0.12); border: 2px solid var(--accent-light); border-radius: var(--radius-sm);">
-            <div style="font-size: 0.65rem; font-weight: 600; color: var(--accent-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px;">HarmoniQ</div>
-            <div style="font-size: 0.8rem; font-weight: 700; color: #EEF2FF;">Filter + Alpha + Booster</div>
-          </div>
-          <div style="width: 1px; height: 20px; background: var(--accent-light); opacity: 0.5;"></div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--accent-light); margin: 4px 0;">PF 0.98+ &middot; THD &lt;5%</div>
-          <div style="width: 1px; height: 20px; background: var(--accent-light); opacity: 0.5;"></div>
-
-          <!-- Clean loads (3 across) -->
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
-            <div style="padding: 10px 14px; border: 1px solid rgba(0,196,122,0.3); border-radius: var(--radius-sm); font-size: 0.68rem; font-weight: 600; color: var(--accent-light);">Motors</div>
-            <div style="padding: 10px 14px; border: 1px solid rgba(0,196,122,0.3); border-radius: var(--radius-sm); font-size: 0.68rem; font-weight: 600; color: var(--accent-light);">HVAC</div>
-            <div style="padding: 10px 14px; border: 1px solid rgba(0,196,122,0.3); border-radius: var(--radius-sm); font-size: 0.68rem; font-weight: 600; color: var(--accent-light);">VFDs</div>
+        <!-- Toggle -->
+        <div class="pq-mobile-toggle">
+          <div class="pq-mobile-toggle-wrap">
+            <button class="pq-mobile-toggle-btn active" data-state="before">Before</button>
+            <button class="pq-mobile-toggle-btn" data-state="after">After HarmoniQ</button>
           </div>
         </div>
+
+        <!-- Animated vertical flow -->
+        <div class="pq-mobile-flow-path">
+
+          <!-- Power Grid node -->
+          <div class="pq-flow-node pq-flow-node-grid">Power Grid</div>
+
+          <!-- Connection line (animated particles) -->
+          <div class="pq-flow-line"></div>
+
+          <!-- Dirty/clean metric -->
+          <div class="pq-flow-metric" id="pqMobileMetric1">PF 0.78 &middot; THD 22%</div>
+
+          <!-- Connection line -->
+          <div class="pq-flow-line"></div>
+
+          <!-- Transformer node -->
+          <div class="pq-flow-node pq-flow-node-transformer">Transformer</div>
+
+          <!-- Connection line -->
+          <div class="pq-flow-line"></div>
+
+          <!-- HarmoniQ node (always highlighted) -->
+          <div class="pq-flow-node pq-flow-node-harmoniq">
+            <div class="pq-flow-node-label">HarmoniQ</div>
+            <div class="pq-flow-node-title">Filter + Alpha + Booster</div>
+          </div>
+
+          <!-- Connection line -->
+          <div class="pq-flow-line"></div>
+
+          <!-- Clean metric -->
+          <div class="pq-flow-metric" id="pqMobileMetric2">PF 0.78 &middot; THD 22%</div>
+
+          <!-- Connection line -->
+          <div class="pq-flow-line"></div>
+
+          <!-- Load nodes -->
+          <div class="pq-flow-loads">
+            <div class="pq-flow-load">Motors</div>
+            <div class="pq-flow-load">HVAC</div>
+            <div class="pq-flow-load">VFDs</div>
+            <div class="pq-flow-load">Lighting</div>
+          </div>
+        </div>
+
+        <!-- Key result stats -->
+        <div class="pq-flow-stats">
+          <div class="pq-flow-stat">
+            <div class="pq-flow-stat-value" id="pqMobilePF">0.78</div>
+            <div class="pq-flow-stat-label">Power Factor</div>
+          </div>
+          <div class="pq-flow-stat">
+            <div class="pq-flow-stat-value" id="pqMobileTHD">22%</div>
+            <div class="pq-flow-stat-label">Current THD</div>
+          </div>
+          <div class="pq-flow-stat">
+            <div class="pq-flow-stat-value" id="pqMobileTemp">+20&deg;C</div>
+            <div class="pq-flow-stat-label">Excess Heat</div>
+          </div>
+          <div class="pq-flow-stat">
+            <div class="pq-flow-stat-value" id="pqMobileSave">0%</div>
+            <div class="pq-flow-stat-label">Energy Saved</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
         <!-- Key metrics -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);">
@@ -664,5 +709,46 @@
 
 <script src="js/main.js"></script>
 <script src="js/search.js"></script>
+
+<script>
+// ── Mobile flow diagram toggle ──────────────────────────────
+(function() {
+  var flow = document.getElementById('pqMobileFlow');
+  if (!flow) return;
+
+  var beforeData = { pf: '0.78', thd: '22%', temp: '+20°C', save: '0%', metric1: 'PF 0.78 · THD 22%', metric2: 'PF 0.78 · THD 22%' };
+  var afterData  = { pf: '0.98+', thd: '4.5%', temp: '−10°C', save: '18%', metric1: 'PF 0.78 · THD 22%', metric2: 'PF 0.98+ · THD <5%' };
+
+  function setState(state) {
+    flow.dataset.state = state;
+    var d = state === 'after' ? afterData : beforeData;
+
+    var pf = document.getElementById('pqMobilePF');
+    var thd = document.getElementById('pqMobileTHD');
+    var temp = document.getElementById('pqMobileTemp');
+    var save = document.getElementById('pqMobileSave');
+    var m1 = document.getElementById('pqMobileMetric1');
+    var m2 = document.getElementById('pqMobileMetric2');
+
+    if (pf) pf.textContent = d.pf;
+    if (thd) thd.textContent = d.thd;
+    if (temp) temp.textContent = d.temp;
+    if (save) save.textContent = d.save;
+    if (m1) m1.textContent = d.metric1;
+    if (m2) m2.textContent = d.metric2;
+
+    // Update toggle buttons
+    flow.querySelectorAll('.pq-mobile-toggle-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.state === state);
+    });
+  }
+
+  flow.querySelectorAll('.pq-mobile-toggle-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setState(btn.dataset.state);
+    });
+  });
+})();
+</script>
 </body>
 </html>
