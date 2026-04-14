@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding HarmoniQ: The Physics of Clean Current | HarmoniQ Technologies</title>
+  <meta name="description" content="A technical reference explaining the three types of industrial current distortion — reactive power, harmonic distortion, and phase imbalance — and how HarmoniQ corrects all three across an entire electrical network." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Understanding HarmoniQ: The Physics of Clean Current | HarmoniQ Technologies" />
+  <meta property="og:description" content="A technical reference explaining the three types of industrial current distortion and how HarmoniQ corrects all three across an entire electrical network." />
+  <meta property="og:url" content="https://harmoniqtechnologies.com/articles/understanding-harmoniq.html" />
+  <meta property="og:image" content="https://harmoniqtechnologies.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Understanding HarmoniQ: The Physics of Clean Current | HarmoniQ Technologies" />
+  <meta name="twitter:description" content="A technical reference explaining the three types of industrial current distortion and how HarmoniQ corrects all three across an entire electrical network." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/articles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
+
+<nav class="nav scrolled" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon-sm.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../how-it-works.html" class="nav-link">Product</a>
+        <a href="../industries.html" class="nav-link">Industries</a>
+        <a href="../savings-calculator.html" class="nav-link">Savings Calculator</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../blog.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html">Home</a>
+  <a href="../how-it-works.html">Product</a>
+  <a href="../industries.html">Industries</a>
+  <a href="../savings-calculator.html">Savings Calculator</a>
+  <a href="../about.html">About</a>
+  <a href="../blog.html">Insights</a>
+  <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
+</div>
+
+<main id="main">
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-hero-tag">Technical Reference</div>
+    <h1>Understanding HarmoniQ: The Physics of Clean Current</h1>
+    <p class="article-hero-sub">A detailed technical explanation of the three types of industrial current distortion &mdash; reactive power, harmonic distortion, and phase imbalance &mdash; and how HarmoniQ corrects all three across an entire electrical network.</p>
+    <div class="article-hero-meta">
+      <span>HarmoniQ Engineering Team</span>
+      <span>15 min read</span>
+      <span>Technical Reference</span>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top: 40px;">
+  <div class="article-back">
+    <a href="../blog.html">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>Consider a water supply system. If the water flowing through your pipes contains grit, sediment, and air pockets, every pump in the system works harder. Bearings wear faster. Filters clog. Energy consumption climbs. The root cause is not the pumps &mdash; it is the quality of what flows through them.</p>
+
+  <p>Electrical current works the same way. In a perfect world, the current flowing through an industrial facility&rsquo;s cables would be a smooth, continuous sine wave &mdash; rising and falling 50 or 60 times per second in perfect synchronisation with the supply voltage. In reality, it never is. Every motor, every variable-frequency drive, every rectifier and switching power supply introduces distortions into the current waveform.</p>
+
+  <p>These distortions have real, measurable consequences: <strong>excess heat generation</strong> in cables, busbars, and transformer windings; <strong>wasted energy</strong> drawn from the grid but never converted to useful work; <strong>accelerated equipment degradation</strong> from thermal stress and vibration; and <strong>utility penalties</strong> imposed on facilities whose electrical consumption profiles fall outside acceptable quality standards.</p>
+
+  <p>Most industrial facilities operate with current distortion levels that increase their total energy consumption by <strong>10&ndash;25%</strong> beyond what their actual production processes require. The energy is consumed, billed, and paid for &mdash; but it produces only heat, vibration, and wear.</p>
+
+  <p>This document explains exactly what causes these distortions and how HarmoniQ eliminates them.</p>
+
+  <h2>The three types of current distortion</h2>
+
+  <p>Industrial current distortion falls into three distinct categories. Each has different causes, different effects, and &mdash; critically &mdash; requires different correction techniques. This is why HarmoniQ uses three complementary components rather than a single device.</p>
+
+  <table style="width: 100%; margin: 24px 0; border-collapse: collapse; font-size: 0.95rem;">
+    <tr style="border-bottom: 2px solid var(--border); text-align: left;">
+      <th style="padding: 12px 8px; font-weight: 700;">Distortion type</th>
+      <th style="padding: 12px 8px; font-weight: 700;">What happens</th>
+      <th style="padding: 12px 8px; font-weight: 700;">Typical range</th>
+      <th style="padding: 12px 8px; font-weight: 700;">Corrected by</th>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-subtle);">
+      <td style="padding: 12px 8px;"><strong>Reactive power</strong></td>
+      <td style="padding: 12px 8px;">Current lags voltage due to inductive loads; extra current flows back and forth without delivering work</td>
+      <td style="padding: 12px 8px;">PF 0.75&ndash;0.85</td>
+      <td style="padding: 12px 8px;">HarmoniQ Booster</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-subtle);">
+      <td style="padding: 12px 8px;"><strong>Harmonic distortion</strong></td>
+      <td style="padding: 12px 8px;">Non-linear loads distort the waveform shape; high-frequency components cause heating and interference</td>
+      <td style="padding: 12px 8px;">15&ndash;40% THD-I</td>
+      <td style="padding: 12px 8px;">HarmoniQ Power Filter</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 8px;"><strong>Phase imbalance</strong></td>
+      <td style="padding: 12px 8px;">Unequal loading across three phases creates negative-sequence currents that overheat motors</td>
+      <td style="padding: 12px 8px;">2&ndash;5% voltage imbalance</td>
+      <td style="padding: 12px 8px;">HarmoniQ Alpha</td>
+    </tr>
+  </table>
+
+  <h3>1. Reactive power and power factor</h3>
+
+  <p>In any circuit containing inductance &mdash; and virtually every industrial motor is an inductive load &mdash; the current does not rise and fall in perfect synchronisation with the voltage. Instead, it <strong>lags behind</strong>. This lag occurs because the changing magnetic field inside the motor opposes the changing current (Lenz&rsquo;s law). To deliver the same real work despite this lagging current, the equipment draws a higher total current to compensate. The additional current flows back and forth through the cables without ever being converted to mechanical work.</p>
+
+  <p>This is called <strong>reactive current</strong>. It is real current &mdash; it flows through real cables, generates real I&sup2;R heating losses, and occupies real capacity in transformers and switchgear. But it performs no useful work.</p>
+
+  <div style="background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;">
+    <div style="font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem;">The power triangle</div>
+    <div style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;"><strong>Power Factor = Real Power (kW) &divide; Apparent Power (kVA).</strong> A power factor of 0.80 means only 80% of the current flowing through your cables is doing useful work. The relationship is Pythagorean: at PF 0.80, the reactive component is &radic;(1&sup2;&nbsp;&minus;&nbsp;0.8&sup2;)&nbsp;=&nbsp;<strong>0.60</strong> &mdash; meaning reactive power is 60% of real power, not 20%. A facility at PF 0.80 carries <strong>25% more total current</strong> than at unity, and I&sup2;R losses scale with the square of that excess.</div>
+  </div>
+
+  <p>Typical industrial facilities without power factor correction operate between <strong>0.75 and 0.85</strong>. At a power factor of 0.75, the facility draws 33% more current than necessary for its actual work output.</p>
+
+  <h3>2. Harmonic distortion (THD)</h3>
+
+  <p>Where reactive power shifts the entire current waveform in time, harmonic distortion <strong>changes the shape</strong> of the waveform itself.</p>
+
+  <p>A pure sine wave contains only one frequency &mdash; the fundamental, at 50&nbsp;Hz (or 60&nbsp;Hz). But many modern industrial loads are non-linear: variable-frequency drives (VFDs), LED lighting drivers, rectifiers, UPS systems, and switch-mode power supplies all draw current in short, sharp pulses rather than smooth waves. These pulsed waveforms, when decomposed mathematically via Fourier analysis, contain energy at integer multiples of the fundamental: the <strong>3rd harmonic</strong> (150&nbsp;Hz), the <strong>5th</strong> (250&nbsp;Hz), the <strong>7th</strong> (350&nbsp;Hz), and higher.</p>
+
+  <p><strong>Total Harmonic Distortion (THD)</strong> is the single-number measure: the root-sum-square of all harmonic components divided by the fundamental, expressed as a percentage. The effects of high THD are insidious:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>Additional cable and transformer heating.</strong> Harmonic currents at higher frequencies experience increased effective resistance due to the skin effect &mdash; current at 250&nbsp;Hz penetrates less deeply into a conductor, reducing usable cross-section and increasing I&sup2;R losses.</li>
+    <li><strong>Transformer derating.</strong> Under IEEE C57.110, transformers carrying harmonic-rich loads must be derated because eddy-current losses increase with the <em>square</em> of the harmonic order.</li>
+    <li><strong>Eddy currents.</strong> High-frequency harmonic currents induce circulating currents in transformer cores and motor stators that generate heat without performing useful work. Eddy-current losses scale with the square of both frequency and flux density.</li>
+    <li><strong>Nuisance tripping.</strong> Harmonic currents can cause protective devices to trip unexpectedly when peak current exceeds thresholds even though RMS current is within limits.</li>
+    <li><strong>Electromagnetic interference.</strong> High-frequency currents radiate fields that interfere with PLCs, instrumentation, and process control systems.</li>
+  </ul>
+
+  <p>Typical industrial facilities with significant VFD and non-linear loads operate at <strong>15&ndash;40% THD-I</strong>. IEEE 519-2022 recommends limiting THD-I to below 5&ndash;8% at the point of common coupling.</p>
+
+  <h3>3. Phase imbalance</h3>
+
+  <p>Three-phase power is delivered as three separate AC voltages, each offset by 120 degrees. In an ideal system, each phase carries exactly the same current at exactly the same amplitude. In practice, this almost never happens.</p>
+
+  <p>Unequal load distribution, single-phase loads, long cable runs with unequal impedances, and upstream supply conditions all contribute. The result is <strong>phase imbalance</strong> &mdash; the three phase currents differ in magnitude and may also shift from their ideal 120-degree spacing.</p>
+
+  <p>Phase imbalance creates <strong>negative-sequence currents</strong> that rotate in the opposite direction to the motor&rsquo;s normal field, causing:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>Increased motor heating.</strong> Per NEMA MG1, even 2&ndash;3% voltage imbalance causes 15&ndash;25% increase in motor winding temperature.</li>
+    <li><strong>Reduced efficiency.</strong> The counter-rotating field reduces net torque, requiring more current for the same mechanical load.</li>
+    <li><strong>Mechanical vibration.</strong> The interaction between forward and reverse rotating fields creates pulsating torque at twice supply frequency, accelerating bearing wear.</li>
+  </ul>
+
+  <h2>How HarmoniQ corrects all three</h2>
+
+  <p>Most power-quality solutions address one type of distortion. Capacitor banks correct power factor. Tuned passive filters target specific harmonic orders. Neither addresses phase imbalance, and neither adapts to changing load conditions.</p>
+
+  <p>HarmoniQ deploys as an <strong>integrated, network-wide system</strong> with three complementary components, each purpose-built for one type of distortion:</p>
+
+  <h3>HarmoniQ Power Filter (HPF)</h3>
+  <p>An active filter that continuously monitors the current waveform, decomposes it into its constituent harmonic components, and injects a precisely shaped compensating current that cancels the distortion through <strong>superposition</strong> &mdash; the fundamental physics principle that two waves of equal amplitude and opposite phase sum to zero. The HPF tracks and cancels up to 51 harmonic orders simultaneously, adapting in real time as load profiles change throughout the day. Performance target: <strong>&lt;5% THD</strong> at the point of common coupling.</p>
+
+  <h3>HarmoniQ Alpha</h3>
+  <p>Uses <strong>narrowband tuning</strong> to perform real-time impedance matching at the point of connection. Rather than generating compensating current, the Alpha corrects displacement power factor, smooths the current waveform, and balances phase loading &mdash; all with minimal energy expenditure by the device itself. This efficiency is what makes distributed deployment throughout a facility economically viable: compact enough to install at multiple points across the network, not just at the main incomer.</p>
+
+  <h3>HarmoniQ Booster</h3>
+  <p>Solid-state power factor correction to <strong>0.98+</strong>, replacing conventional capacitor banks with zero resonance risk. The Booster responds dynamically to changing reactive power demand rather than switching fixed capacitor stages, maintaining near-unity power factor across the full load range.</p>
+
+  <h3>Why all three are needed</h3>
+  <p>A facility that corrects only power factor (Booster alone) still carries harmonic losses. A facility that filters only harmonics (HPF alone) still pays reactive-power penalties. A facility that does both but ignores phase imbalance still overheats motors. The three components work as an integrated system because the three types of distortion are physically independent and require independent correction. This is what &ldquo;network-wide&rdquo; means: every type of distortion, at every point in the network, corrected simultaneously.</p>
+
+  <div style="background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;">
+    <div style="font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem;">Measurement precision</div>
+    <div style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;">All three components share a continuous measurement system that samples the electrical network <strong>20,000 times per second</strong>. This measurement rate allows the system to track and respond to distortion changes within a single cycle of the 50/60&nbsp;Hz fundamental &mdash; faster than any load transient can propagate through the network.</div>
+  </div>
+
+  <h2>What changes &mdash; before and after</h2>
+
+  <p>The effects of HarmoniQ correction are measurable from the moment the system is commissioned. Typical field results across 4,250+ deployed units:</p>
+
+  <table style="width: 100%; margin: 24px 0; border-collapse: collapse; font-size: 0.95rem;">
+    <tr style="border-bottom: 2px solid var(--border); text-align: left;">
+      <th style="padding: 12px 8px; font-weight: 700;">Metric</th>
+      <th style="padding: 12px 8px; font-weight: 700;">Before</th>
+      <th style="padding: 12px 8px; font-weight: 700;">After HarmoniQ</th>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-subtle);">
+      <td style="padding: 12px 8px;">Power factor</td>
+      <td style="padding: 12px 8px;">0.75&ndash;0.85</td>
+      <td style="padding: 12px 8px; color: var(--accent); font-weight: 700;">0.98+</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-subtle);">
+      <td style="padding: 12px 8px;">Current THD</td>
+      <td style="padding: 12px 8px;">15&ndash;40%</td>
+      <td style="padding: 12px 8px; color: var(--accent); font-weight: 700;">&lt;5%</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-subtle);">
+      <td style="padding: 12px 8px;">Phase imbalance</td>
+      <td style="padding: 12px 8px;">3&ndash;8%</td>
+      <td style="padding: 12px 8px; color: var(--accent); font-weight: 700;">&lt;1%</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-subtle);">
+      <td style="padding: 12px 8px;">Energy consumption</td>
+      <td style="padding: 12px 8px;">Baseline</td>
+      <td style="padding: 12px 8px; color: var(--accent); font-weight: 700;">10&ndash;25% reduction</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-subtle);">
+      <td style="padding: 12px 8px;">Equipment operating temperature</td>
+      <td style="padding: 12px 8px;">Baseline</td>
+      <td style="padding: 12px 8px; color: var(--accent); font-weight: 700;">15&ndash;20&deg;C reduction</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 8px;">Equipment insulation life</td>
+      <td style="padding: 12px 8px;">Baseline</td>
+      <td style="padding: 12px 8px; color: var(--accent); font-weight: 700;">2&ndash;4&times; extension (Arrhenius)</td>
+    </tr>
+  </table>
+
+  <p>Savings are verified against a pre-installation metered baseline using the <a href="proving-energy-savings.html" class="std-ref">IPMVP / ASHRAE Guideline 14 / ISO 50015</a> frameworks. All claims on this page are calibrated against field-verified deployment data.</p>
+
+  <h2>Standards compliance</h2>
+
+  <p>HarmoniQ is designed to meet or enable compliance with:</p>
+
+  <ul style="margin: 16px 0 24px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
+    <li><strong>IEEE 519-2022</strong> &mdash; Harmonic control in electrical power systems</li>
+    <li><strong>IEEE C57.110-2018</strong> &mdash; Transformer capability under non-sinusoidal loads</li>
+    <li><strong>IEEE 1459-2010</strong> &mdash; Power quantity definitions (including true power factor)</li>
+    <li><strong>IEC 61000 series</strong> &mdash; Electromagnetic compatibility and power quality measurement</li>
+    <li><strong>NEMA MG 1-2016</strong> &mdash; Motors and generators performance standards</li>
+    <li><strong>ISO 50015</strong> &mdash; Energy performance measurement and verification</li>
+  </ul>
+
+  <p>Hardware certifications: <strong>ETL Listed</strong> (Intertek), <strong>CE marked</strong>, <strong>FCC compliant</strong> (Part 15), <strong>EMC tested</strong> (Intertek), <strong>Type 4X rated</strong> for indoor and outdoor installation.</p>
+
+</div>
+
+<!-- Layer 3 Gate: Full Technical Deep Dive -->
+<div style="margin: 0 auto; max-width: 680px; padding: 0 20px;">
+  <div style="background: var(--dark-bg); color: var(--dark-text); padding: 48px; border-radius: var(--radius-xl); text-align: center; margin: 48px 0;">
+    <div style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 16px;">Full Technical Deep Dive</div>
+    <h3 style="font-family: 'Instrument Sans', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 14px; color: #EEF2FF;">Want the complete technical reference?</h3>
+    <p style="color: var(--dark-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto;">The full document includes the control loop architecture, component-level specifications, interactive network demonstration, and detailed before-and-after waveform analysis. Available on request to qualified engineering evaluators.</p>
+    <a href="mailto:enquiries@harmoniqtechnologies.com?subject=Request%3A%20Full%20Technical%20Deep%20Dive%20Document&body=I%20would%20like%20to%20receive%20the%20complete%20HarmoniQ%20Technical%20Deep%20Dive%20document.%0A%0AName%3A%0ACompany%3A%0ARole%3A" class="btn btn-primary btn-lg" style="background: var(--accent-light); color: #060A08; border-color: var(--accent-light);">
+      Request the Full Document
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-left: 4px;"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
+<div class="article-cta">
+  <div class="article-cta-card">
+    <h3>Want this assessed for your own site?</h3>
+    <p>Our engineers run a free power-quality assessment and give you an exact savings figure based on your actual electrical profile.</p>
+    <a href="../contact.html#demo" class="btn btn-primary btn-lg">Book a Free Site Assessment</a>
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="../index.html" class="nav-logo" style="display: inline-flex;"><img src="../assets/logo.png" alt="HarmoniQ Technologies" class="nav-logo-img" /></a><p>Patented power optimization. 10&ndash;25% energy savings across 4,250+ units deployed globally.</p></div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="../how-it-works.html">How It Works</a></li><li><a href="../industries.html">Industries</a></li><li><a href="../savings-calculator.html">Savings Calculator</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../partners.html">Partners</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../blog.html">Insights</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../patents.html">Patents</a></div></div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="../js/main.js"></script>
+<script src="../js/search.js"></script>
+</body>
+</html>

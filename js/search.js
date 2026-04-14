@@ -276,6 +276,14 @@
       keywords: 'harmonics thd total harmonic distortion vfd variable speed drive rectifier ups power quality ieee 519 iec 61000 c57.110 eddy current skin effect negative sequence triplen k factor transformer derating active filter'
     },
     {
+      title: 'Understanding HarmoniQ: The Physics of Clean Current',
+      description: 'A technical reference explaining the three types of current distortion — reactive power, harmonics, and phase imbalance — and how HarmoniQ corrects all three.',
+      url: 'articles/understanding-harmoniq.html',
+      category: 'Articles',
+      keywords: 'technical reference deep dive physics clean current reactive power harmonic distortion phase imbalance power factor thd control loop superposition narrowband tuning three components booster alpha filter how it works',
+      boost: 10
+    },
+    {
       title: 'The Electrification of Everything: Why Global Power Demand Is About to Surge',
       description: 'EVs, heat pumps, data centres, and green hydrogen are driving a 75% increase in global electricity demand. What this means for industrial power quality.',
       url: 'articles/electrification-of-everything.html',
