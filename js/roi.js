@@ -375,16 +375,9 @@ function calculate() {
     }
   });
 
-  // Show scroll prompt on mobile
-  const scrollPrompt = document.getElementById('roiScrollPrompt');
-  if (scrollPrompt && window.innerWidth <= 900) {
-    scrollPrompt.style.display = '';
-  }
 }
 
 function clearResults() {
-  const scrollPrompt = document.getElementById('roiScrollPrompt');
-  if (scrollPrompt) scrollPrompt.style.display = 'none';
   const ids = [
     'roi-result-savings-rate', 'roi-result-energy-saving', 'roi-result-linecond-saving',
     'roi-result-pf-saving', 'roi-result-demand-saving', 'roi-result-total', 'roi-headline-value',

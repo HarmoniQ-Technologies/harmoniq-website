@@ -835,7 +835,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 .roi-scroll-prompt { display: none; margin-top: 16px; padding: 14px; text-align: center; font-size: 0.82rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; animation: roiBounce 2s ease infinite; }
 .roi-scroll-prompt svg { vertical-align: -3px; margin-right: 6px; stroke: var(--accent); }
 @keyframes roiBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
-@media (min-width: 901px) { .roi-scroll-prompt { display: none !important; } }
+@media (max-width: 900px) { .roi-scroll-prompt { display: block; } }
 
 /* ── Waveform Morph Panel ───────────────────────────────────── */
 .wf-narrative {
