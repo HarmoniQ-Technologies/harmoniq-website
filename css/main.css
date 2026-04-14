@@ -1095,6 +1095,25 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   50%      { filter: drop-shadow(0 0 60px rgba(0,210,140,0.7)) drop-shadow(0 0 140px rgba(0,210,140,0.35)) drop-shadow(0 0 240px rgba(14,122,70,0.15)); }
 }
 
+
+/* ── Mobile content reorder ───────────────────────────────── */
+@media (max-width: 768px) {
+  main#main {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Hero → Problem → Bill → Solution → Certs → Trust → Protocol → CTA */
+  .hero                   { order: 1; }
+  #certs-strip            { order: 5; }
+  .problem-section        { order: 2; }
+  .solution-section       { order: 4; }
+  .bill-section           { order: 3; }
+  #trust-bar              { order: 6; }
+  .getstarted-section     { order: 7; }
+  .cta-section            { order: 8; }
+  .scroll-cue             { order: 9; }
+}
+
 /* ── Mobile Nav ────────────────────────────────────────────── */
 .mobile-nav {
   position: fixed; inset: 0; z-index: 999;
