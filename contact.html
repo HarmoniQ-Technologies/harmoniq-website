@@ -7,15 +7,15 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact HarmoniQ — Talk to an Engineer</title>
-  <meta name="description" content="Book a free on-site demonstration or get in touch with HarmoniQ's power optimization engineers." />
+  <meta name="description" content="Request a free power quality assessment or get in touch with HarmoniQ's power optimization engineers." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contact HarmoniQ — Talk to an Engineer" />
-  <meta property="og:description" content="Book a free on-site demonstration or get in touch with HarmoniQ's power optimization engineers." />
+  <meta property="og:description" content="Request a free power quality assessment or get in touch with HarmoniQ's power optimization engineers." />
   <meta property="og:url" content="https://harmoniqtechnologies.com/contact.html" />
   <meta property="og:image" content="https://harmoniqtechnologies.com/assets/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact HarmoniQ — Talk to an Engineer" />
-  <meta name="twitter:description" content="Book a free on-site demonstration or get in touch with HarmoniQ's power optimization engineers." />
+  <meta name="twitter:description" content="Request a free power quality assessment or get in touch with HarmoniQ's power optimization engineers." />
   <link rel="stylesheet" href="css/main.css?v=21" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -122,8 +122,8 @@
         <div class="contact-info-item">
           <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <div>
-            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 4px;">3. Free On-Site Demo</h4>
-            <p style="font-size: 0.875rem; color: var(--text-secondary);">Our engineers install HarmoniQ at your site, measure the results live, and show you the exact savings — no commitment required.</p>
+            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 4px;">3. Power Quality Assessment</h4>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Our engineers assess your electrical network, identify where energy is being wasted, and show you the exact savings potential — no commitment required.</p>
           </div>
         </div>
         <div class="contact-info-item">
@@ -157,8 +157,8 @@
 
       <!-- Right: Form -->
       <div class="contact-form reveal">
-        <h3 class="h2" style="margin-bottom: 8px;">Book a Free On-Site Demo</h3>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 28px;">Tell us about your facility. We'll be in touch within one business day.</p>
+        <h3 class="h2" style="margin-bottom: 8px;">Request a Free Assessment</h3>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 28px;">Tell us about your facility and we'll arrange a free power quality assessment. We respond within one business day.</p>
 
         <form id="contactForm" onsubmit="return handleContactSubmit(event)">
           <div class="form-row">
@@ -273,7 +273,7 @@
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;">
-            Submit & Book Demo
+            Submit & Request Assessment
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">We respond within 1 business day. No spam, ever.</p>
@@ -282,7 +282,7 @@
         <div id="formSuccess" style="display: none; text-align: center; padding: 40px 20px;">
           <div style="margin-bottom: 16px;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           <h3 class="h2" style="color: var(--accent); margin-bottom: 12px;">Request Received</h3>
-          <p style="color: var(--text-secondary);">Thank you. A HarmoniQ engineer will be in touch within one business day to discuss your site and arrange a demonstration.</p>
+          <p style="color: var(--text-secondary);">Thank you. A HarmoniQ engineer will be in touch within one business day to discuss your site and arrange an assessment.</p>
         </div>
       </div>
     </div>
@@ -325,10 +325,10 @@ function handleContactSubmit(e) {
   var industry = f.querySelector('#industry').value;
   var message = f.querySelector('#message').value.trim();
 
-  var subject = 'Demo Request — ' + company + ' (' + firstName + ' ' + lastName + ')';
+  var subject = 'Assessment Request — ' + company + ' (' + firstName + ' ' + lastName + ')';
   var body = '';
   body += 'Dear HarmoniQ Team,\n\n';
-  body += 'I would like to request a free on-site demonstration. Please find my details below.\n\n';
+  body += 'I would like to request a free power quality assessment. Please find my details below.\n\n';
   body += '\n';
   body += 'CONTACT DETAILS\n';
   body += '————————————————————————\n';
