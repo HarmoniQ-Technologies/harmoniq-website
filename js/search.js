@@ -376,6 +376,14 @@
       keywords: 'industries sectors manufacturing cold storage refrigeration mining quarrying healthcare hospital data centre commercial real estate hotel retail food processing water treatment oil gas chemical pharmaceutical textile cement steel'
     },
     {
+      title: 'The HarmoniQ Pilot Protocol',
+      description: 'Our four-step process: Site Assessment → Pilot Installation → Commercial Model → Fleet Rollout. Zero disruption, verified savings before you commit.',
+      url: 'index.html#protocol',
+      category: 'Features',
+      keywords: 'harmoniq pilot protocol process how we work steps site assessment pilot installation fleet rollout methodology journey onboarding deployment',
+      boost: 8
+    },
+    {
       title: 'Free Site Assessment',
       description: 'Book a free, no-obligation site assessment to find out how much your facility could save.',
       url: 'contact.html#demo',
