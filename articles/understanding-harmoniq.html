@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Understanding HarmoniQ: The Physics of Clean Current | HarmoniQ Technologies" />
   <meta name="twitter:description" content="The three types of industrial current distortion — reactive power, harmonics, and phase imbalance — and how HarmoniQ corrects all three." />
-  <link rel="stylesheet" href="../css/main.css?v=19" />
+  <link rel="stylesheet" href="../css/main.css?v=20" />
   <link rel="stylesheet" href="../css/articles.css?v=4" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,7 @@
 <nav class="nav scrolled" id="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon-sm.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
+      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon-sm.png" alt="HarmoniQ" class="nav-brand-icon" /><img src="../assets/logo-white.png" alt="HarmoniQ Technologies" class="nav-brand-full" /></a>
       <div class="nav-links">
         <a href="../index.html" class="nav-link">Home</a>
         <a href="../how-it-works.html" class="nav-link">Product</a>
@@ -41,18 +41,29 @@
       <div class="nav-actions">
         <a href="../contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <a href="tel:+442034944044" class="nav-mobile-call" aria-label="Call us">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <button type="button" class="mobile-nav-search" onclick="if(window.HarmoniQSearch){window.HarmoniQSearch.open();document.getElementById('mobileNav').classList.remove('open');}">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    Search the site
+  </button>
   <a href="../index.html">Home</a>
   <a href="../how-it-works.html">Product</a>
   <a href="../industries.html">Industries</a>
-  <a href="../savings-calculator.html">Savings Calculator</a>
-  <a href="../about.html">About</a>
+  <a href="../savings-calculator.html">Calculator</a>
   <a href="../blog.html">Insights</a>
-  <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+  <div class="mobile-nav-footer">
+    <a href="tel:+442034944044" class="mobile-nav-phone">+44 20 3494 4044</a>
+    <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px; width: 100%; justify-content: center;">Talk to an Engineer</a>
+  </div>
 </div>
 
 <main id="main">
@@ -92,7 +103,7 @@
   <p>Industrial current distortion falls into three distinct categories. Each has different causes, different effects, and &mdash; critically &mdash; requires different correction techniques. This is why HarmoniQ uses three complementary components rather than a single device.</p>
 
   <div class="table-scroll">
-  <table style="width: 100%; margin: 24px 0; border-collapse: collapse; font-size: 0.95rem; min-width: 520px;">
+  <table style="width: 100%; margin: 24px 0; border-collapse: collapse; font-size: 0.95rem; ">
     <tr style="border-bottom: 2px solid var(--border); text-align: left;">
       <th style="padding: 12px 8px; font-weight: 700;">Distortion type</th>
       <th style="padding: 12px 8px; font-weight: 700;">What happens</th>
@@ -109,7 +120,7 @@
       <td style="padding: 12px 8px;"><strong>Harmonic distortion</strong></td>
       <td style="padding: 12px 8px;">Non-linear loads distort the waveform shape; high-frequency components cause heating and interference</td>
       <td style="padding: 12px 8px;">15&ndash;40% THD-I</td>
-      <td style="padding: 12px 8px;">HarmoniQ Power Filter</td>
+      <td style="padding: 12px 8px;">HarmoniQ Filter</td>
     </tr>
     <tr>
       <td style="padding: 12px 8px;"><strong>Phase imbalance</strong></td>
@@ -171,7 +182,7 @@
 
   <p>HarmoniQ is fundamentally different. It deploys as an <strong>integrated, network-wide system</strong> that cleans the current at every point in the network &mdash; not just at the meter. Three complementary components, each purpose-built for one type of distortion:</p>
 
-  <h3>HarmoniQ Power Filter (HPF)</h3>
+  <h3>HarmoniQ Filter</h3>
   <p>An active filter that continuously monitors the current waveform, decomposes it into its constituent harmonic components, and injects a precisely shaped compensating current that cancels the distortion through <strong>superposition</strong> &mdash; the fundamental physics principle that two waves of equal amplitude and opposite phase sum to zero. The HPF tracks and cancels up to 51 harmonic orders simultaneously, adapting in real time as load profiles change throughout the day. Performance target: <strong>&lt;5% THD</strong> at the point of common coupling.</p>
 
   <h3>HarmoniQ Alpha</h3>
@@ -193,7 +204,7 @@
   <p>The effects of HarmoniQ correction are measurable from the moment the system is commissioned. Typical field results across 4,250+ deployed units:</p>
 
   <div class="table-scroll">
-  <table style="width: 100%; margin: 24px 0; border-collapse: collapse; font-size: 0.95rem; min-width: 440px;">
+  <table style="width: 100%; margin: 24px 0; border-collapse: collapse; font-size: 0.95rem; ">
     <tr style="border-bottom: 2px solid var(--border); text-align: left;">
       <th style="padding: 12px 8px; font-weight: 700;">Metric</th>
       <th style="padding: 12px 8px; font-weight: 700;">Before</th>
@@ -273,7 +284,7 @@
       <div class="footer-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../partners.html">Partners</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h5>Resources</h5><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../blog.html">Insights</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>&copy; 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../patents.html">Patents</a></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Use</a><a href="../patents.html">Patents</a></div></div>
   </div>
 </footer>
 

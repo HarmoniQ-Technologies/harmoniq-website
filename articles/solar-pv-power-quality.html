@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Solar Blind Spot: How Clean Energy Creates Dirty Power | HarmoniQ Technologies" />
   <meta name="twitter:description" content="PV inverters inject 3-15% THD that degrades power quality, damages equipment, and erodes solar ROI. The mechanism and how to solve it." />
-  <link rel="stylesheet" href="../css/main.css?v=19" />
+  <link rel="stylesheet" href="../css/main.css?v=20" />
   <link rel="stylesheet" href="../css/articles.css?v=4" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,7 @@
 <nav class="nav scrolled" id="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon-sm.png" alt="HarmoniQ" class="nav-brand-icon" /></a>
+      <a href="../index.html" class="nav-brand"><img src="../assets/q-icon-sm.png" alt="HarmoniQ" class="nav-brand-icon" /><img src="../assets/logo-white.png" alt="HarmoniQ Technologies" class="nav-brand-full" /></a>
       <div class="nav-links">
         <a href="../index.html" class="nav-link">Home</a>
         <a href="../how-it-works.html" class="nav-link">Product</a>
@@ -41,18 +41,29 @@
       <div class="nav-actions">
         <a href="../contact.html#demo" class="btn btn-primary btn-sm">Talk to an Engineer</a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <a href="tel:+442034944044" class="nav-mobile-call" aria-label="Call us">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <button type="button" class="mobile-nav-search" onclick="if(window.HarmoniQSearch){window.HarmoniQSearch.open();document.getElementById('mobileNav').classList.remove('open');}">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    Search the site
+  </button>
   <a href="../index.html">Home</a>
   <a href="../how-it-works.html">Product</a>
   <a href="../industries.html">Industries</a>
-  <a href="../savings-calculator.html">Savings Calculator</a>
-  <a href="../about.html">About</a>
+  <a href="../savings-calculator.html">Calculator</a>
   <a href="../blog.html">Insights</a>
-  <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px">Talk to an Engineer</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+  <div class="mobile-nav-footer">
+    <a href="tel:+442034944044" class="mobile-nav-phone">+44 20 3494 4044</a>
+    <a href="../contact.html#demo" class="btn btn-primary" style="margin-top:8px; width: 100%; justify-content: center;">Talk to an Engineer</a>
+  </div>
 </div>
 
 <main id="main">
@@ -161,11 +172,11 @@
 
   <p style="font-size: 1.125rem; line-height: 1.7; color: var(--text-primary);">HarmoniQ deploys a <strong>three-component solution</strong> that addresses the full spectrum of power quality issues created by PV installations &mdash; not just at the meter, but throughout the internal network.</p>
 
-  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Component 1 &mdash; HarmoniQ Switchgear Power Booster</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Installed at the distribution board, the Power Booster optimises voltage regulation and reduces transient disturbances caused by PV inverter switching. It stabilises the electrical environment for all downstream equipment.</div></div>
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Component 1 &mdash; HarmoniQ Booster</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Installed at the distribution board, the Booster optimises voltage regulation and reduces transient disturbances caused by PV inverter switching. It stabilises the electrical environment for all downstream equipment.</div></div>
 
   <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Component 2 &mdash; HarmoniQ Alpha</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">The Alpha corrects <strong>displacement power factor</strong> locally &mdash; not at the incoming feed, but at the point where loads and PV connect. This eliminates the reactive power that capacitor banks attempt to correct centrally, but does so without resonance risk and with dynamic response to changing PV output.</div></div>
 
-  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Component 3 &mdash; HarmoniQ Power Filter (HPF)</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">The HPF is an <strong>active harmonic filter</strong> that continuously monitors and cancels harmonic currents in real time. Deployed locally in the distribution network, it eliminates the harmonics at their source &mdash; whether from PV inverters, VFDs, or other non-linear loads. Target THD: <strong>&lt;3%</strong>, compared to 8&ndash;15% typical in networks with uncorrected PV.</div></div>
+  <div style="background: var(--bg-secondary); border-left: 3px solid var(--border-strong); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 24px 0;"><div style="font-weight: 700; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem;">Component 3 &mdash; HarmoniQ Filter</div><div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">The HarmoniQ Filter is an <strong>active harmonic filter</strong> that continuously monitors and cancels harmonic currents in real time. Deployed locally in the distribution network, it eliminates the harmonics at their source &mdash; whether from PV inverters, VFDs, or other non-linear loads. Target THD: <strong>&lt;3%</strong>, compared to 8&ndash;15% typical in networks with uncorrected PV.</div></div>
 
   <h3>The result</h3>
 
@@ -216,7 +227,7 @@
       <div class="footer-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../partners.html">Partners</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h5>Resources</h5><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../blog.html">Insights</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>&copy; 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../patents.html">Patents</a></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 HarmoniQ Technologies. All rights reserved.</span><div class="footer-bottom-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Use</a><a href="../patents.html">Patents</a></div></div>
   </div>
 </footer>
 
