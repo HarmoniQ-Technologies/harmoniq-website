@@ -326,18 +326,34 @@ function handleContactSubmit(e) {
   var message = f.querySelector('#message').value.trim();
 
   var subject = 'Demo Request — ' + company + ' (' + firstName + ' ' + lastName + ')';
-  var body = 'New demo request from harmoniqtechnologies.com\n\n';
-  body += '--- Contact Details ---\n';
-  body += 'Name: ' + firstName + ' ' + lastName + '\n';
-  body += 'Email: ' + email + '\n';
-  if (phone) body += 'Phone: ' + phone + '\n';
-  body += 'Company: ' + company + '\n';
-  if (role) body += 'Role: ' + role + '\n';
-  if (country) body += 'Country: ' + country + '\n';
-  body += '\n--- Facility Details ---\n';
-  if (spend) body += 'Annual Electricity Spend: ' + spend + '\n';
-  if (industry) body += 'Industry: ' + industry + '\n';
-  if (message) body += '\n--- Additional Notes ---\n' + message + '\n';
+  var body = '';
+  body += 'Dear HarmoniQ Team,\n\n';
+  body += 'I would like to request a free on-site demonstration. Please find my details below.\n\n';
+  body += '\n';
+  body += 'CONTACT DETAILS\n';
+  body += '————————————————————————\n';
+  body += 'Name:      ' + firstName + ' ' + lastName + '\n';
+  body += 'Email:     ' + email + '\n';
+  if (phone) body += 'Phone:     ' + phone + '\n';
+  body += 'Company:   ' + company + '\n';
+  if (role) body += 'Role:      ' + role + '\n';
+  if (country) body += 'Country:   ' + country + '\n';
+  body += '\n';
+  body += 'FACILITY DETAILS\n';
+  body += '————————————————————————\n';
+  if (spend) body += 'Annual Electricity Spend:   ' + spend + '\n';
+  if (industry) body += 'Industry / Sector:          ' + industry + '\n';
+  if (message) {
+    body += '\n';
+    body += 'ADDITIONAL NOTES\n';
+    body += '————————————————————————\n';
+    body += message + '\n';
+  }
+  body += '\n\n';
+  body += 'I look forward to hearing from you.\n\n';
+  body += 'Kind regards,\n';
+  body += firstName + ' ' + lastName + '\n';
+  body += company + '\n';
 
   var mailto = 'mailto:enquiries@harmoniqtechnologies.com'
     + '?subject=' + encodeURIComponent(subject)
