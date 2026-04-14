@@ -2206,6 +2206,13 @@ window.addEventListener('scroll', () => {
     // Toggle buttons
     btnBefore.classList.toggle('active', !after);
     btnAfter.classList.toggle('active', after);
+
+    // If the explain panel is open, refresh the tag to reflect the new state
+    const activeLine = card.querySelector('.ibill-line-active');
+    if (activeLine && explainPanel.classList.contains('open')) {
+      const tag = activeLine.dataset.tag || '';
+      explainTag.textContent = after ? ('HarmoniQ impact: ' + tag) : '';
+    }
   }
 
   btnBefore.addEventListener('click', () => updateBill(false));
