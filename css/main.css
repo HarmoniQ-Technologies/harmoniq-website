@@ -2241,11 +2241,11 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
     transition: background 0.2s ease;
   }
 
-  /* Nav spacing: logo and hamburger flush to screen edges */
-  .nav .container { padding: 0 12px; width: 100%; }
+  /* Nav spacing: align with page content padding */
+  .nav .container { padding: 0 20px; width: 100%; }
   .nav-inner { gap: 0; }
-  .nav-brand { flex: 1; margin-left: 0; }
-  .nav-toggle { padding: 8px 2px 8px 8px; }
+  .nav-brand { flex: 1; }
+  .nav-toggle { padding: 8px; }
   .nav-actions { display: none; }
 
   /* Certifications: 3-top + 2-bottom layout */
