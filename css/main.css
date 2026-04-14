@@ -1066,10 +1066,11 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 }
 .page-transition-logo img,
 .page-transition-logo svg {
-  width: 48vh; height: 48vh;
+  height: 35vh;
+  width: auto;
   display: block;
+  object-fit: contain;
 }
-.page-transition-logo svg { object-fit: contain; }
 .page-transition.exit .page-transition-logo {
   animation: qLogoIn 0.35s 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

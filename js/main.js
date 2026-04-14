@@ -604,9 +604,9 @@ document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observ
 
 // ── Page Transitions ─────────────────────────────────────────
 (function() {
-  var COLS = 10;
-  var STAGGER = 30;
-  var COL_DURATION = 350;
+  var COLS = 6;
+  var STAGGER = 20;
+  var COL_DURATION = 280;
 
   var overlay = document.createElement('div');
   overlay.className = 'page-transition';
