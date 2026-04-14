@@ -274,8 +274,6 @@ document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observ
         if (Math.sin(tmid) >= iVal(tmid)) continue;
 
         wasteCount++;
-        // Skip the 3rd waste region — it's partially off-canvas
-        if (wasteCount > 2) continue;
 
         const xa = Math.round((ta / totalT) * W);
         const xb = Math.round((tb / totalT) * W);
