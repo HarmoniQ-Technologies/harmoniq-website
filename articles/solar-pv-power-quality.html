@@ -16,8 +16,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Solar Blind Spot: How Clean Energy Creates Dirty Power | HarmoniQ Technologies" />
   <meta name="twitter:description" content="PV inverters inject 3-15% THD that degrades power quality, damages equipment, and erodes solar ROI. The mechanism and how to solve it." />
-  <link rel="stylesheet" href="../css/main.css?v=20" />
-  <link rel="stylesheet" href="../css/articles.css?v=4" />
+  <link rel="stylesheet" href="../css/main.css?v=21" />
+  <link rel="stylesheet" href="../css/articles.css?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
@@ -158,13 +158,36 @@
 
   <p>This is the critical distinction. Capacitor banks correct at a single centralised point. Active filtering can be deployed <strong>locally, at individual distribution boards or PV connection points</strong>, addressing distortion where it originates. This means:</p>
 
-  <table>
-    <tr><th>Approach</th><th>Corrects Power Factor</th><th>Eliminates Harmonics</th><th>Protects Internal Network</th><th>Resonance Risk</th></tr>
-    <tr><td><strong>Capacitor bank (centralised)</strong></td><td class="g">Yes</td><td class="r">No</td><td class="r">No</td><td class="r">High</td></tr>
-    <tr><td><strong>Detuned capacitor bank</strong></td><td class="g">Yes</td><td class="r">No</td><td class="r">No</td><td>Low</td></tr>
-    <tr><td><strong>Active harmonic filter (centralised)</strong></td><td class="g">Yes</td><td class="g">Yes (at PCC)</td><td class="r">Partial</td><td class="g">None</td></tr>
-    <tr><td><strong>Active harmonic filter (local)</strong></td><td class="g">Yes</td><td class="g">Yes</td><td class="g">Yes</td><td class="g">None</td></tr>
-  </table>
+  <div class="comparison-cards">
+    <div class="comparison-card">
+      <div class="comparison-card-title">Capacitor bank (centralised)</div>
+      <div class="comparison-card-row"><span>Corrects Power Factor</span><span class="g">Yes</span></div>
+      <div class="comparison-card-row"><span>Eliminates Harmonics</span><span class="r">No</span></div>
+      <div class="comparison-card-row"><span>Protects Internal Network</span><span class="r">No</span></div>
+      <div class="comparison-card-row"><span>Resonance Risk</span><span class="r">High</span></div>
+    </div>
+    <div class="comparison-card">
+      <div class="comparison-card-title">Detuned capacitor bank</div>
+      <div class="comparison-card-row"><span>Corrects Power Factor</span><span class="g">Yes</span></div>
+      <div class="comparison-card-row"><span>Eliminates Harmonics</span><span class="r">No</span></div>
+      <div class="comparison-card-row"><span>Protects Internal Network</span><span class="r">No</span></div>
+      <div class="comparison-card-row"><span>Resonance Risk</span><span>Low</span></div>
+    </div>
+    <div class="comparison-card">
+      <div class="comparison-card-title">Active harmonic filter (centralised)</div>
+      <div class="comparison-card-row"><span>Corrects Power Factor</span><span class="g">Yes</span></div>
+      <div class="comparison-card-row"><span>Eliminates Harmonics</span><span class="g">Yes (at PCC)</span></div>
+      <div class="comparison-card-row"><span>Protects Internal Network</span><span class="r">Partial</span></div>
+      <div class="comparison-card-row"><span>Resonance Risk</span><span class="g">None</span></div>
+    </div>
+    <div class="comparison-card">
+      <div class="comparison-card-title">Active harmonic filter (local)</div>
+      <div class="comparison-card-row"><span>Corrects Power Factor</span><span class="g">Yes</span></div>
+      <div class="comparison-card-row"><span>Eliminates Harmonics</span><span class="g">Yes</span></div>
+      <div class="comparison-card-row"><span>Protects Internal Network</span><span class="g">Yes</span></div>
+      <div class="comparison-card-row"><span>Resonance Risk</span><span class="g">None</span></div>
+    </div>
+  </div>
 
 
   
