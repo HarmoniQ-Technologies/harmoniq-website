@@ -2208,10 +2208,16 @@ window.addEventListener('scroll', () => {
     btnAfter.classList.toggle('active', after);
 
     // If the explain panel is open, refresh the tag to reflect the new state
-    const activeLine = card.querySelector('.ibill-line-active');
+    var activeLine = card.querySelector('.ibill-line-active');
     if (activeLine && explainPanel.classList.contains('open')) {
-      const tag = activeLine.dataset.tag || '';
-      explainTag.textContent = after ? ('HarmoniQ impact: ' + tag) : '';
+      var tag = activeLine.dataset.tag || '';
+      if (after && tag) {
+        explainTag.textContent = 'HarmoniQ impact: ' + tag;
+        explainTag.style.display = 'block';
+      } else {
+        explainTag.textContent = '';
+        explainTag.style.display = 'none';
+      }
     }
   }
 
@@ -2231,7 +2237,13 @@ window.addEventListener('scroll', () => {
 
       explainName.textContent = name;
       explainText.textContent = explain;
-      explainTag.textContent = isAfter ? ('HarmoniQ impact: ' + tag) : '';
+      if (isAfter && tag) {
+        explainTag.textContent = 'HarmoniQ impact: ' + tag;
+        explainTag.style.display = 'block';
+      } else {
+        explainTag.textContent = '';
+        explainTag.style.display = 'none';
+      }
       explainPanel.classList.add('open');
 
       explainPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
