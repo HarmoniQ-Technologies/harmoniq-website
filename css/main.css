@@ -2096,7 +2096,10 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
 @media (max-width: 640px) {
   /* Swap Q icon for full white logo */
   .nav-brand-icon { display: none; }
-  .nav-brand-full { display: block; height: 28px; width: auto; }
+  .nav-brand-full { display: block; height: 26px; width: auto; }
+
+  /* Hide nav search button — search is in hamburger menu */
+  .nav-search-btn { display: none !important; }
 
   /* Show call button next to hamburger */
   .nav-mobile-call {
@@ -2108,6 +2111,30 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
     color: var(--accent-light);
     border-radius: var(--radius-sm);
     transition: background 0.2s ease;
-    margin-right: -4px;
+  }
+
+  /* Nav spacing: logo left, actions right */
+  .nav-inner { gap: 0; }
+  .nav-brand { flex: 1; }
+
+  /* Certifications: cleaner mobile grid */
+  .cert-strip-items {
+    gap: 20px !important;
+  }
+  .cert-strip-item {
+    width: 70px !important;
+  }
+  .cert-strip-item img {
+    height: 36px !important;
+  }
+  .cert-strip-badge {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .cert-strip-badge div:first-child {
+    font-size: 0.78rem !important;
+  }
+  .cert-strip-label {
+    font-size: 0.55rem !important;
   }
 }
