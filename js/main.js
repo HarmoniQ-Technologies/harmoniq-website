@@ -291,7 +291,8 @@ document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observ
           ctx.closePath();
           ctx.fill();
         } else {
-          // "waste" label — white, diagonal, centred in the lens, drawn over waves
+          // "waste" label — only on first 2 regions (3rd is too small)
+          if (wasteCount > 2) continue;
           const xc = (xa + xb) / 2;
           // Steeper angle: scale the wave slope up so text better follows the wave direction
           const waveSlopeDyDx = -Math.cos(tmid) * amp * (totalT / W) * 1.6;
