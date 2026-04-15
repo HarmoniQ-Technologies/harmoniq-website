@@ -572,16 +572,19 @@
 
   <p>For a deeper analysis of how the Arrhenius relationship governs equipment life under thermal stress, see <a href="arrhenius-rule.html">The IEEE Arrhenius Rule: Why Every 10&deg;C Matters</a>. For an examination of how power factor penalties appear on the electricity bill, see <a href="pf-penalties.html">Understanding Power Factor Penalties</a>.</p>
 
+  <h2 id="standards">The standards governing motor performance</h2>
+
+  <p>Two standards define the nameplate ratings, performance requirements, and derating rules against which the cost analysis throughout this article is calibrated &mdash; one governing North American motors, the other covering the rest of the world.</p>
+
+  <h3>NEMA MG 1-2016 — Motors and Generators</h3>
+  <p><strong>Motors and Generators.</strong> The National Electrical Manufacturers Association standard that governs the design, performance, and testing of AC and DC motors and generators sold in North America. NEMA MG 1 defines the insulation class temperature ratings (Class A, B, F, H) that determine how long a motor survives at a given operating temperature; the service-factor allowances (typically 1.0&ndash;1.15) that set the continuous overload ceiling; and, critically, the derating factors required when a motor operates from a non-sinusoidal supply. Section 14.35 provides the harmonic voltage factor (HVF) thresholds beyond which motors must be derated &mdash; a figure directly relevant to any facility operating variable-speed drives, rectifiers, or other non-linear loads. Motors that run above their HVF threshold without derating suffer accelerated insulation degradation at the rate predicted by the Arrhenius model.</p>
+
+  <h3>IEC 60034-1:2022 — Rotating Electrical Machines</h3>
+  <p><strong>Rotating Electrical Machines &mdash; Part 1: Rating and Performance.</strong> The international counterpart to NEMA MG 1, governing motor ratings and performance for the majority of the world outside North America. IEC 60034-1 defines the same fundamental parameters &mdash; insulation class, temperature rise limits, service factor, and efficiency classes (IE1 through IE5) &mdash; in an IEC framework used from Europe to Asia to the Gulf. Part 17 of the same series (IEC 60034-17) addresses specifically the operation of cage induction motors when fed by converters, setting the conditions under which frequency-converter-driven motors may be operated without derating. Together, NEMA MG 1 and IEC 60034 represent the complete global framework within which every motor's published cost-of-ownership figures should be interpreted.</p>
+
   <p>The purchase price of a motor is a rounding error in the context of its lifetime cost. The electricity that motor consumes over 15 years is the real expenditure. And the quality of the electrical supply determines whether that expenditure is optimised or inflated by hundreds of thousands of dollars per motor, and millions of dollars across a facility.</p>
 
   <p>The numbers are documented. The physics is settled. The only question is whether the facility is managing the 97% with the same rigour it applies to the 3%.</p>
-
-  <h2 id="standards">The standards governing motor performance</h2>
-
-  <p>One standard defines the nameplate, performance, and derating requirements against which the cost analysis throughout this article is calibrated.</p>
-
-  <h3>NEMA MG 1-2016 — Motors and Generators</h3>
-  <p><strong>Motors and Generators.</strong> The National Electrical Manufacturers Association standard that governs the design, performance, and testing of AC and DC motors and generators sold in North America. NEMA MG 1 defines the insulation class temperature ratings (Class A, B, F, H) that determine how long a motor survives at a given operating temperature; the service-factor allowances (typically 1.0&ndash;1.15) that set the continuous overload ceiling; and, critically, the derating factors required when a motor operates from a non-sinusoidal supply. Section 14.35 provides the harmonic voltage factor (HVF) thresholds beyond which motors must be derated &mdash; a figure directly relevant to any facility operating variable-speed drives, rectifiers, or other non-linear loads. Motors that run above their HVF threshold without derating suffer accelerated insulation degradation at the rate predicted by the Arrhenius model, compressing the 97% electricity-cost calculation further still.</p>
 
   <h2>References</h2>
   <div class="section-title">Sources and further reading</div>
