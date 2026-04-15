@@ -838,7 +838,10 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 @media (max-width: 900px) { .roi-scroll-prompt { display: block; } }
 
 /* ── Technical Reference Card ──────────────────────────────── */
-.tech-ref-card:hover { border-color: rgba(255,255,255,0.25) !important; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+.tech-ref-card { transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease !important; }
+.tech-ref-card:hover { border-color: var(--accent) !important; box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(0,0,0,0.5) !important; background: rgba(255,255,255,0.04) !important; transform: translateY(-2px); }
+.tech-ref-card .tech-ref-arrow { transition: transform 0.2s ease; }
+.tech-ref-card:hover .tech-ref-arrow { transform: translateX(5px); }
 @media (max-width: 640px) {
   .tech-ref-card { flex-direction: column; align-items: flex-start !important; padding: 24px 20px !important; gap: 16px !important; }
   .tech-ref-card > div:last-child { align-self: flex-start; }
