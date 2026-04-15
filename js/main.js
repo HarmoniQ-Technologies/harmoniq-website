@@ -657,8 +657,8 @@ document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observ
   headings.forEach(function(h2, i) {
     var next = h2.nextElementSibling;
     var title = (next && next.classList.contains('section-title')) ? next.textContent.trim() : h2.textContent.trim();
-    // Skip generic labels like "References"
-    var id = 'toc-' + i;
+    // Preserve existing id (e.g. deep-link anchors); only assign toc-N if none set
+    var id = h2.id || ('toc-' + i);
     h2.id = id;
     sections.push({ id: id, title: title });
   });
