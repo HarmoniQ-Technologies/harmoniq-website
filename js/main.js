@@ -621,7 +621,7 @@ document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observ
   qLogo.className = 'page-transition-logo';
   var scriptEl = document.querySelector('script[src*="main.js"]');
   var assetBase = scriptEl ? scriptEl.getAttribute('src').replace(/js\/main\.js.*/, '') : '';
-  qLogo.innerHTML = '<img src="' + assetBase + 'assets/q-emblem.png" alt="" />';
+  qLogo.innerHTML = '<img src="' + assetBase + 'assets/brand/q-emblem.png" alt="" />';
   overlay.appendChild(qLogo);
 
   document.body.appendChild(overlay);
