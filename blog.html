@@ -625,7 +625,7 @@
         </div>
       </a>
 
-      <a href="articles/europe-industrial-energy.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+      <a href="articles/europe-industrial-energy.html" class="blog-card reveal hidden-card" style="text-decoration:none; color:inherit;">
         <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
           <img src="assets/blog/europe.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
@@ -932,6 +932,23 @@
 
 
     <script>
+    // Normalise the Recent Articles grid: always show the first 6 cards, hide the rest.
+    // This keeps the layout clean (2 rows of 3) no matter how many articles are added.
+    (function normaliseBlogGrid() {
+      var cards = document.querySelectorAll('#blogGrid .blog-card');
+      cards.forEach(function(card, i) {
+        if (i < 6) {
+          card.classList.remove('hidden-card');
+        } else {
+          card.classList.add('hidden-card');
+        }
+      });
+      if (cards.length <= 6) {
+        var btn = document.getElementById('loadMoreBtn');
+        if (btn) btn.classList.add('hidden');
+      }
+    })();
+
     function loadMoreArticles() {
       var hidden = document.querySelectorAll('#blogGrid .hidden-card');
       var count = 0;
